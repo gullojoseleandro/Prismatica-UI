@@ -1,0 +1,13 @@
+# Ignorar archivos y carpetas de Storybook
+.stories.*
+.storybook
+*.stories.tsx
+/stories
+/.storybook
+src/stories/
+
+# Ignorar otras configuraciones y directorios innecesarios
+/rollup.config.js
+/tsconfig.json
+/package-lock.json
+/tests

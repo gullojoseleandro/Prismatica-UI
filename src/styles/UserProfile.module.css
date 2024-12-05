@@ -1,0 +1,102 @@
+.userProfile {
+  max-width: 400px;
+  width: 100%;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.avatarContainer {
+  margin-bottom: 1rem;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid;
+}
+
+.name {
+  margin-bottom: 0.5rem;
+}
+
+.email {
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.bio {
+  margin-bottom: 1.5rem;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1.5rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Light theme */
+.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.light .avatar {
+  border-color: #007bff;
+}
+
+/* Dark theme */
+.dark {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.dark .avatar {
+  border-color: #4da6ff;
+}
+
+/* Holographic theme */
+.holographic {
+  background: linear-gradient(45deg, rgba(255, 0, 240, 0.1), rgba(0, 80, 255, 0.1));
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+}
+
+.holographic .avatar {
+  border-color: #00ffff;
+}
+
+/* Transparent Light theme */
+.transparent-light {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #000000;
+}
+
+.transparent-light .avatar {
+  border-color: #0056b3;
+}
+
+/* Transparent Dark theme */
+.transparent-dark {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+}
+
+.transparent-dark .avatar {
+  border-color: #73b6ff;
+}

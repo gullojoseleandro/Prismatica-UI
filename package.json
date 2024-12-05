@@ -1,0 +1,43 @@
+{
+  "name": "prismatica-ui",
+  "version": "1.0.0",
+  "description": "React modern components library",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c rollup.config.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gullo José Leandro",
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "react",
+    "components",
+    "library",
+    "futureui"
+  ],
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-alias": "^5.1.1",
+    "@rollup/plugin-commonjs": "^28.0.1",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^12.1.1",
+    "@types/react": "^18.3.13",
+    "postcss": "^8.4.49",
+    "rollup": "^4.28.0",
+    "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "tslib": "^2.8.1",
+    "typescript": "^5.7.2"
+  }
+}

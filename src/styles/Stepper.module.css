@@ -1,0 +1,139 @@
+.stepper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    font-family: 'Neue-Montreal', sans-serif;
+  }
+  
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    position: relative;
+  }
+  
+  .stepIcon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .stepContent {
+    text-align: center;
+  }
+  
+  .stepLabel {
+    margin-bottom: 4px;
+  }
+  
+  .stepDescription {
+    font-size: 14px;
+    opacity: 0.7;
+  }
+  
+  .stepConnector {
+    position: absolute;
+    top: 16px;
+    left: calc(50% + 16px);
+    right: calc(-50% + 16px);
+    height: 2px;
+  }
+  
+  /* Light theme */
+  .light .stepIcon {
+    background-color: #e0e0e0;
+    color: #333;
+  }
+  
+  .light .stepConnector {
+    background-color: #e0e0e0;
+  }
+  
+  .light .active .stepIcon {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .light .active .stepConnector {
+    background-color: #007bff;
+  }
+  
+  /* Dark theme */
+  .dark .stepIcon {
+    background-color: #555;
+    color: #fff;
+  }
+  
+  .dark .stepConnector {
+    background-color: #555;
+  }
+  
+  .dark .active .stepIcon {
+    background-color: #4da6ff;
+  }
+  
+  .dark .active .stepConnector {
+    background-color: #4da6ff;
+  }
+  
+  /* Holographic theme */
+  .holographic .stepIcon {
+    background: linear-gradient(45deg, rgba(255, 0, 240, 0.2), rgba(0, 80, 255, 0.2));
+    color: #fff;
+  }
+  
+  .holographic .stepConnector {
+    background: linear-gradient(90deg, rgba(255, 0, 240, 0.2), rgba(0, 80, 255, 0.2));
+  }
+  
+  .holographic .active .stepIcon {
+    background: linear-gradient(45deg, #ff00f0, #0050ff);
+  }
+  
+  .holographic .active .stepConnector {
+    background: linear-gradient(90deg, #ff00f0, #0050ff);
+  }
+  
+  /* Transparent Light theme */
+  .transparent-light .stepIcon {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #000;
+  }
+  
+  .transparent-light .stepConnector {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .transparent-light .active .stepIcon {
+    background-color: rgba(0, 123, 255, 0.7);
+    color: #fff;
+  }
+  
+  .transparent-light .active .stepConnector {
+    background-color: rgba(0, 123, 255, 0.7);
+  }
+  
+  /* Transparent Dark theme */
+  .transparent-dark .stepIcon {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+  
+  .transparent-dark .stepConnector {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .transparent-dark .active .stepIcon {
+    background-color: rgba(77, 166, 255, 0.7);
+  }
+  
+  .transparent-dark .active .stepConnector {
+    background-color: rgba(77, 166, 255, 0.7);
+  }  

@@ -1,0 +1,64 @@
+.spinner {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top-color: #000;
+    animation: spin 1s ease-in-out infinite;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  .small {
+    width: 30px;
+    height: 30px;
+    border-width: 2px;
+  }
+  
+  .large {
+    width: 70px;
+    height: 70px;
+    border-width: 4px;
+  }
+  
+  /* Light theme */
+  .light {
+    border-color: rgba(0, 0, 0, 0.1);
+    border-top-color: #000;
+  }
+  
+  /* Dark theme */
+  .dark {
+    border-color: rgba(255, 255, 255, 0.1);
+    border-top-color: #fff;
+  }
+  
+  /* Holographic theme */
+  .holographic {
+    border-color: rgba(255, 255, 255, 0.2);
+    border-top-color: transparent;
+    background: linear-gradient(45deg, #ff00f0, #0050ff, #00ff9f, #ff00f0);
+    background-size: 400% 400%;
+    animation: spin 1s ease-in-out infinite, gradient 15s ease infinite;
+  }
+  
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Transparent Light theme */
+  .transparent-light {
+    border-color: rgba(255, 255, 255, 0.2);
+    border-top-color: #fff;
+  }
+  
+  /* Transparent Dark theme */
+  .transparent-dark {
+    border-color: rgba(0, 0, 0, 0.2);
+    border-top-color: #000;
+  }  

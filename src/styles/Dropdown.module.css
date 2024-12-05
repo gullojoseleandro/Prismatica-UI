@@ -1,0 +1,90 @@
+.dropdown {
+    position: relative;
+    width: 200px;
+  }
+  
+  .dropdownHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid;
+    border-radius: 4px;
+  }
+  
+  .arrow {
+    font-size: 12px;
+  }
+  
+  .dropdownList {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    border: 1px solid;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  .dropdownItem {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .light {
+    background-color: #fff;
+    color: #333;
+  }
+  
+  .light .dropdownHeader,
+  .light .dropdownList {
+    border-color: #ccc;
+  }
+  
+  .light .dropdownItem:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .dark {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .dark .dropdownHeader,
+  .dark .dropdownList {
+    border-color: #555;
+  }
+  
+  .dark .dropdownItem:hover {
+    background-color: #444;
+  }
+  
+  .holographic {
+    background: linear-gradient(45deg, rgba(255, 0, 240, 0.1), rgba(0, 80, 255, 0.1), rgba(0, 255, 159, 0.1), rgba(255, 0, 240, 0.1));
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    color: #fff;
+  }
+  
+  .holographic .dropdownHeader,
+  .holographic .dropdownList {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .holographic .dropdownItem:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  

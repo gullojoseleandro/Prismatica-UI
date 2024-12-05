@@ -1,0 +1,101 @@
+.tabs {
+  width: 100%;
+}
+
+.tabList {
+  display: flex;
+  border-bottom: 2px solid;
+}
+
+.tabButton {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.tabButton::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.tabButton:hover::after {
+  background-color: rgba(128, 128, 128, 0.5);
+}
+
+.tabButton.active::after {
+  background-color: currentColor;
+}
+
+.tabContent {
+  padding: 1rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Light theme */
+.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.light .tabList {
+  border-color: #e0e0e0;
+}
+
+/* Dark theme */
+.dark {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.dark .tabList {
+  border-color: #555555;
+}
+
+/* Holographic theme */
+.holographic {
+  background: linear-gradient(45deg, rgba(255, 0, 240, 0.1), rgba(0, 80, 255, 0.1));
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+}
+
+.holographic .tabList {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Transparent Light theme */
+.transparent-light {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #000000;
+}
+
+.transparent-light .tabList {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Transparent Dark theme */
+.transparent-dark {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+}
+
+.transparent-dark .tabList {
+  border-color: rgba(255, 255, 255, 0.1);
+}

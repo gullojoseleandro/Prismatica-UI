@@ -1,0 +1,122 @@
+.button {
+  font-family: 'Neue-Montreal', sans-serif;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  border: 1px solid;
+  background-color: transparent;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: all 0.5s;
+}
+
+.button:hover::before {
+  left: 100%;
+}
+
+/* Light theme */
+.light {
+  border-color: #000;
+  color: #000;
+  background-color: #fff;
+}
+
+.light:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark theme */
+.dark {
+  border-color: #fff;
+  color: #fff;
+  background-color: #333;
+}
+
+.dark:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Holographic theme */
+.holographic {
+  border-color: transparent;
+  background: linear-gradient(45deg, #ff00f0, #0050ff, #00ff9f, #ff00f0);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* Transparent Light theme */
+.transparent-light {
+  border-color: #fff;
+  color: #fff;
+  background-color: transparent;
+}
+
+.transparent-light:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Transparent Dark theme */
+.transparent-dark {
+  border-color: #000;
+  color: #000;
+  background-color: transparent;
+}
+
+.transparent-dark:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.small { padding: 8px 16px; font-size: 14px; }
+.large { padding: 16px 32px; font-size: 18px; }
+
+.disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* Animations */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.animate-pulse { animation: pulse 1.5s infinite; }
+
+.wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.animate-wave:hover .wave {
+  left: 100%;
+}

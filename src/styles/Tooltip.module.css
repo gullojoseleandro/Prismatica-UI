@@ -1,0 +1,73 @@
+.tooltipWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  position: absolute;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 1000;
+  width: max-content;
+  max-width: 200px;
+}
+
+.tooltip.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.top {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 8px;
+}
+
+.right {
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  margin-left: 8px;
+}
+
+.bottom {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 8px;
+}
+
+.left {
+  top: 50%;
+  right: 100%;
+  transform: translateY(-50%);
+  margin-right: 8px;
+}
+
+.light {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark {
+  background-color: #fff;
+  color: #333;
+}
+
+.holographic {
+  background: linear-gradient(45deg, rgba(255, 0, 240, 0.8), rgba(0, 80, 255, 0.8), rgba(0, 255, 159, 0.8));
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  color: #fff;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

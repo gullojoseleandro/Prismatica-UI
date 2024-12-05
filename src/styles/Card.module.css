@@ -1,0 +1,54 @@
+.card {
+  background-color: transparent;
+  border: 1px solid;
+  padding: 24px;
+  transition: all 0.3s ease-in-out;
+  font-family: 'Neue-Montreal', sans-serif;
+}
+
+.light {
+  border-color: #000;
+  color: #000;
+  background-color: #fff;
+}
+
+.dark {
+  border-color: #fff;
+  color: #fff;
+  background-color: #333;
+}
+
+.holographic {
+  border-color: transparent;
+  background: linear-gradient(45deg, rgba(255, 0, 240, 0.1), rgba(0, 80, 255, 0.1), rgba(0, 255, 159, 0.1), rgba(255, 0, 240, 0.1));
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  color: #fff;
+  backdrop-filter: blur(10px);
+}
+
+.transparent-light {
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.transparent-dark {
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #000;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.title {
+  margin-bottom: 16px;
+}
+
+.content {
+  font-size: 1rem;
+}

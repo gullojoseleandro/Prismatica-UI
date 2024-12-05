@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'Neue-Montreal';
+  src: url('./../assets/font/Neue-Montreal/NeueMontreal-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.typography {
+  font-family: 'Neue-Montreal', sans-serif;
+  margin: 0;
+}
+
+.h1 { font-size: 2.5rem; font-weight: 700; }
+.h2 { font-size: 2rem; font-weight: 700; }
+.h3 { font-size: 1.75rem; font-weight: 600; }
+.h4 { font-size: 1.5rem; font-weight: 600; }
+.h5 { font-size: 1.25rem; font-weight: 500; }
+.h6 { font-size: 1rem; font-weight: 500; }
+.p { font-size: 1rem; line-height: 1.5; }
+.span { font-size: inherit; }
+
+.light { color: #000; }
+.dark { color: #fff; }
+.holographic {
+  color: #fff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+.transparent-light { color: #fff; }
+.transparent-dark { color: #000; }

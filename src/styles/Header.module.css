@@ -1,0 +1,52 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  font-family: 'Neue-Montreal', sans-serif;
+}
+
+.searchContainer {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.pageTitle {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.light {
+  background-color: #f5f5f5;
+  color: #000;
+}
+
+.dark {
+  background-color: #333;
+  color: #fff;
+}
+
+.holographic {
+  background: linear-gradient(45deg, rgba(255, 0, 240, 0.1), rgba(0, 80, 255, 0.1), rgba(0, 255, 159, 0.1), rgba(255, 0, 240, 0.1));
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  color: #fff;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.transparent {
+  background-color: transparent;
+}
+
+.transparent-light {
+  color: #000;
+}
+
+.transparent-dark {
+  color: #fff;
+}

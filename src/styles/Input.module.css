@@ -1,0 +1,59 @@
+@font-face {
+  font-family: 'Neue-Montreal';
+  src: url('/fonts/Neue-Montreal-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.input {
+  font-family: 'Neue-Montreal', sans-serif;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+.light {
+  border-color: #000;
+  color: #000;
+  background-color: #fff;
+}
+
+.dark {
+  border-color: #fff;
+  color: #fff;
+  background-color: #333;
+}
+
+.holographic {
+  border-color: transparent;
+  background: linear-gradient(45deg, rgba(255, 0, 240, 0.1), rgba(0, 80, 255, 0.1), rgba(0, 255, 159, 0.1), rgba(255, 0, 240, 0.1));
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  color: #fff;
+}
+
+.transparent-light {
+  border-color: #fff;
+  color: #fff;
+  background-color: transparent;
+}
+
+.transparent-dark {
+  border-color: #000;
+  color: #000;
+  background-color: transparent;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.small { padding: 8px 12px; font-size: 14px; }
+.large { padding: 12px 18px; font-size: 18px; }
+
+.error { border-color: #e74c3c; }
+.warning { border-color: #f39c12; }
