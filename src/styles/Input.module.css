@@ -6,7 +6,7 @@
 }
 
 .input {
-  font-family: 'Neue-Montreal', sans-serif;
+  font-family: inherit;
   padding: 10px 15px;
   font-size: 16px;
   border: 1px solid;

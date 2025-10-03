@@ -3,7 +3,7 @@
   border: 1px solid;
   padding: 24px;
   transition: all 0.3s ease-in-out;
-  font-family: 'Neue-Montreal', sans-serif;
+  font-family: inherit;
 }
 
 .light {

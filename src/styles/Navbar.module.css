@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  font-family: 'Neue-Montreal', sans-serif;
+  font-family: inherit;
 }
 
 .navbarBrand {

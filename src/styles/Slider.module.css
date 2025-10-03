@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    font-family: 'Neue-Montreal', sans-serif;
+    font-family: inherit;
   }
   
   .sliderInput {

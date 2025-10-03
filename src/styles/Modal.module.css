@@ -8,7 +8,7 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  font-family: 'Neue-Montreal', sans-serif;
+  font-family: inherit;
 }
 
 .modalContent {

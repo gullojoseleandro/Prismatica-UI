@@ -20,7 +20,7 @@ npm install prismatica-ui
 Importa los estilos globales compilados:
 
 ```ts
-import 'prismatica-ui/dist/styles.css';
+import 'prismatica-ui/styles.css';
 ```
 
 ---
@@ -29,7 +29,7 @@ import 'prismatica-ui/dist/styles.css';
 
 ```tsx
 import { Button, Card, Input, Select, Modal, Tabs, Accordion, Navbar, Typography } from 'prismatica-ui';
-import 'prismatica-ui/dist/styles.css';
+import 'prismatica-ui/styles.css';
 
 function App() {
   return (

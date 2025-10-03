@@ -4,7 +4,7 @@
     align-items: center;
     gap: 8px;
     padding: 16px;
-    font-family: 'Neue-Montreal', sans-serif;
+    font-family: inherit;
   }
   
   .pageButton {

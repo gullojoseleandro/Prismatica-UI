@@ -2,7 +2,7 @@
     position: fixed;
     z-index: 1000;
     transition: transform 0.3s ease-in-out;
-    font-family: 'Neue-Montreal', sans-serif;
+    font-family: inherit;
   }
   
   .overlay {
