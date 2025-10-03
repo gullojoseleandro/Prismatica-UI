@@ -7,13 +7,18 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
   state?: 'default' | 'error' | 'warning';
 }
 
-export const Input: React.FC<InputProps> = ({
+/**
+ * Campo de entrada con variantes visuales y tamaños.
+ * 
+ * Accesibilidad: cuando state = 'error' se marca aria-invalid por defecto (sobrescribible).
+ */
+export const Input = React.forwardRef<HTMLInputElement, InputProps>(({ 
   variant = 'light',
   inputSize = 'medium',
   state = 'default',
   className,
   ...props
-}) => {
+}, ref) => {
   const inputClasses = [
     styles.input,
     styles[variant],
@@ -22,5 +27,15 @@ export const Input: React.FC<InputProps> = ({
     className
   ].filter(Boolean).join(' ');
 
-  return <input className={inputClasses} {...props} />;
-};
+  const ariaInvalid = state === 'error' ? true : undefined;
+
+  return (
+    <input
+      ref={ref}
+      className={inputClasses}
+      {...{ 'aria-invalid': ariaInvalid }}
+      {...props}
+    />
+  );
+});
+Input.displayName = 'Input';

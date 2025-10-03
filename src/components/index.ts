@@ -3,7 +3,6 @@ export * from './Button/Button';
 export * from './avatar/Avatar';
 export * from './badge/Badge';
 export * from './breadcrumb/Breadcrumb';
-export * from './Button/Button';
 export * from './card/Card';
 export * from './card/ProductCard';
 export * from './chip/Chip';

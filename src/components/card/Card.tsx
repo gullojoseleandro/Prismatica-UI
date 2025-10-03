@@ -2,20 +2,23 @@ import React from 'react';
 import { Typography } from '@components/typography/Typography';
 import styles from '@styles/Card.module.css';
 
-export interface CardProps {
+export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   title?: string;
   children: React.ReactNode;
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
   className?: string;
 }
 
-export const Card: React.FC<CardProps> = ({
+/**
+ * Tarjeta contenedora con título opcional y variantes de estilo.
+ */
+export const Card = React.forwardRef<HTMLDivElement, CardProps>(({ 
   title,
   children,
   variant = 'light',
   className,
   ...props
-}) => {
+}, ref) => {
   const cardClasses = [
     styles.card,
     styles[variant],
@@ -23,7 +26,7 @@ export const Card: React.FC<CardProps> = ({
   ].filter(Boolean).join(' ');
 
   return (
-    <div className={cardClasses} {...props}>
+    <div ref={ref} className={cardClasses} {...props}>
       {title && (
         <Typography variant="h2" theme={variant} className={styles.title}>
           {title}
@@ -32,4 +35,5 @@ export const Card: React.FC<CardProps> = ({
       <div className={styles.content}>{children}</div>
     </div>
   );
-};
+});
+Card.displayName = 'Card';

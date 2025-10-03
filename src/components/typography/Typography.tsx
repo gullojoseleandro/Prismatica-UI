@@ -8,14 +8,20 @@ export interface TypographyProps {
   className?: string;
 }
 
-export const Typography: React.FC<TypographyProps> = ({
+/**
+ * Componente de tipografía semántica.
+ * - variant define la etiqueta HTML a renderizar.
+ * - theme aplica estilos temáticos.
+ * - forwardRef para integraciones con foco/mediciones.
+ */
+export const Typography = React.forwardRef<HTMLElement, TypographyProps & React.HTMLAttributes<HTMLElement>>(({ 
   variant,
   theme = 'light',
   children,
   className,
   ...props
-}) => {
-  const Component = variant;
+}, ref) => {
+  const Component = variant as keyof JSX.IntrinsicElements;
   const typographyClasses = [
     styles.typography,
     styles[variant],
@@ -24,8 +30,9 @@ export const Typography: React.FC<TypographyProps> = ({
   ].filter(Boolean).join(' ');
 
   return (
-    <Component className={typographyClasses} {...props}>
+    <Component ref={ref as any} className={typographyClasses} {...props}>
       {children}
     </Component>
   );
-};
+});
+Typography.displayName = 'Typography';

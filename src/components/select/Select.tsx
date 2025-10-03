@@ -8,14 +8,18 @@ export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElemen
   options: Array<{ value: string; label: string }>;
 }
 
-export const Select: React.FC<SelectProps> = ({
+/**
+ * Select estilizado con variantes y tamaños.
+ * Marca aria-invalid cuando state = 'error' (sobrescribible).
+ */
+export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(({ 
   variant = 'light',
   inputSize = 'medium',
   state = 'default',
   options,
   className,
   ...props
-}) => {
+}, ref) => {
   const selectClasses = [
     styles.select,
     styles[variant],
@@ -24,8 +28,10 @@ export const Select: React.FC<SelectProps> = ({
     className
   ].filter(Boolean).join(' ');
 
+  const ariaInvalid = state === 'error' ? true : undefined;
+
   return (
-    <select className={selectClasses} {...props}>
+    <select ref={ref} className={selectClasses} {...{ 'aria-invalid': ariaInvalid }} {...props}>
       {options.map((option) => (
         <option key={option.value} value={option.value}>
           {option.label}
@@ -33,4 +39,5 @@ export const Select: React.FC<SelectProps> = ({
       ))}
     </select>
   );
-};
+});
+Select.displayName = 'Select';

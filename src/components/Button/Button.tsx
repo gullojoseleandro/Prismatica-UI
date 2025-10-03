@@ -8,15 +8,25 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   animation?: 'pulse' | 'shake' | 'glow' | 'wave' | 'none';
 }
 
-export const Button: React.FC<ButtonProps> = ({
+/**
+ * Botón reutilizable con variantes de estilo, tamaños y animaciones.
+ * 
+ * Props principales:
+ * - variant: tema visual del botón (light, dark, holographic, transparent-*)
+ * - size: tamaño (small, medium, large)
+ * - animation: animación opcional (pulse, shake, glow, wave, none)
+ * - type: por defecto "button" para evitar submits accidentales en formularios
+ */
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({
   children,
   variant = 'light',
   size = 'medium',
   animation = 'none',
   className,
   disabled,
+  type = 'button',
   ...props
-}) => {
+}, ref) => {
   const buttonClasses = [
     styles.button,
     styles[variant],
@@ -27,11 +37,12 @@ export const Button: React.FC<ButtonProps> = ({
   ].filter(Boolean).join(' ');
 
   return (
-    <button className={buttonClasses} disabled={disabled} {...props}>
+    <button ref={ref} className={buttonClasses} disabled={disabled} type={type} {...props}>
       <Typography variant="span" theme={variant}>
         {children}
       </Typography>
-      {animation === 'wave' && <span className={styles.wave}></span>}
+      {animation === 'wave' && <span className={styles.wave} aria-hidden="true"></span>}
     </button>
   );
-};
+});
+Button.displayName = 'Button';

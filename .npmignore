@@ -7,7 +7,8 @@
 src/stories/
 
 # Ignorar otras configuraciones y directorios innecesarios
-/rollup.config.js
+/rollup.config.mjs
 /tsconfig.json
+/tsconfig.build.json
 /package-lock.json
 /tests
