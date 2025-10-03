@@ -1,4 +1,4 @@
-# Prismatica UI
+# Futuristic UI
 
 Librería moderna de componentes React. Diseñada para ser simple, accesible y fácil de extender.
 
@@ -14,13 +14,13 @@ Requisitos:
 Instala con npm:
 
 ```bash
-npm install prismatica-ui
+npm install futuristic-ui
 ```
 
 Importa los estilos globales compilados:
 
 ```ts
-import 'prismatica-ui/styles.css';
+import 'futuristic-ui/styles.css';
 ```
 
 ---
@@ -28,8 +28,8 @@ import 'prismatica-ui/styles.css';
 ## Uso rápido
 
 ```tsx
-import { Button, Card, Input, Select, Modal, Tabs, Accordion, Navbar, Typography } from 'prismatica-ui';
-import 'prismatica-ui/styles.css';
+import { Button, Card, Input, Select, Modal, Tabs, Accordion, Navbar, Typography } from 'futuristic-ui';
+import 'futuristic-ui/styles.css';
 
 function App() {
   return (
