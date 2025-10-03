@@ -1,4 +1,4 @@
-# Prismatica UI
+# Prismatik UI
 
 Modern React component library. Designed to be simple, accessible, and easy to extend.
 
@@ -14,13 +14,13 @@ Requirements:
 Install with npm:
 
 ```bash
-npm install prismatica-ui
+npm install prismatik-ui
 ```
 
 Import the compiled global styles:
 
 ```ts
-import 'prismatica-ui/styles.css';
+import 'prismatik-ui/styles.css';
 ```
 
 ---
@@ -28,8 +28,8 @@ import 'prismatica-ui/styles.css';
 ## Quick Start
 
 ```tsx
-import { Button, Card, Input, Select, Modal, Tabs, Accordion, Navbar, Typography } from 'prismatica-ui';
-import 'prismatica-ui/styles.css';
+import { Button, Card, Input, Select, Modal, Tabs, Accordion, Navbar, Typography } from 'prismatik-ui';
+import 'prismatik-ui/styles.css';
 
 function App() {
   return (
