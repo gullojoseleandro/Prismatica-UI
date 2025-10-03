@@ -1,5 +1,5 @@
 {
-  "name": "futuristic-ui",
+  "name": "prismatik-ui",
   "version": "1.0.0",
   "description": "React modern components library",
   "main": "dist/index.cjs",
@@ -26,7 +26,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/gullojoseleandro/Futuristic-UI"
+    "url": "https://github.com/gullojoseleandro/prismatik-UI"
   },
   "scripts": {
     "build": "rollup -c rollup.config.mjs",
