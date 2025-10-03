@@ -1,10 +1,3 @@
-@font-face {
-  font-family: 'Neue-Montreal';
-  src: url('./../assets/font/Neue-Montreal/NeueMontreal-Regular.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-
 .typography {
   font-family: inherit;
   margin: 0;
