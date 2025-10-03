@@ -6,43 +6,139 @@
   bottom: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding: 2rem;
   z-index: 1000;
   font-family: inherit;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.centrado {
+  align-items: center;
 }
 
 .modalContent {
   width: 100%;
-  max-width: 500px;
-  max-height: 80vh;
+  max-height: 90vh;
   overflow-y: auto;
-  border-radius: 8px;
-  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  margin: auto 0;
 }
 
+/* ===== TAMAÑOS ===== */
+.size-small { max-width: 400px; }
+.size-medium { max-width: 600px; }
+.size-large { max-width: 900px; }
+.size-fullscreen { 
+  max-width: 100%;
+  max-height: 100vh;
+  height: 100vh;
+  border-radius: 0;
+  margin: 0;
+}
+
+/* ===== HEADER ===== */
 .modalHeader {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+  gap: 1rem;
+}
+
+.headerContenido {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  flex: 1;
+}
+
+.icono {
+  display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.headerTextos {
+  flex: 1;
+}
+
+.titulo {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.subtitulo {
+  margin: 0.5rem 0 0;
+  opacity: 0.7;
+  font-size: 0.9rem;
 }
 
 .closeButton {
-  font-size: 24px;
-  line-height: 1;
-  background: none;
-  border: none;
-  cursor: pointer;
+  flex-shrink: 0;
 }
 
+/* ===== BODY ===== */
 .modalBody {
-  margin-bottom: 20px;
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
 }
 
-.light {
-  background-color: rgba(0, 0, 0, 0.5);
+/* ===== FOOTER ===== */
+.modalFooter {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid rgba(128, 128, 128, 0.2);
 }
 
+/* ===== ANIMACIONES ===== */
+.animacion-fade {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animacion-slide .modalContent {
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animacion-zoom .modalContent {
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== TEMAS ===== */
 .light .modalContent {
   background-color: #fff;
   color: #000;

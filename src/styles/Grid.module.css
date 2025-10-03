@@ -1,0 +1,111 @@
+/* ===== GRID BASE ===== */
+.grid {
+  display: grid;
+  width: 100%;
+}
+
+/* ===== COLUMNAS ===== */
+.cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.cols-7 { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+.cols-8 { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+.cols-9 { grid-template-columns: repeat(9, minmax(0, 1fr)); }
+.cols-10 { grid-template-columns: repeat(10, minmax(0, 1fr)); }
+.cols-11 { grid-template-columns: repeat(11, minmax(0, 1fr)); }
+.cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+
+/* ===== GAP ===== */
+.gap-none { gap: 0; }
+.gap-xs { gap: 0.25rem; }
+.gap-small { gap: 0.5rem; }
+.gap-normal { gap: 1rem; }
+.gap-large { gap: 1.5rem; }
+.gap-xl { gap: 2rem; }
+
+/* ===== ALINEACIÓN ===== */
+.justify-start { justify-items: start; }
+.justify-center { justify-items: center; }
+.justify-end { justify-items: end; }
+.justify-stretch { justify-items: stretch; }
+
+.align-start { align-items: start; }
+.align-center { align-items: center; }
+.align-end { align-items: end; }
+.align-stretch { align-items: stretch; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .responsive.cols-12, .responsive.cols-11, .responsive.cols-10,
+  .responsive.cols-9, .responsive.cols-8, .responsive.cols-7,
+  .responsive.cols-6, .responsive.cols-5, .responsive.cols-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .mobile-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+  .mobile-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mobile-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .mobile-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .tablet-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+  .tablet-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tablet-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .tablet-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .tablet-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .tablet-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}
+
+/* ===== GRID ITEM ===== */
+.gridItem {
+  min-width: 0;
+}
+
+/* Col Span */
+.colSpan-1 { grid-column: span 1 / span 1; }
+.colSpan-2 { grid-column: span 2 / span 2; }
+.colSpan-3 { grid-column: span 3 / span 3; }
+.colSpan-4 { grid-column: span 4 / span 4; }
+.colSpan-5 { grid-column: span 5 / span 5; }
+.colSpan-6 { grid-column: span 6 / span 6; }
+.colSpan-7 { grid-column: span 7 / span 7; }
+.colSpan-8 { grid-column: span 8 / span 8; }
+.colSpan-9 { grid-column: span 9 / span 9; }
+.colSpan-10 { grid-column: span 10 / span 10; }
+.colSpan-11 { grid-column: span 11 / span 11; }
+.colSpan-12 { grid-column: span 12 / span 12; }
+.colSpan-full { grid-column: 1 / -1; }
+
+/* Row Span */
+.rowSpan-1 { grid-row: span 1 / span 1; }
+.rowSpan-2 { grid-row: span 2 / span 2; }
+.rowSpan-3 { grid-row: span 3 / span 3; }
+.rowSpan-4 { grid-row: span 4 / span 4; }
+.rowSpan-5 { grid-row: span 5 / span 5; }
+.rowSpan-6 { grid-row: span 6 / span 6; }
+
+/* Col Start */
+.colStart-1 { grid-column-start: 1; }
+.colStart-2 { grid-column-start: 2; }
+.colStart-3 { grid-column-start: 3; }
+.colStart-4 { grid-column-start: 4; }
+.colStart-5 { grid-column-start: 5; }
+.colStart-6 { grid-column-start: 6; }
+.colStart-7 { grid-column-start: 7; }
+.colStart-8 { grid-column-start: 8; }
+.colStart-9 { grid-column-start: 9; }
+.colStart-10 { grid-column-start: 10; }
+.colStart-11 { grid-column-start: 11; }
+.colStart-12 { grid-column-start: 12; }
+
+/* Row Start */
+.rowStart-1 { grid-row-start: 1; }
+.rowStart-2 { grid-row-start: 2; }
+.rowStart-3 { grid-row-start: 3; }
+.rowStart-4 { grid-row-start: 4; }
+.rowStart-5 { grid-row-start: 5; }
+.rowStart-6 { grid-row-start: 6; }

@@ -1,41 +1,231 @@
-.loginForm {
-  max-width: 400px;
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.loginFormContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
+  min-height: 100vh;
   padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Layout centrado */
+.loginFormContainer.centrado {
+  flex-direction: column;
+}
+
+/* Layout con imagen lateral */
+.loginFormContainer.con-imagen-lateral {
+  flex-direction: row;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .loginFormContainer.con-imagen-lateral {
+    flex-direction: column;
+  }
+}
+
+/* ===== FORMULARIO ===== */
+.loginForm {
+  max-width: 450px;
+  width: 100%;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s ease;
+}
+
+.loginForm:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== LOGO ===== */
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.logoContainer img {
+  max-width: 120px;
+  height: auto;
+}
+
+/* ===== HEADER (TÍTULO Y SUBTÍTULO) ===== */
+.headerContainer {
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .title {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.subtitulo {
+  margin-top: 0.5rem;
+  opacity: 0.8;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ===== MENSAJE DE ERROR ===== */
+.errorMessage {
+  padding: 0.75rem 1rem;
   margin-bottom: 1.5rem;
-  text-align: center;
+  border-radius: 8px;
+  background-color: rgba(220, 53, 69, 0.1);
+  border: 1px solid rgba(220, 53, 69, 0.3);
+  color: #dc3545;
+  font-size: 0.9rem;
+  animation: slideDown 0.3s ease;
 }
 
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== INPUTS ===== */
 .inputGroup {
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
-.submitButton {
-  width: 100%;
-  margin-top: 1rem;
+/* ===== OPCIONES (RECORDARME Y OLVIDÉ contrASEÑA) ===== */
+.optionsRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #007bff;
+}
+
+.checkboxText {
+  font-size: 0.9rem;
 }
 
 .forgotPassword {
-  text-align: center;
-  margin-top: 1rem;
+  text-align: right;
 }
 
 .link {
   text-decoration: none;
-  transition: opacity 0.3s ease;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .link:hover {
   opacity: 0.8;
+  text-decoration: underline;
 }
 
+/* ===== BOTÓN DE SUBMIT ===== */
+.submitButton {
+  width: 100%;
+  margin-top: 0.5rem;
+  font-weight: 600;
+  padding: 0.875rem 1.5rem;
+  font-size: 1rem;
+}
+
+/* ===== DIVISOR SOCIAL ===== */
+.divisorSocial {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0 1.5rem;
+}
+
+.divisorLinea {
+  flex: 1;
+  height: 1px;
+  background-color: rgba(128, 128, 128, 0.3);
+}
+
+.divisorTexto {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+/* ===== BOTONES DE REDES SOCIALES ===== */
+.botonesRedesSociales {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(128, 128, 128, 0.2);
+  text-align: center;
+}
+
+/* ===== SECCIÓN DE IMAGEN LATERAL ===== */
+.formSection {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagenLateralSection {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.imagenLateral {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+  .imagenLateralSection {
+    min-height: 300px;
+  }
+}
+
+/* ===== TEMAS ===== */
+
 /* Light theme */
-.light {
+.light .loginForm {
   background-color: #ffffff;
   color: #000000;
 }
@@ -44,9 +234,13 @@
   color: #007bff;
 }
 
+.light .checkbox {
+  accent-color: #007bff;
+}
+
 /* Dark theme */
-.dark {
-  background-color: #333333;
+.dark .loginForm {
+  background-color: #1a1a1a;
   color: #ffffff;
 }
 
@@ -54,10 +248,21 @@
   color: #4da6ff;
 }
 
+.dark .checkbox {
+  accent-color: #4da6ff;
+}
+
+.dark .errorMessage {
+  background-color: rgba(220, 53, 69, 0.2);
+  border-color: rgba(220, 53, 69, 0.4);
+  color: #ff6b7a;
+}
+
 /* Holographic theme */
-.holographic {
-  background: linear-gradient(45deg, rgba(255, 0, 240, 0.1), rgba(0, 80, 255, 0.1));
-  backdrop-filter: blur(10px);
+.holographic .loginForm {
+  background: linear-gradient(135deg, rgba(255, 0, 240, 0.15), rgba(0, 80, 255, 0.15));
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: #ffffff;
 }
 
@@ -65,9 +270,20 @@
   color: #00ffff;
 }
 
+.holographic .checkbox {
+  accent-color: #00ffff;
+}
+
+.holographic .errorMessage {
+  background-color: rgba(255, 0, 100, 0.2);
+  border-color: rgba(255, 0, 100, 0.4);
+  color: #ff6b9d;
+}
+
 /* Transparent Light theme */
-.transparent-light {
-  background-color: rgba(255, 255, 255, 0.1);
+.transparent-light .loginForm {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
   color: #000000;
 }
 
@@ -75,12 +291,27 @@
   color: #0056b3;
 }
 
+.transparent-light .checkbox {
+  accent-color: #0056b3;
+}
+
 /* Transparent Dark theme */
-.transparent-dark {
-  background-color: rgba(0, 0, 0, 0.1);
+.transparent-dark .loginForm {
+  background-color: rgba(26, 26, 26, 0.85);
+  backdrop-filter: blur(10px);
   color: #ffffff;
 }
 
 .transparent-dark .link {
   color: #73b6ff;
+}
+
+.transparent-dark .checkbox {
+  accent-color: #73b6ff;
+}
+
+.transparent-dark .errorMessage {
+  background-color: rgba(220, 53, 69, 0.2);
+  border-color: rgba(220, 53, 69, 0.4);
+  color: #ff6b7a;
 }

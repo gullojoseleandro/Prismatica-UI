@@ -1,15 +1,27 @@
+/* ===== BOTÓN BASE ===== */
 .button {
   font-family: inherit;
-  padding: 12px 24px;
-  font-size: 16px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  border: 1px solid;
+  border: 2px solid;
   background-color: transparent;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  outline: none;
+}
+
+.button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
 .button::before {
@@ -32,58 +44,383 @@
   left: 100%;
 }
 
+/* ===== CONTENIDO Y LAYOUT ===== */
+.contenido {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.texto {
+  line-height: 1;
+}
+
+.iconoIzquierdo,
+.iconoDerecho,
+.iconoCargandoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.iconoIzquierdo svg,
+.iconoDerecho svg,
+.iconoCargandoWrapper svg {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+/* ===== SPINNER DE CARGA ===== */
+.spinner {
+  width: 1.25em;
+  height: 1.25em;
+  animation: spin 0.8s linear infinite;
+}
+
+.spinnerCircle {
+  stroke-dasharray: 50;
+  stroke-dashoffset: 25;
+  stroke-linecap: round;
+  animation: spinnerDash 1.5s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spinnerDash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+/* ===== TAMAÑOS ===== */
+.small {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.small .contenido {
+  gap: 0.375rem;
+}
+
+.medium {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+.large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+.large .contenido {
+  gap: 0.625rem;
+}
+
+/* ===== FORMAS ===== */
+.rounded {
+  border-radius: 8px;
+}
+
+.square {
+  border-radius: 0;
+}
+
+.pill {
+  border-radius: 9999px;
+}
+
+.circular {
+  border-radius: 50%;
+  padding: 0.75rem;
+  aspect-ratio: 1;
+}
+
+.circular.small {
+  padding: 0.5rem;
+}
+
+.circular.large {
+  padding: 1rem;
+}
+
+/* ===== ANCHO COMPLETO ===== */
+.fullWidth {
+  width: 100%;
+  display: flex;
+}
+
+/* ===== SOMBRA ===== */
+.conSombra {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.conSombra:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== ESTADO DESHABILITADO ===== */
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ===== ESTADO DE CARGA ===== */
+.cargando {
+  cursor: wait;
+}
+
+/* ===== ESTILOS DE BOTÓN ===== */
+
+/* Solid (por defecto) */
+.solid {
+  border-color: currentColor;
+}
+
+/* Outline */
+.outline {
+  background-color: transparent !important;
+  border-color: currentColor;
+}
+
+.outline:hover {
+  background-color: currentColor !important;
+  color: white !important;
+}
+
+/* Ghost */
+.ghost {
+  border-color: transparent;
+  background-color: transparent !important;
+}
+
+.ghost:hover {
+  background-color: rgba(128, 128, 128, 0.1) !important;
+}
+
+/* Link */
+.link {
+  border-color: transparent;
+  background-color: transparent !important;
+  padding: 0.25rem 0.5rem;
+  text-decoration: underline;
+}
+
+.link:hover {
+  opacity: 0.8;
+}
+
+/* ===== COLORES SEMÁNTICOS ===== */
+
+/* Primary */
+.color-primary.solid {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+}
+
+.color-primary.solid:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.color-primary.outline {
+  color: #007bff;
+  border-color: #007bff;
+}
+
+.color-primary.ghost {
+  color: #007bff;
+}
+
+/* Secondary */
+.color-secondary.solid {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: white;
+}
+
+.color-secondary.solid:hover {
+  background-color: #545b62;
+  border-color: #545b62;
+}
+
+.color-secondary.outline {
+  color: #6c757d;
+  border-color: #6c757d;
+}
+
+.color-secondary.ghost {
+  color: #6c757d;
+}
+
+/* Success */
+.color-success.solid {
+  background-color: #28a745;
+  border-color: #28a745;
+  color: white;
+}
+
+.color-success.solid:hover {
+  background-color: #218838;
+  border-color: #218838;
+}
+
+.color-success.outline {
+  color: #28a745;
+  border-color: #28a745;
+}
+
+.color-success.ghost {
+  color: #28a745;
+}
+
+/* Danger */
+.color-danger.solid {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: white;
+}
+
+.color-danger.solid:hover {
+  background-color: #c82333;
+  border-color: #c82333;
+}
+
+.color-danger.outline {
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+.color-danger.ghost {
+  color: #dc3545;
+}
+
+/* Warning */
+.color-warning.solid {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  color: #212529;
+}
+
+.color-warning.solid:hover {
+  background-color: #e0a800;
+  border-color: #e0a800;
+}
+
+.color-warning.outline {
+  color: #ffc107;
+  border-color: #ffc107;
+}
+
+.color-warning.ghost {
+  color: #ffc107;
+}
+
+/* Info */
+.color-info.solid {
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+  color: white;
+}
+
+.color-info.solid:hover {
+  background-color: #138496;
+  border-color: #138496;
+}
+
+.color-info.outline {
+  color: #17a2b8;
+  border-color: #17a2b8;
+}
+
+.color-info.ghost {
+  color: #17a2b8;
+}
+
+/* ===== TEMAS ===== */
+
 /* Light theme */
-.light {
+.light.solid {
   border-color: #000;
   color: #000;
   background-color: #fff;
 }
 
-.light:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+.light.solid:hover {
+  background-color: #f8f9fa;
+}
+
+.light.outline {
+  color: #000;
+  border-color: #000;
+}
+
+.light.ghost {
+  color: #000;
+}
+
+.light.link {
+  color: #007bff;
 }
 
 /* Dark theme */
-.dark {
+.dark.solid {
   border-color: #fff;
   color: #fff;
-  background-color: #333;
+  background-color: #1a1a1a;
 }
 
-.dark:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+.dark.solid:hover {
+  background-color: #2d3748;
+}
+
+.dark.outline {
+  color: #fff;
+  border-color: #fff;
+}
+
+.dark.ghost {
+  color: #fff;
+}
+
+.dark.link {
+  color: #4da6ff;
 }
 
 /* Holographic theme */
-.holographic {
+.holographic.solid {
   border-color: transparent;
-  background: linear-gradient(45deg, #ff00f0, #0050ff, #00ff9f, #ff00f0);
+  background: linear-gradient(135deg, #ff00f0, #0050ff, #00ff9f, #ff00f0);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   color: #fff;
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
-/* Transparent Light theme */
-.transparent-light {
-  border-color: #fff;
-  color: #fff;
-  background-color: transparent;
+.holographic.outline {
+  color: #00ffff;
+  border-color: #00ffff;
+  background: transparent;
 }
 
-.transparent-light:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Transparent Dark theme */
-.transparent-dark {
-  border-color: #000;
-  color: #000;
-  background-color: transparent;
-}
-
-.transparent-dark:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+.holographic.ghost {
+  color: #00ffff;
 }
 
 @keyframes gradient {
@@ -92,31 +429,112 @@
   100% { background-position: 0% 50%; }
 }
 
-.small { padding: 8px 16px; font-size: 14px; }
-.large { padding: 16px 32px; font-size: 18px; }
-
-.disabled { opacity: 0.5; cursor: not-allowed; }
-
-/* Animations */
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
+/* Transparent Light theme */
+.transparent-light.solid {
+  border-color: #fff;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
 }
 
-.animate-pulse { animation: pulse 1.5s infinite; }
+.transparent-light.solid:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
 
+.transparent-light.outline {
+  color: #fff;
+  border-color: #fff;
+}
+
+.transparent-light.ghost {
+  color: #fff;
+}
+
+/* Transparent Dark theme */
+.transparent-dark.solid {
+  border-color: #000;
+  color: #000;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.transparent-dark.solid:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.transparent-dark.outline {
+  color: #000;
+  border-color: #000;
+}
+
+.transparent-dark.ghost {
+  color: #000;
+}
+
+/* ===== ANIMACIONES ===== */
+
+/* Pulse */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.animate-pulse {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Shake */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.animate-shake:hover {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Glow */
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 5px currentColor; }
+  50% { box-shadow: 0 0 20px currentColor, 0 0 30px currentColor; }
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Wave */
 .wave {
   position: absolute;
   top: 0;
-  left: 0;
+  left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
   transition: 0.5s;
   pointer-events: none;
 }
 
 .animate-wave:hover .wave {
   left: 100%;
+}
+
+/* ===== GRUPO DE BOTONES ===== */
+.enGrupo {
+  border-radius: 0;
+}
+
+.enGrupo:first-child {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.enGrupo:last-child {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.enGrupo:not(:last-child) {
+  border-right-width: 1px;
 }

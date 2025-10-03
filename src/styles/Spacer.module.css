@@ -1,0 +1,29 @@
+/* ===== SPACER BASE ===== */
+.spacer {
+  flex-shrink: 0;
+}
+
+/* ===== VERTICAL (por defecto) ===== */
+.vertical {
+  width: 100%;
+}
+
+.vertical.size-xs { height: 0.25rem; }
+.vertical.size-small { height: 0.5rem; }
+.vertical.size-normal { height: 1rem; }
+.vertical.size-large { height: 1.5rem; }
+.vertical.size-xl { height: 2rem; }
+.vertical.size-2xl { height: 3rem; }
+
+/* ===== HORIZONTAL ===== */
+.horizontal {
+  height: 100%;
+  display: inline-block;
+}
+
+.horizontal.size-xs { width: 0.25rem; }
+.horizontal.size-small { width: 0.5rem; }
+.horizontal.size-normal { width: 1rem; }
+.horizontal.size-large { width: 1.5rem; }
+.horizontal.size-xl { width: 2rem; }
+.horizontal.size-2xl { width: 3rem; }

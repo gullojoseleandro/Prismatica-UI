@@ -1,0 +1,158 @@
+/* ===== ALERT BASE ===== */
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  border: 1px solid;
+  position: relative;
+}
+
+/* ===== CONTENIDO ===== */
+.iconContainer {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.contenido {
+  flex: 1;
+}
+
+.titulo {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.mensaje {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.acciones {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.closeButton {
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+/* ===== VARIANTES ===== */
+
+/* Filled */
+.filled.success {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+}
+
+.filled.error {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+}
+
+.filled.warning {
+  background-color: #fff3cd;
+  border-color: #ffeaa7;
+  color: #856404;
+}
+
+.filled.info {
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+  color: #0c5460;
+}
+
+/* Outlined */
+.outlined {
+  background-color: transparent;
+}
+
+.outlined.success {
+  border-color: #28a745;
+  color: #28a745;
+}
+
+.outlined.error {
+  border-color: #dc3545;
+  color: #dc3545;
+}
+
+.outlined.warning {
+  border-color: #ffc107;
+  color: #856404;
+}
+
+.outlined.info {
+  border-color: #17a2b8;
+  color: #17a2b8;
+}
+
+/* Subtle */
+.subtle {
+  border: none;
+  background-color: transparent;
+  border-left: 4px solid;
+}
+
+.subtle.success {
+  border-left-color: #28a745;
+  background-color: rgba(40, 167, 69, 0.05);
+  color: #155724;
+}
+
+.subtle.error {
+  border-left-color: #dc3545;
+  background-color: rgba(220, 53, 69, 0.05);
+  color: #721c24;
+}
+
+.subtle.warning {
+  border-left-color: #ffc107;
+  background-color: rgba(255, 193, 7, 0.05);
+  color: #856404;
+}
+
+.subtle.info {
+  border-left-color: #17a2b8;
+  background-color: rgba(23, 162, 184, 0.05);
+  color: #0c5460;
+}
+
+/* ===== TEMA OSCURO ===== */
+.dark.filled.success {
+  background-color: rgba(40, 167, 69, 0.2);
+  border-color: rgba(40, 167, 69, 0.3);
+  color: #4dff88;
+}
+
+.dark.filled.error {
+  background-color: rgba(220, 53, 69, 0.2);
+  border-color: rgba(220, 53, 69, 0.3);
+  color: #ff6b7a;
+}
+
+.dark.filled.warning {
+  background-color: rgba(255, 193, 7, 0.2);
+  border-color: rgba(255, 193, 7, 0.3);
+  color: #ffd54f;
+}
+
+.dark.filled.info {
+  background-color: rgba(23, 162, 184, 0.2);
+  border-color: rgba(23, 162, 184, 0.3);
+  color: #4fc3f7;
+}
+
+.dark.outlined.success { border-color: #4dff88; color: #4dff88; }
+.dark.outlined.error { border-color: #ff6b7a; color: #ff6b7a; }
+.dark.outlined.warning { border-color: #ffd54f; color: #ffd54f; }
+.dark.outlined.info { border-color: #4fc3f7; color: #4fc3f7; }

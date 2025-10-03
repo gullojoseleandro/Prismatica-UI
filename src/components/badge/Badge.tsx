@@ -9,41 +9,164 @@ import styles from '@styles/Badge.module.css';
  * - `children`: contenido interno (texto o nodos React).
  * - `className`: clases CSS extra.
  */
-export interface BadgeProps {
-  variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
-  color?: 'default' | 'primary' | 'success' | 'warning' | 'error';
+export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
+  /**
+   * Contenido del badge.
+   */
   children: React.ReactNode;
+
+  /**
+   * Color del badge.
+   * @default 'primary'
+   */
+  color?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'neutral';
+
+  /**
+   * Variante del badge.
+   * @default 'solid'
+   */
+  variant?: 'solid' | 'outline' | 'subtle';
+
+  /**
+   * Tamaño del badge.
+   * @default 'medium'
+   */
+  size?: 'small' | 'medium' | 'large';
+
+  /**
+   * Forma del badge.
+   * @default 'rounded'
+   */
+  forma?: 'rounded' | 'pill' | 'square';
+
+  /**
+   * Mostrar punto indicador.
+   */
+  dot?: boolean;
+
+  /**
+   * Icono a mostrar.
+   */
+  icono?: React.ReactNode;
+
+  /**
+   * Posición del icono.
+   * @default 'left'
+   */
+  posicionIcono?: 'left' | 'right';
+
+  /**
+   * Hacer el badge clickeable.
+   */
+  clickeable?: boolean;
+
+  /**
+   * Callback al hacer click.
+   */
+  onClick?: () => void;
+
+  /**
+   * Mostrar botón de cerrar.
+   */
+  removible?: boolean;
+
+  /**
+   * Callback al remover.
+   */
+  onRemove?: () => void;
+
+  /**
+   * Clases CSS adicionales.
+   */
   className?: string;
 }
 
 /**
- * `Badge` muestra una etiqueta pequeña de estado/conteo.
- *
- * @returns Un `Typography` con `variant="span"` estilizado como badge.
- * @example
- * ```tsx
- * <Badge variant="dark" color="success">Activo</Badge>
- * ```
+ * Badge - Etiqueta para mostrar información o estado.
+ * 
+ * Características:
+ * - 7 colores semánticos
+ * - 3 variantes (solid, outline, subtle)
+ * - 3 tamaños
+ * - Formas personalizables
+ * - Punto indicador
+ * - Iconos
+ * - Removible
+ * - Clickeable
  */
-export const Badge: React.FC<BadgeProps> = ({
-  variant = 'light',
-  color = 'default',
+export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(({
   children,
+  color = 'primary',
+  variant = 'solid',
+  size = 'medium',
+  forma = 'rounded',
+  dot = false,
+  icono,
+  posicionIcono = 'left',
+  clickeable = false,
+  onClick,
+  removible = false,
+  onRemove,
   className,
   ...props
-}) => {
-  // Clases dinámicas por tema y color
+}, ref) => {
   const badgeClasses = [
     styles.badge,
+    styles[`color-${color}`],
     styles[variant],
-    styles[color],
+    styles[size],
+    styles[forma],
+    (clickeable || onClick) && styles.clickeable,
     className
   ].filter(Boolean).join(' ');
 
-  return (
-    <Typography variant="span" className={badgeClasses} {...props}>
-      {children}
-    </Typography>
-  );
-};
+  const handleClick = (e: React.MouseEvent<HTMLSpanElement>) => {
+    if (onClick) {
+      onClick();
+    }
+  };
 
+  const handleRemove = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (onRemove) {
+      onRemove();
+    }
+  };
+
+  return (
+    <span
+      ref={ref}
+      className={badgeClasses}
+      onClick={handleClick}
+      role={onClick ? 'button' : undefined}
+      tabIndex={onClick ? 0 : undefined}
+      {...props}
+    >
+      {dot && <span className={styles.dot} />}
+      {icono && posicionIcono === 'left' && (
+        <span className={styles.icono}>{icono}</span>
+      )}
+      <Typography variant="span" className={styles.texto}>
+        {children}
+      </Typography>
+      {icono && posicionIcono === 'right' && (
+        <span className={styles.icono}>{icono}</span>
+      )}
+      {removible && (
+        <button
+          className={styles.removeButton}
+          onClick={handleRemove}
+          aria-label="Remover"
+          type="button"
+        >
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      )}
+    </span>
+  );
+});
+
+Badge.displayName = 'Badge';

@@ -1,0 +1,36 @@
+/* ===== CONTAINER BASE ===== */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.centrado {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fluido {
+  max-width: 100%;
+}
+
+/* ===== MAX WIDTHS ===== */
+.maxWidth-xs { max-width: 480px; }
+.maxWidth-sm { max-width: 640px; }
+.maxWidth-md { max-width: 768px; }
+.maxWidth-lg { max-width: 1024px; }
+.maxWidth-xl { max-width: 1280px; }
+.maxWidth-2xl { max-width: 1536px; }
+.maxWidth-full { max-width: 100%; }
+
+/* ===== PADDING ===== */
+.padding-none { padding: 0; }
+.padding-small { padding: 0 1rem; }
+.padding-normal { padding: 0 1.5rem; }
+.padding-large { padding: 0 2rem; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .padding-normal { padding: 0 1rem; }
+  .padding-large { padding: 0 1.5rem; }
+}

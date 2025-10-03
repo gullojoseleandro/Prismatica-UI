@@ -1,0 +1,108 @@
+/* ===== TOAST BASE ===== */
+.toast {
+  position: fixed;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  min-width: 300px;
+  max-width: 500px;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.toast.exiting {
+  animation: slideOut 0.3s ease forwards;
+}
+
+@keyframes slideOut {
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+/* ===== POSICIONES ===== */
+.top-left { top: 1rem; left: 1rem; }
+.top-center { top: 1rem; left: 50%; transform: translateX(-50%); }
+.top-right { top: 1rem; right: 1rem; }
+.bottom-left { bottom: 1rem; left: 1rem; }
+.bottom-center { bottom: 1rem; left: 50%; transform: translateX(-50%); }
+.bottom-right { bottom: 1rem; right: 1rem; }
+
+/* ===== CONTENIDO ===== */
+.iconContainer {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.contenido {
+  flex: 1;
+}
+
+.titulo {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.mensaje {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.accionButton {
+  margin-top: 0.5rem;
+}
+
+.closeButton {
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+/* ===== TIPOS ===== */
+.success {
+  background-color: #d4edda;
+  border-left: 4px solid #28a745;
+  color: #155724;
+}
+
+.error {
+  background-color: #f8d7da;
+  border-left: 4px solid #dc3545;
+  color: #721c24;
+}
+
+.warning {
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+  color: #856404;
+}
+
+.info {
+  background-color: #d1ecf1;
+  border-left: 4px solid #17a2b8;
+  color: #0c5460;
+}
+
+/* ===== TEMAS ===== */
+.dark.success { background-color: rgba(40, 167, 69, 0.2); color: #4dff88; }
+.dark.error { background-color: rgba(220, 53, 69, 0.2); color: #ff6b7a; }
+.dark.warning { background-color: rgba(255, 193, 7, 0.2); color: #ffd54f; }
+.dark.info { background-color: rgba(23, 162, 184, 0.2); color: #4fc3f7; }

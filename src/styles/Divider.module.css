@@ -1,0 +1,69 @@
+/* ===== DIVIDER BASE ===== */
+.divider {
+  border: none;
+  margin: 0;
+}
+
+/* ===== ORIENTACIONES ===== */
+.horizontal {
+  width: 100%;
+  border-top-style: solid;
+  border-top-width: 1px;
+}
+
+.vertical {
+  height: 100%;
+  min-height: 1rem;
+  border-left-style: solid;
+  border-left-width: 1px;
+  display: inline-block;
+}
+
+/* ===== GROSORES ===== */
+.grosor-thin.horizontal { border-top-width: 1px; }
+.grosor-medium.horizontal { border-top-width: 2px; }
+.grosor-thick.horizontal { border-top-width: 4px; }
+
+.grosor-thin.vertical { border-left-width: 1px; }
+.grosor-medium.vertical { border-left-width: 2px; }
+.grosor-thick.vertical { border-left-width: 4px; }
+
+/* ===== ESTILOS ===== */
+.estilo-solid { border-style: solid; }
+.estilo-dashed { border-style: dashed; }
+.estilo-dotted { border-style: dotted; }
+
+/* ===== ESPACIADO ===== */
+.espaciado-none { margin: 0; }
+.espaciado-small { margin: 0.5rem 0; }
+.espaciado-normal { margin: 1rem 0; }
+.espaciado-large { margin: 2rem 0; }
+
+/* ===== CON TEXTO ===== */
+.conTexto {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.linea {
+  flex: 1;
+  height: 1px;
+  background-color: currentColor;
+  opacity: 0.2;
+}
+
+.textoContenido {
+  font-size: 0.875rem;
+  opacity: 0.6;
+  white-space: nowrap;
+}
+
+.texto-left .linea:first-child { flex: 0.2; }
+.texto-right .linea:last-child { flex: 0.2; }
+
+/* ===== TEMAS ===== */
+.light { border-color: rgba(0, 0, 0, 0.12); }
+.dark { border-color: rgba(255, 255, 255, 0.12); }
+.primary { border-color: #007bff; }
+.secondary { border-color: #6c757d; }
