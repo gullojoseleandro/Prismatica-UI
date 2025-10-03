@@ -4,40 +4,40 @@ import { Button } from '@components/Button/Button';
 import styles from '@styles/SearchBar.module.css';
 
 /**
- * Props del componente `SearchBar`.
- * - `onSearch`: callback que recibe el texto ingresado al enviar.
- * - `variant`: tema visual.
- * - `placeholder`: texto del input cuando está vacío.
- * - `className`: clases CSS adicionales.
+ * Props for the `SearchBar` component.
+ * - `onSearch`: callback that receives the entered text on submit.
+ * - `variant`: visual theme.
+ * - `placeholder`: input text when empty.
+ * - `className`: additional CSS classes.
  */
 export interface SearchBarProps {
   /**
-   * Callback que recibe el texto ingresado al enviar.
-   * @param {string} query - Término de búsqueda.
+   * Callback that receives the entered text on submit.
+   * @param {string} query - Search term.
    */
   onSearch: (query: string) => void;
   /**
-   * Tema visual.
+   * Visual theme.
    * @default 'light'
    */
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
   /**
-   * Texto del input cuando está vacío.
+   * Input text when empty.
    * @default 'Search...'
    */
   placeholder?: string;
   /**
-   * Clases CSS adicionales.
+   * Additional CSS classes.
    */
   className?: string;
 }
 
 /**
- * Barra de búsqueda controlada con input y botón submit.
+ * Controlled search bar with input and submit button.
  *
  * @example
  * ```tsx
- * <SearchBar variant="light" onSearch={(q) => console.log(q)} />
+ * <SearchBar onSearch={(q) => console.log(q)} placeholder="Search..." />
  * ```
  */
 export const SearchBar: React.FC<SearchBarProps> = ({
@@ -49,7 +49,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
 }) => {
   const [query, setQuery] = useState('');
 
-  // Envío del formulario: previene recarga y notifica el término
+  // Form submission: prevents reload and notifies the term
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onSearch(query);

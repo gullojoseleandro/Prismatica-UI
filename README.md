@@ -1,124 +1,124 @@
-# Prismatik UI
+# Prismatica UI
 
-Librería moderna de componentes React. Diseñada para ser simple, accesible y fácil de extender.
+Modern React component library. Designed to be simple, accessible, and easy to extend.
 
 ---
 
-## Instalación
+## Installation
 
-Requisitos:
+Requirements:
 
-- React 18
-- React DOM 18
+- React 18+
+- React DOM 18+
 
-Instala con npm:
+Install with npm:
 
 ```bash
-npm install prismatik-ui
+npm install prismatica-ui
 ```
 
-Importa los estilos globales compilados:
+Import the compiled global styles:
 
 ```ts
-import 'prismatik-ui/styles.css';
+import 'prismatica-ui/styles.css';
 ```
 
 ---
 
-## Uso rápido
+## Quick Start
 
 ```tsx
-import { Button, Card, Input, Select, Modal, Tabs, Accordion, Navbar, Typography } from 'prismatik-ui';
-import 'prismatik-ui/styles.css';
+import { Button, Card, Input, Select, Modal, Tabs, Accordion, Navbar, Typography } from 'prismatica-ui';
+import 'prismatica-ui/styles.css';
 
 function App() {
   return (
-    <Card title="Ejemplo" variant="light">
-      <Typography variant="p">Contenido dentro de una tarjeta</Typography>
-      <Button variant="dark" size="medium">Acción</Button>
+    <Card title="Example" variant="light">
+      <Typography variant="p">Content inside a card</Typography>
+      <Button variant="dark" size="medium">Action</Button>
     </Card>
   );
 }
 ```
 
-Variantes disponibles (theme): `light`, `dark`, `holographic`, `transparent-light`, `transparent-dark`.
+Available variants (theme): `light`, `dark`, `holographic`, `transparent-light`, `transparent-dark`.
 
 ---
 
-## Componentes principales
+## Main Components
 
-- Button: variantes, tamaños y animaciones (`pulse`, `shake`, `glow`, `wave`).
-- Input y Select: tamaños (`small`, `medium`, `large`) y estado (`default`, `error`, `warning`).
-- Card y ProductCard: contenedores con título y contenido.
-- Modal: accesible, cierre con Escape y click fuera.
-- Tabs: roles ARIA, navegación con teclado (← → Home End).
-- Accordion: ARIA (`aria-expanded`, `aria-controls`) y regiones.
-- Navbar: acciones personalizables a la derecha via prop `acciones`.
-- Typography: tipografías semánticas (`h1`–`h6`, `p`, `span`).
+- **Button**: variants, sizes, and animations (`pulse`, `shake`, `glow`, `wave`).
+- **Input** and **Select**: sizes (`small`, `medium`, `large`) and state (`default`, `error`, `warning`).
+- **Card** and **ProductCard**: containers with title and content.
+- **Modal**: accessible, closes with Escape and click outside.
+- **Tabs**: ARIA roles, keyboard navigation (← → Home End).
+- **Accordion**: ARIA (`aria-expanded`, `aria-controls`) and regions.
+- **Navbar**: customizable actions on the right via `actions` prop.
+- **Typography**: semantic typography (`h1`–`h6`, `p`, `span`).
 
-Todas las props aceptan `className` para extender estilos.
-
----
-
-## Accesibilidad
-
-- Accordion: `aria-expanded`, `aria-controls`, `role="region"` y encabezados identificables.
-- Tabs: `role="tablist"/"tab"/"tabpanel"`, `aria-selected`, `aria-controls`, gestión de teclado.
-- Modal: `role="dialog"`, `aria-modal`, `aria-labelledby`, cierre con Escape y click fuera.
-- Input/Select: `aria-invalid` cuando `state="error"`.
+All props accept `className` to extend styles.
 
 ---
 
-## Desarrollo local
+## Accessibility
 
-Clonar, instalar y construir:
+- **Accordion**: `aria-expanded`, `aria-controls`, `role="region"` and identifiable headings.
+- **Tabs**: `role="tablist"/"tab"/"tabpanel"`, `aria-selected`, `aria-controls`, keyboard management.
+- **Modal**: `role="dialog"`, `aria-modal`, `aria-labelledby`, closes with Escape and click outside.
+- **Input/Select**: `aria-invalid` when `state="error"`.
+
+---
+
+## Local Development
+
+Clone, install, and build:
 
 ```bash
 npm install
 npm run build
 ```
 
-Estructura relevante:
+Relevant structure:
 
-- `src/components/`: componentes React.
-- `src/styles/`: CSS Modules de cada componente.
-- `src/types/css.d.ts`: tipado de CSS Modules.
+- `src/components/`: React components.
+- `src/styles/`: CSS Modules for each component.
+- `src/types/css.d.ts`: CSS Modules typing.
 
 Scripts:
 
-- `npm run build`: genera `dist/index.mjs`, `dist/index.cjs`, `dist/types/` y `dist/styles.css`.
+- `npm run build`: generates `dist/index.mjs`, `dist/index.cjs`, `dist/types/` and `dist/styles.css`.
 
 ---
 
-## Publicación en npm
+## Publishing to npm
 
-Asegúrate de tener sesión iniciada (`npm login`).
+Make sure you're logged in (`npm login`).
 
 ```bash
-# actualizar versión según semver
+# update version according to semver
 npm version patch
 
-# publicar
+# publish
 npm publish --access public
 ```
 
-Notas de empaquetado:
+Packaging notes:
 
-- Dual package (ESM/CJS) con `exports` configurado.
-- Tipos incluidos (`dist/types/index.d.ts`).
-- Estilos compilados en `dist/styles.css` (importar en la app).
-
----
-
-## Convenciones
-
-- Código tipado con TypeScript, sin abreviaciones confusas.
-- Componentes con `forwardRef` donde aplica.
-- API consistente con `variant`, tamaños y `className`.
-- Enfocado en simplicidad, legibilidad y mantenibilidad.
+- Dual package (ESM/CJS) with `exports` configured.
+- Types included (`dist/types/index.d.ts`).
+- Compiled styles in `dist/styles.css` (import in your app).
 
 ---
 
-## Licencia
+## Conventions
+
+- TypeScript typed code, no confusing abbreviations.
+- Components with `forwardRef` where applicable.
+- Consistent API with `variant`, sizes, and `className`.
+- Focused on simplicity, readability, and maintainability.
+
+---
+
+## License
 
 MIT

@@ -2,60 +2,59 @@ import React from 'react';
 import styles from '@styles/Container.module.css';
 
 /**
- * Props del componente `Container`.
- * Contenedor responsive con anchos máximos predefinidos.
+ * Props for the `Container` component.
+ * Responsive container with predefined max widths.
  * 
  * @example
- * ```tsx
- * <Container maxWidth="lg" centrado>
- *   <h1>Contenido</h1>
+ * <Container maxWidth="lg" centered>
+ *   <h1>Content</h1>
  * </Container>
  * ```
  */
 export interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
-   * Ancho máximo del contenedor.
+   * Container content.
+   */
+  children: React.ReactNode;
+  
+  /**
+   * Maximum width of the container.
    * @default 'lg'
    */
   maxWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
   
   /**
-   * Centrar el contenedor horizontalmente.
+   * Center horizontally.
    * @default true
    */
-  centrado?: boolean;
+  centered?: boolean;
   
   /**
-   * Padding horizontal.
+   * Fluid container (no max-width).
+   */
+  fluid?: boolean;
+  
+  /**
+   * Horizontal padding.
    * @default 'normal'
    */
   padding?: 'none' | 'small' | 'normal' | 'large';
   
   /**
-   * Hacer el contenedor fluido (sin max-width).
-   */
-  fluido?: boolean;
-  
-  /**
-   * Clases CSS adicionales.
+   * Additional CSS classes.
    */
   className?: string;
-  
-  /**
-   * Contenido del contenedor.
-   */
-  children: React.ReactNode;
 }
 
 /**
- * Contenedor responsive con anchos máximos predefinidos.
+ * Responsive container with predefined max widths.
  * 
- * Características:
- * - Anchos máximos responsive (xs, sm, md, lg, xl, 2xl)
- * - Centrado automático
- * - Padding personalizable
- * - Modo fluido
- * - Compatible con todos los breakpoints
+ * Features:
+ * - 7 predefined max widths (xs, sm, md, lg, xl, 2xl, full)
+ * - Automatic centering
+ * - Customizable padding
+ * - Fluid mode without max-width
+ * - Compatible with all breakpoints
  * 
  * Breakpoints:
  * - xs: 480px
@@ -65,21 +64,20 @@ export interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
  * - xl: 1280px
  * - 2xl: 1536px
  */
-export const Container = React.forwardRef<HTMLDivElement, ContainerProps>(({
+export const Container = React.forwardRef<HTMLDivElement, ContainerProps>(({  children,
   maxWidth = 'lg',
-  centrado = true,
+  centered = true,
+  fluid = false,
   padding = 'normal',
-  fluido = false,
   className,
-  children,
   ...props
 }, ref) => {
   const containerClasses = [
     styles.container,
-    !fluido && styles[`maxWidth-${maxWidth}`],
-    centrado && styles.centrado,
+    !fluid && styles[`maxWidth-${maxWidth}`],
+    centered && styles.centrado,
+    fluid && styles.fluido,
     styles[`padding-${padding}`],
-    fluido && styles.fluido,
     className
   ].filter(Boolean).join(' ');
 

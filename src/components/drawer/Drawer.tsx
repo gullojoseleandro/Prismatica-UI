@@ -3,13 +3,12 @@ import { Button } from '@components/Button/Button';
 import styles from '@styles/Drawer.module.css';
 
 /**
- * Props del componente `Drawer`.
- * - `isOpen`: controla visibilidad del panel.
- * - `onClose`: callback para cerrar.
- * - `position`: lado de aparición (left, right, top, bottom).
- * - `variant`: tema visual.
- * - `children`: contenido del panel.
- * - `className`: clases CSS extra.
+ * Props for the `Drawer` component.
+ * - `isOpen`: controls panel visibility.
+ * - `onClose`: callback to close.
+ * - `position`: appearance side (left, right, top, bottom).
+ * - `variant`: visual theme.
+ * - `className`: additional CSS classes.
  */
 export interface DrawerProps {
   isOpen: boolean;
@@ -21,13 +20,13 @@ export interface DrawerProps {
 }
 
 /**
- * `Drawer` es un panel deslizante con overlay.
+ * `Drawer` is a sliding panel with overlay.
  *
- * @returns Fragmento con overlay (click para cerrar) y contenedor lateral.
+ * @returns Fragment with overlay (click to close) and side container.
  * @example
  * ```tsx
- * <Drawer isOpen={abierto} onClose={() => setAbierto(false)} position="right" variant="dark">
- *   <Contenido />
+ * <Drawer isOpen={open} onClose={() => setOpen(false)} position="right" variant="dark">
+ *   <Content />
  * </Drawer>
  * ```
  */
@@ -40,7 +39,7 @@ export const Drawer: React.FC<DrawerProps> = ({
   className,
   ...props
 }) => {
-  // Clases dinámicas por posición, tema y estado abierto
+  // Dynamic classes by position, theme, and open state
   const drawerClasses = [
     styles.drawer,
     styles[position],
@@ -51,10 +50,10 @@ export const Drawer: React.FC<DrawerProps> = ({
 
   return (
     <>
-      {/* Overlay clickeable para cerrar */}
+      {/* Clickable overlay to close */}
       {isOpen && <div className={styles.overlay} onClick={onClose} />}
       <div className={drawerClasses} {...props}>
-        {/* Botón de cierre en el panel */}
+        {/* Close button in the panel */}
         <Button variant={variant} onClick={onClose} className={styles.closeButton}>
           ×
         </Button>

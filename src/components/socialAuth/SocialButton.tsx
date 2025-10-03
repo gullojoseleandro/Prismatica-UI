@@ -3,13 +3,13 @@ import { Button, ButtonProps } from '@components/Button/Button';
 import styles from '@styles/SocialButton.module.css';
 
 /**
- * Proveedores de autenticación social soportados.
+ * Supported social authentication providers.
  */
 export type SocialProvider = 'google' | 'facebook' | 'github' | 'twitter' | 'linkedin' | 'apple' | 'microsoft';
 
 /**
- * Props del componente `SocialButton`.
- * Botón especializado para autenticación con redes sociales.
+ * Props for the `SocialButton` component.
+ * Specialized button for social media authentication.
  * 
  * @example
  * ```tsx
@@ -20,26 +20,26 @@ export type SocialProvider = 'google' | 'facebook' | 'github' | 'twitter' | 'lin
  * />
  * ```
  */
-export interface SocialButtonProps extends Omit<ButtonProps, 'children' | 'iconoIzquierdo'> {
+export interface SocialButtonProps extends Omit<ButtonProps, 'children' | 'leftIcon'> {
   /**
-   * Proveedor de autenticación social.
+   * Social authentication provider.
    */
   provider: SocialProvider;
   
   /**
-   * Texto personalizado del botón.
-   * Si no se proporciona, usa texto por defecto según el proveedor.
+   * Custom button text.
+   * If not provided, uses default text based on provider.
    */
-  texto?: string;
+  text?: string;
   
   /**
-   * Mostrar solo el icono (sin texto).
+   * Show only the icon (no text).
    */
-  soloIcono?: boolean;
+  iconOnly?: boolean;
 }
 
 /**
- * Iconos SVG para cada proveedor social.
+ * SVG icons for each social provider.
  */
 const SocialIcons: Record<SocialProvider, React.ReactNode> = {
   google: (
@@ -83,20 +83,20 @@ const SocialIcons: Record<SocialProvider, React.ReactNode> = {
 };
 
 /**
- * Textos por defecto para cada proveedor.
+ * Default texts for each provider.
  */
 const defaultTexts: Record<SocialProvider, string> = {
-  google: 'Continuar con Google',
-  facebook: 'Continuar con Facebook',
-  github: 'Continuar con GitHub',
-  twitter: 'Continuar con Twitter',
-  linkedin: 'Continuar con LinkedIn',
-  apple: 'Continuar con Apple',
-  microsoft: 'Continuar con Microsoft',
+  google: 'Continue with Google',
+  facebook: 'Continue with Facebook',
+  github: 'Continue with GitHub',
+  twitter: 'Continue with Twitter',
+  linkedin: 'Continue with LinkedIn',
+  apple: 'Continue with Apple',
+  microsoft: 'Continue with Microsoft',
 };
 
 /**
- * Colores de marca para cada proveedor.
+ * Brand colors for each provider.
  */
 const brandColors: Record<SocialProvider, { bg: string; hover: string; text: string }> = {
   google: { bg: '#ffffff', hover: '#f8f9fa', text: '#000000' },
@@ -109,23 +109,26 @@ const brandColors: Record<SocialProvider, { bg: string; hover: string; text: str
 };
 
 /**
- * Botón especializado para autenticación social.
+ * Specialized button for social authentication.
  * 
- * Características:
- * - Iconos de marca oficiales
- * - Colores de marca automáticos
- * - Textos por defecto personalizables
- * - Modo solo icono
- * - Totalmente personalizable
+ * Features:
+ * - Official brand icons
+ * - Automatic brand colors
+ * - Customizable default texts
+ * - Icon-only mode
+ * - Fully customizable
  */
-export const SocialButton = React.forwardRef<HTMLButtonElement, SocialButtonProps>(({
-  provider,
-  texto,
-  soloIcono = false,
-  variant = 'light',
-  className,
-  ...props
-}, ref) => {
+export const SocialButton = React.forwardRef<HTMLButtonElement, SocialButtonProps>((
+  {
+    provider,
+    text,
+    iconOnly = false,
+    variant = 'light',
+    className,
+    ...props
+  },
+  ref
+) => {
   const icon = SocialIcons[provider];
   const defaultText = defaultTexts[provider];
   const colors = brandColors[provider];
@@ -136,13 +139,13 @@ export const SocialButton = React.forwardRef<HTMLButtonElement, SocialButtonProp
     <Button
       ref={ref}
       variant={variant}
-      iconoIzquierdo={icon}
+      leftIcon={icon}
       className={customClassName}
-      fullWidth={!soloIcono}
-      circular={soloIcono}
+      fullWidth={!iconOnly}
+      circular={iconOnly}
       {...props}
     >
-      {!soloIcono && (texto || defaultText)}
+      {!iconOnly && (text || defaultText)}
     </Button>
   );
 });

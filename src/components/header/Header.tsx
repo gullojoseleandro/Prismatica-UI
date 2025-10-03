@@ -1,54 +1,54 @@
-/**
- * Props del componente `Header`.
- * - `logo`: nodo opcional para la marca/logo.
- * - `title`: texto de título de página.
- * - `menuItems`: elementos a mostrar en el `Navbar`.
- * - `onSearch`: callback para búsquedas desde la barra.
- * - `variant`: tema visual.
- * - `className`: clases CSS extra.
- */
 import React from 'react';
 import { Navbar } from '@components/navbar/Navbar';
 import { SearchBar } from '@components/searchBar/SearchBar';
 import { Typography } from '@components/typography/Typography';
 import styles from '@styles/Header.module.css';
 
+/**
+ * Props for the `Header` component.
+ * - `logo`: optional node for brand/logo.
+ * - `title`: page title text.
+ * - `menuItems`: elements to display in the `Navbar`.
+ * - `onSearch`: callback for searches from the bar.
+ * - `variant`: visual theme.
+ * - `className`: additional CSS classes.
+ */
 export interface HeaderProps {
   /**
-   * Nodo opcional para la marca/logo.
+   * Optional node for brand/logo.
    */
   logo?: React.ReactNode;
   /**
-   * Texto de título de página.
+   * Page title text.
    */
   title?: string;
   /**
-   * Elementos a mostrar en el `Navbar`.
+   * Elements to display in the `Navbar`.
    */
   menuItems: Array<{ label: string; href: string }>;
   /**
-   * Callback para búsquedas desde la barra.
-   * @param {string} query - texto de búsqueda.
+   * Callback for searches from the bar.
+   * @param {string} query - search query.
    */
   onSearch: (query: string) => void;
   /**
-   * Tema visual.
+   * Visual theme.
    * @default 'light'
    */
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
   /**
-   * Clases CSS extra.
+   * Additional CSS classes.
    */
   className?: string;
 }
 
 /**
- * Encabezado de página que compone `Navbar`, `SearchBar` y título.
+ * Page header that composes `Navbar`, `SearchBar`, and title.
  *
  * @example
  * ```tsx
  * <Header
- *   logo={<Logo/>}
+ *   logo={<img src="/logo.svg" />}
  *   title="Dashboard"
  *   menuItems={[{label:'Home', href:'#'}]}
  *   onSearch={(q) => console.log(q)}
@@ -68,20 +68,18 @@ export const Header: React.FC<HeaderProps> = ({
   const headerClasses = [
     styles.header,
     styles[variant],
-    variant.startsWith('transparent') ? styles.transparent : '',
     className
   ].filter(Boolean).join(' ');
 
   return (
     <header className={headerClasses} {...props}>
-      {/* Navegación principal */}
+      {/* Main navigation */}
       <Navbar
         logo={logo}
         title={title}
         menuItems={menuItems}
         variant={variant}
       />
-      {/* Buscador superior */}
       <div className={styles.searchContainer}>
         <SearchBar
           onSearch={onSearch}
@@ -89,7 +87,7 @@ export const Header: React.FC<HeaderProps> = ({
           placeholder="Search..."
         />
       </div>
-      {/* Título de página semántico */}
+      {/* Semantic page title */}
       <Typography variant="h1" theme={variant} className={styles.pageTitle}>{title}</Typography>
     </header>
   );

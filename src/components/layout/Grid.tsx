@@ -2,8 +2,8 @@ import React from 'react';
 import styles from '@styles/Grid.module.css';
 
 /**
- * Props del componente `Grid`.
- * Sistema de grid flexible y responsive.
+ * Props for the `Grid` component.
+ * Flexible and responsive grid system.
  * 
  * @example
  * ```tsx
@@ -16,62 +16,62 @@ import styles from '@styles/Grid.module.css';
  */
 export interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
-   * Número de columnas.
+   * Number of columns.
    * @default 12
    */
   cols?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
   
   /**
-   * Espacio entre elementos.
+   * Space between elements.
    * @default 'normal'
    */
   gap?: 'none' | 'xs' | 'small' | 'normal' | 'large' | 'xl';
   
   /**
-   * Alineación horizontal de los items.
+   * Horizontal alignment of items.
    */
   justifyItems?: 'start' | 'center' | 'end' | 'stretch';
   
   /**
-   * Alineación vertical de los items.
+   * Vertical alignment of items.
    */
   alignItems?: 'start' | 'center' | 'end' | 'stretch';
   
   /**
-   * Grid responsive automático (adapta columnas según pantalla).
+   * Automatic responsive grid (adapts columns based on screen).
    */
   responsive?: boolean;
   
   /**
-   * Columnas en móvil (< 768px).
+   * Columns on mobile (< 768px).
    */
   colsMobile?: 1 | 2 | 3 | 4;
   
   /**
-   * Columnas en tablet (768px - 1024px).
+   * Columns on tablet (768px - 1024px).
    */
   colsTablet?: 1 | 2 | 3 | 4 | 5 | 6;
   
   /**
-   * Clases CSS adicionales.
+   * Additional CSS classes.
    */
   className?: string;
   
   /**
-   * Contenido del grid.
+   * Grid content.
    */
   children: React.ReactNode;
 }
 
 /**
- * Sistema de grid flexible y responsive.
+ * Flexible and responsive grid system.
  * 
- * Características:
- * - Hasta 12 columnas
- * - Gap personalizable
- * - Alineación flexible
- * - Responsive automático
- * - Control por breakpoint
+ * Features:
+ * - Up to 12 columns
+ * - Customizable gap
+ * - Flexible alignment
+ * - Automatic responsive
+ * - Breakpoint control
  */
 export const Grid = React.forwardRef<HTMLDivElement, GridProps>(({
   cols = 12,
@@ -108,46 +108,46 @@ export const Grid = React.forwardRef<HTMLDivElement, GridProps>(({
 Grid.displayName = 'Grid';
 
 /**
- * Props del componente `GridItem`.
- * Item individual del grid con control de span.
+ * Props for the `GridItem` component.
+ * Individual grid item with span control.
  */
 export interface GridItemProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
-   * Número de columnas que ocupa el item.
+   * Number of columns the item spans.
    * @default 1
    */
   colSpan?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 'full';
   
   /**
-   * Número de filas que ocupa el item.
+   * Number of rows the item spans.
    */
   rowSpan?: 1 | 2 | 3 | 4 | 5 | 6;
   
   /**
-   * Columna de inicio.
+   * Starting column.
    */
   colStart?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
   
   /**
-   * Fila de inicio.
+   * Starting row.
    */
   rowStart?: 1 | 2 | 3 | 4 | 5 | 6;
   
   /**
-   * Clases CSS adicionales.
+   * Additional CSS classes.
    */
   className?: string;
   
   /**
-   * Contenido del item.
+   * Item content.
    */
   children: React.ReactNode;
 }
 
 /**
- * Item individual del grid con control de span.
+ * Individual grid item with span control.
  * 
- * Permite controlar cuántas columnas/filas ocupa un elemento.
+ * Allows controlling how many columns/rows an element occupies.
  */
 export const GridItem = React.forwardRef<HTMLDivElement, GridItemProps>(({
   colSpan = 1,

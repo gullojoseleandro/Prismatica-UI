@@ -5,222 +5,222 @@ import { Typography } from '@components/typography/Typography';
 import styles from '@styles/LoginForm.module.css';
 
 /**
- * Props del componente `LoginForm`.
- * Formulario de login extremadamente personalizable con múltiples opciones de diseño.
+ * Props for the `LoginForm` component.
+ * Extremely customizable login form with multiple layout options.
  * 
  * @example
  * ```tsx
  * <LoginForm 
  *   variant="dark" 
  *   onSubmit={(e,p) => auth(e,p)}
- *   titulo="Bienvenido"
- *   subtitulo="Inicia sesión en tu cuenta"
+ *   title="Welcome Back"
+ *   subtitle="Sign in to your account"
  *   logo={<img src="/logo.svg" alt="Logo" />}
- *   imagenLateral="/background.jpg"
- *   mostrarOlvidePassword
- *   textoBoton="Iniciar Sesión"
+ *   sideImage="/background.jpg"
+ *   showForgotPassword
+ *   buttonText="Sign In"
  * />
  * ```
  */
 export interface LoginFormProps {
   /**
-   * Tema visual del formulario.
+   * Visual theme for the form.
    * @default 'light'
    */
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
   
   /**
-   * Callback con `email` y `password` al enviar.
+   * Callback with `email` and `password` on submit.
    */
   onSubmit: (email: string, password: string) => void;
   
   /**
-   * Clases CSS adicionales.
+   * Additional CSS classes.
    */
   className?: string;
   
   /**
-   * Título principal del formulario.
+   * Main title of the form.
    * @default 'Login'
    */
-  titulo?: string;
+  title?: string;
   
   /**
-   * Subtítulo o descripción debajo del título.
+   * Subtitle or description below the title.
    */
-  subtitulo?: string;
+  subtitle?: string;
   
   /**
-   * Logo o imagen a mostrar encima del título.
+   * Logo or image to display above the title.
    */
   logo?: React.ReactNode;
   
   /**
-   * Imagen o contenido a mostrar en el lado derecho del formulario.
+   * Image or content to display on the right side of the form.
    */
-  imagenLateral?: string | React.ReactNode;
+  sideImage?: string | React.ReactNode;
   
   /**
-   * Placeholder personalizado para el campo de email.
+   * Custom placeholder for the email field.
    * @default 'Email'
    */
-  placeholderEmail?: string;
+  emailPlaceholder?: string;
   
   /**
-   * Placeholder personalizado para el campo de contraseña.
+   * Custom placeholder for the password field.
    * @default 'Password'
    */
-  placeholderPassword?: string;
+  passwordPlaceholder?: string;
   
   /**
-   * Texto del botón de submit.
+   * Text for the submit button.
    * @default 'Log In'
    */
-  textoBoton?: string;
+  buttonText?: string;
   
   /**
-   * Mostrar enlace de "Olvidé mi contraseña".
+   * Show "Forgot Password" link.
    * @default true
    */
-  mostrarOlvidePassword?: boolean;
+  showForgotPassword?: boolean;
   
   /**
-   * Texto personalizado para el enlace de olvidé contraseña.
+   * Custom text for the forgot password link.
    * @default 'Forgot Password?'
    */
-  textoOlvidePassword?: string;
+  forgotPasswordText?: string;
   
   /**
-   * Callback al hacer click en "Olvidé mi contraseña".
+   * Callback when clicking "Forgot Password".
    */
-  onOlvidePassword?: () => void;
+  onForgotPassword?: () => void;
   
   /**
-   * Footer personalizado debajo del formulario.
+   * Custom footer below the form.
    */
   footer?: React.ReactNode;
   
   /**
-   * Mostrar divisor con texto "O continuar con".
+   * Show divider with "Or continue with" text.
    */
-  mostrarDivisorSocial?: boolean;
+  showSocialDivider?: boolean;
   
   /**
-   * Botones de redes sociales u otros métodos de autenticación.
+   * Social media buttons or other authentication methods.
    */
-  botonesRedesSociales?: React.ReactNode;
+  socialButtons?: React.ReactNode;
   
   /**
-   * Texto del divisor social.
-   * @default 'O continuar con'
+   * Text for the social divider.
+   * @default 'Or continue with'
    */
-  textoDivisorSocial?: string;
+  socialDividerText?: string;
   
   /**
-   * Mostrar checkbox de "Recordarme".
+   * Show "Remember me" checkbox.
    */
-  mostrarRecordarme?: boolean;
+  showRememberMe?: boolean;
   
   /**
-   * Texto del checkbox recordarme.
-   * @default 'Recordarme'
+   * Text for the remember me checkbox.
+   * @default 'Remember me'
    */
-  textoRecordarme?: string;
+  rememberMeText?: string;
   
   /**
-   * Callback cuando cambia el estado de recordarme.
+   * Callback when remember me state changes.
    */
-  onRecordarmeChange?: (recordar: boolean) => void;
+  onRememberMeChange?: (remember: boolean) => void;
   
   /**
-   * Deshabilitar el formulario (útil durante carga).
+   * Disable the form (useful during loading).
    */
-  deshabilitado?: boolean;
+  disabled?: boolean;
   
   /**
-   * Mostrar estado de carga en el botón.
+   * Show loading state on the button.
    */
-  cargando?: boolean;
+  loading?: boolean;
   
   /**
-   * Mensaje de error a mostrar.
+   * Error message to display.
    */
-  mensajeError?: string;
+  errorMessage?: string;
   
   /**
-   * Layout del formulario: 'centrado' o 'con-imagen-lateral'.
-   * @default 'centrado'
+   * Form layout: 'centered' or 'with-side-image'.
+   * @default 'centered'
    */
-  layout?: 'centrado' | 'con-imagen-lateral';
+  layout?: 'centered' | 'with-side-image';
 }
 
 /**
- * Formulario de login extremadamente personalizable.
+ * Extremely customizable login form component.
  * 
- * Características:
- * - Título, subtítulo y logo personalizables
- * - Imagen lateral opcional
- * - Botones de redes sociales
- * - Checkbox de recordarme
- * - Estados de carga y error
- * - Footer personalizable
- * - Múltiples layouts
+ * Features:
+ * - Customizable title, subtitle, and logo
+ * - Optional side image
+ * - Social media buttons
+ * - Remember me checkbox
+ * - Loading and error states
+ * - Customizable footer
+ * - Multiple layouts
  * 
- * Accesibilidad: usa `type="email"` y `type="password"` y `required`.
+ * Accessibility: uses `type="email"`, `type="password"`, and `required`.
  */
 export const LoginForm: React.FC<LoginFormProps> = ({
   variant = 'light',
   onSubmit,
   className,
-  titulo = 'Login',
-  subtitulo,
+  title = 'Login',
+  subtitle,
   logo,
-  imagenLateral,
-  placeholderEmail = 'Email',
-  placeholderPassword = 'Password',
-  textoBoton = 'Log In',
-  mostrarOlvidePassword = true,
-  textoOlvidePassword = 'Forgot Password?',
-  onOlvidePassword,
+  sideImage,
+  emailPlaceholder = 'Email',
+  passwordPlaceholder = 'Password',
+  buttonText = 'Log In',
+  showForgotPassword = true,
+  forgotPasswordText = 'Forgot Password?',
+  onForgotPassword,
   footer,
-  mostrarDivisorSocial = false,
-  botonesRedesSociales,
-  textoDivisorSocial = 'O continuar con',
-  mostrarRecordarme = false,
-  textoRecordarme = 'Recordarme',
-  onRecordarmeChange,
-  deshabilitado = false,
-  cargando = false,
-  mensajeError,
-  layout = 'centrado',
+  showSocialDivider = false,
+  socialButtons,
+  socialDividerText = 'Or continue with',
+  showRememberMe = false,
+  rememberMeText = 'Remember me',
+  onRememberMeChange,
+  disabled = false,
+  loading = false,
+  errorMessage,
+  layout = 'centered',
   ...props
 }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [recordarme, setRecordarme] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
 
-  // Manejo de envío: previene recarga y delega a la prop onSubmit
+  // Handle form submission: prevents reload and delegates to onSubmit prop
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!deshabilitado && !cargando) {
+    if (!disabled && !loading) {
       onSubmit(email, password);
     }
   };
 
-  // Manejo del checkbox recordarme
-  const handleRecordarmeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const nuevoValor = e.target.checked;
-    setRecordarme(nuevoValor);
-    if (onRecordarmeChange) {
-      onRecordarmeChange(nuevoValor);
+  // Handle remember me checkbox change
+  const handleRememberMeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = e.target.checked;
+    setRememberMe(newValue);
+    if (onRememberMeChange) {
+      onRememberMeChange(newValue);
     }
   };
 
-  // Manejo del enlace olvidé contraseña
-  const handleOlvidePassword = (e: React.MouseEvent) => {
+  // Handle forgot password link click
+  const handleForgotPassword = (e: React.MouseEvent) => {
     e.preventDefault();
-    if (onOlvidePassword) {
-      onOlvidePassword();
+    if (onForgotPassword) {
+      onForgotPassword();
     }
   };
 
@@ -236,87 +236,87 @@ export const LoginForm: React.FC<LoginFormProps> = ({
     styles[variant]
   ].filter(Boolean).join(' ');
 
-  // Contenido del formulario
-  const formularioContenido = (
+  // Form content
+  const formContent = (
     <form className={formClasses} onSubmit={handleSubmit} {...props}>
       {/* Logo */}
       {logo && <div className={styles.logoContainer}>{logo}</div>}
       
-      {/* Título y subtítulo */}
+      {/* Title and subtitle */}
       <div className={styles.headerContainer}>
-        <Typography variant="h2" theme={variant} className={styles.title}>
-          {titulo}
+        <Typography variant="h1" theme={variant} className={styles.title}>
+          {title}
         </Typography>
-        {subtitulo && (
-          <Typography variant="p" theme={variant} className={styles.subtitulo}>
-            {subtitulo}
+        {subtitle && (
+          <Typography variant="p" theme={variant} className={styles.subtitle}>
+            {subtitle}
           </Typography>
         )}
       </div>
 
-      {/* Mensaje de error */}
-      {mensajeError && (
+      {/* Error message */}
+      {errorMessage && (
         <div className={styles.errorMessage} role="alert">
-          <Typography variant="span" theme={variant}>
-            {mensajeError}
+          <Typography variant="p" theme={variant}>
+            {errorMessage}
           </Typography>
         </div>
       )}
 
-      {/* Campo de email */}
+      {/* Email field */}
       <div className={styles.inputGroup}>
         <Input
           type="email"
-          placeholder={placeholderEmail}
+          placeholder={emailPlaceholder}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           variant={variant}
           required
-          disabled={deshabilitado || cargando}
-          state={mensajeError ? 'error' : 'default'}
+          disabled={disabled || loading}
+          state={errorMessage ? 'error' : 'default'}
         />
       </div>
 
-      {/* Campo de contraseña */}
+      {/* Password field */}
       <div className={styles.inputGroup}>
         <Input
           type="password"
-          placeholder={placeholderPassword}
+          placeholder={passwordPlaceholder}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           variant={variant}
           required
-          disabled={deshabilitado || cargando}
-          state={mensajeError ? 'error' : 'default'}
+          disabled={disabled || loading}
+          state={errorMessage ? 'error' : 'default'}
         />
       </div>
 
-      {/* Recordarme y Olvidé contraseña */}
-      {(mostrarRecordarme || mostrarOlvidePassword) && (
+      {/* Remember me and Forgot password */}
+      {(showRememberMe || showForgotPassword) && (
         <div className={styles.optionsRow}>
-          {mostrarRecordarme && (
+          {showRememberMe && (
             <label className={styles.checkboxLabel}>
               <input
                 type="checkbox"
-                checked={recordarme}
-                onChange={handleRecordarmeChange}
-                disabled={deshabilitado || cargando}
+                checked={rememberMe}
+                onChange={handleRememberMeChange}
+                disabled={disabled || loading}
                 className={styles.checkbox}
               />
               <Typography variant="span" theme={variant} className={styles.checkboxText}>
-                {textoRecordarme}
+                {rememberMeText}
               </Typography>
             </label>
           )}
-          {mostrarOlvidePassword && (
+          {showForgotPassword && (
             <div className={styles.forgotPassword}>
               <Typography variant="span" theme={variant}>
                 <a 
                   href="#" 
                   className={styles.link}
-                  onClick={handleOlvidePassword}
+                  onClick={handleForgotPassword}
                 >
-                  {textoOlvidePassword}
+                  {forgotPasswordText}
                 </a>
               </Typography>
             </div>
@@ -324,35 +324,35 @@ export const LoginForm: React.FC<LoginFormProps> = ({
         </div>
       )}
 
-      {/* Botón de submit */}
+      {/* Submit button */}
       <Button 
         type="submit" 
         variant={variant} 
         className={styles.submitButton}
-        disabled={deshabilitado || cargando}
+        disabled={disabled || loading}
       >
-        {cargando ? 'Cargando...' : textoBoton}
+        {loading ? 'Loading...' : buttonText}
       </Button>
 
-      {/* Divisor social */}
-      {mostrarDivisorSocial && (
-        <div className={styles.divisorSocial}>
-          <span className={styles.divisorLinea}></span>
-          <Typography variant="span" theme={variant} className={styles.divisorTexto}>
-            {textoDivisorSocial}
+      {/* Social divider */}
+      {showSocialDivider && (
+        <div className={styles.socialDivider}>
+          <span className={styles.dividerLine}></span>
+          <Typography variant="span" theme={variant} className={styles.dividerText}>
+            {socialDividerText}
           </Typography>
-          <span className={styles.divisorLinea}></span>
+          <span className={styles.dividerLine}></span>
         </div>
       )}
 
-      {/* Botones de redes sociales */}
-      {botonesRedesSociales && (
-        <div className={styles.botonesRedesSociales}>
-          {botonesRedesSociales}
+      {/* Social media buttons */}
+      {socialButtons && (
+        <div className={styles.socialButtons}>
+          {socialButtons}
         </div>
       )}
 
-      {/* Footer personalizado */}
+      {/* Custom footer */}
       {footer && (
         <div className={styles.footer}>
           {footer}
@@ -361,28 +361,28 @@ export const LoginForm: React.FC<LoginFormProps> = ({
     </form>
   );
 
-  // Si hay imagen lateral, usar layout especial
-  if (layout === 'con-imagen-lateral' && imagenLateral) {
+  // If there's a side image, use special layout
+  if (layout === 'with-side-image' && sideImage) {
     return (
       <div className={containerClasses}>
         <div className={styles.formSection}>
-          {formularioContenido}
+          {formContent}
         </div>
-        <div className={styles.imagenLateralSection}>
-          {typeof imagenLateral === 'string' ? (
-            <img src={imagenLateral} alt="" className={styles.imagenLateral} />
+        <div className={styles.sideImageSection}>
+          {typeof sideImage === 'string' ? (
+            <img src={sideImage} alt="" className={styles.sideImage} />
           ) : (
-            imagenLateral
+            sideImage
           )}
         </div>
       </div>
     );
   }
 
-  // Layout centrado por defecto
+  // Centered layout by default
   return (
     <div className={containerClasses}>
-      {formularioContenido}
+      {formContent}
     </div>
   );
 };

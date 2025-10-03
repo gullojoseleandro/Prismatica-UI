@@ -1,61 +1,61 @@
 import React from 'react';
-import { Card } from '@components/card/Card';
 import { Button } from '@components/Button/Button';
 import { Typography } from '@components/typography/Typography';
+import { Card } from '@components/card/Card';
 import styles from '@styles/ProductCard.module.css';
 
 /**
- * Props del componente `ProductCard`.
- * - `name`: nombre del producto.
- * - `description`: descripción del producto.
- * - `price`: precio numérico (se formatea con 2 decimales).
- * - `image`: URL de imagen del producto.
- * - `variant`: tema visual.
- * - `className`: clases CSS adicionales.
- * - `onAddToCart`: callback al presionar "Add to Cart".
+ * Props for the `ProductCard` component.
+ * - `name`: product name.
+ * - `description`: product description.
+ * - `price`: numeric price (formatted with 2 decimals).
+ * - `image`: product image URL.
+ * - `onBuy`: callback when pressing the buy button.
+ * - `variant`: visual theme.
+ * - `className`: additional CSS classes.
  */
 export interface ProductCardProps {
   /**
-   * Nombre del producto.
+   * Product name.
    */
   name: string;
   /**
-   * Descripción del producto.
+   * Product description.
    */
   description: string;
   /**
-   * Precio numérico (se formatea con 2 decimales).
+   * Numeric price (formatted with 2 decimals).
    */
   price: number;
   /**
-   * URL de imagen del producto.
+   * Product image URL.
    */
   image: string;
   /**
-   * Tema visual.
+   * Visual theme.
    */
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
   /**
-   * Clases CSS adicionales.
+   * Additional CSS classes.
    */
   className?: string;
   /**
-   * Callback al presionar "Add to Cart".
+   * Callback when pressing "Buy".
    */
-  onAddToCart: () => void;
+  onBuy: () => void;
 }
 
 /**
- * Tarjeta de producto con imagen, nombre, descripción, precio y acción.
+ * Product card with image, name, description, price, and action.
  *
  * @example
  * ```tsx
  * <ProductCard
- *   name="Producto"
- *   description="Descripción corta"
- *   price={19.99}
- *   image="/img.png"
- *   onAddToCart={() => console.log('cart')}
+ *   name="Laptop"
+ *   description="High-performance portable computer"
+ *   price={1299.99}
+ *   image="/laptop.jpg"
+ *   onBuy={() => alert('Buy')}
  * />
  * ```
  */
@@ -66,7 +66,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   image,
   variant = 'light',
   className,
-  onAddToCart,
+  onBuy,
   ...props
 }) => {
   const cardClasses = [
@@ -85,8 +85,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         <Typography variant="h3" theme={variant} className={styles.name}>{name}</Typography>
         <Typography variant="p" theme={variant} className={styles.description}>{description}</Typography>
         <Typography variant="h4" theme={variant} className={styles.price}>${price.toFixed(2)}</Typography>
-        <Button variant={variant} onClick={onAddToCart} className={styles.addToCartButton}>
-          Add to Cart
+        <Button variant={variant} onClick={onBuy} className={styles.addToCartButton}>
+          Buy Now
         </Button>
       </div>
     </Card>

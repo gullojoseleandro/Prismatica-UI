@@ -3,118 +3,118 @@ import { Typography } from '@components/typography/Typography';
 import styles from '@styles/Button.module.css';
 
 /**
- * Props del componente `Button`.
- * Botón extremadamente personalizable con múltiples opciones.
+ * Props for the `Button` component.
+ * Extremely customizable button with multiple options.
  * 
  * @example
  * ```tsx
  * <Button
  *   variant="dark"
  *   size="large"
- *   iconoIzquierdo={<Save />}
- *   cargando={isLoading}
+ *   leftIcon={<Save />}
+ *   loading={isLoading}
  *   fullWidth
  * >
- *   Guardar Cambios
+ *   Save Changes
  * </Button>
  * ```
  */
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
-   * Tema visual del botón.
+   * Visual theme for the button.
    * @default 'light'
    */
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
   
   /**
-   * Tamaño del botón.
+   * Size of the button.
    * @default 'medium'
    */
   size?: 'small' | 'medium' | 'large';
   
   /**
-   * Animación del botón.
+   * Animation for the button.
    * @default 'none'
    */
   animation?: 'pulse' | 'shake' | 'glow' | 'wave' | 'none';
   
   /**
-   * Estilo del botón: 'solid', 'outline', 'ghost', 'link'.
+   * Button style: 'solid', 'outline', 'ghost', 'link'.
    * @default 'solid'
    */
   buttonStyle?: 'solid' | 'outline' | 'ghost' | 'link';
   
   /**
-   * Icono a mostrar a la izquierda del texto.
+   * Icon to display on the left side of the text.
    */
-  iconoIzquierdo?: React.ReactNode;
+  leftIcon?: React.ReactNode;
   
   /**
-   * Icono a mostrar a la derecha del texto.
+   * Icon to display on the right side of the text.
    */
-  iconoDerecho?: React.ReactNode;
+  rightIcon?: React.ReactNode;
   
   /**
-   * Estado de carga. Muestra un spinner y deshabilita el botón.
+   * Loading state. Shows a spinner and disables the button.
    */
-  cargando?: boolean;
+  loading?: boolean;
   
   /**
-   * Texto a mostrar durante la carga.
+   * Text to display during loading.
    */
-  textoCargando?: string;
+  loadingText?: string;
   
   /**
-   * Icono personalizado para el estado de carga.
+   * Custom icon for the loading state.
    */
-  iconoCargando?: React.ReactNode;
+  loadingIcon?: React.ReactNode;
   
   /**
-   * Botón de ancho completo.
+   * Full width button.
    */
   fullWidth?: boolean;
   
   /**
-   * Botón circular (solo icono, sin texto).
+   * Circular button (icon only, no text).
    */
   circular?: boolean;
   
   /**
-   * Forma del botón: 'rounded', 'square', 'pill'.
+   * Button shape: 'rounded', 'square', 'pill'.
    * @default 'rounded'
    */
-  forma?: 'rounded' | 'square' | 'pill';
+  shape?: 'rounded' | 'square' | 'pill';
   
   /**
-   * Color personalizado del botón: 'primary', 'secondary', 'success', 'danger', 'warning', 'info'.
+   * Semantic color for the button: 'primary', 'secondary', 'success', 'danger', 'warning', 'info'.
    */
   color?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
   
   /**
-   * Mostrar sombra.
+   * Show shadow.
    */
-  conSombra?: boolean;
+  withShadow?: boolean;
   
   /**
-   * Grupo de botones (para estilos especiales cuando están juntos).
+   * Button group (for special styles when together).
    */
-  enGrupo?: boolean;
+  inGroup?: boolean;
 }
 
 /**
- * Botón extremadamente personalizable.
+ * Extremely customizable button component.
  * 
- * Características:
- * - Múltiples variantes y estilos (solid, outline, ghost, link)
- * - Iconos a izquierda y derecha
- * - Estado de carga con spinner
- * - Colores semánticos (success, danger, warning, etc.)
- * - Formas personalizables (rounded, square, pill, circular)
- * - Ancho completo opcional
- * - Animaciones
- * - Totalmente accesible
+ * Features:
+ * - Multiple variants and styles (solid, outline, ghost, link)
+ * - Left and right icons
+ * - Loading state with spinner
+ * - Semantic colors (success, danger, warning, etc.)
+ * - Customizable shapes (rounded, square, pill, circular)
+ * - Optional full width
+ * - Animations
+ * - Fully accessible
  * 
- * @returns Elemento `<button>` estilizado y accesible.
+ * @returns Styled and accessible `<button>` element.
  */
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({ 
   children,
@@ -122,47 +122,47 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({
   size = 'medium',
   animation = 'none',
   buttonStyle = 'solid',
-  iconoIzquierdo,
-  iconoDerecho,
-  cargando = false,
-  textoCargando,
-  iconoCargando,
+  leftIcon,
+  rightIcon,
+  loading = false,
+  loadingText,
+  loadingIcon,
   fullWidth = false,
   circular = false,
-  forma = 'rounded',
+  shape = 'rounded',
   color,
-  conSombra = false,
-  enGrupo = false,
+  withShadow = false,
+  inGroup = false,
   className,
   disabled,
   type = 'button',
   ...props
 }, ref) => {
-  // El botón está deshabilitado si está cargando o disabled
-  const estaDeshabilitado = disabled || cargando;
+  // Button is disabled if loading or disabled
+  const isDisabled = disabled || loading;
   
-  // Spinner por defecto para carga
-  const spinnerPorDefecto = (
+  // Default spinner for loading
+  const defaultSpinner = (
     <svg className={styles.spinner} viewBox="0 0 24 24" fill="none">
       <circle className={styles.spinnerCircle} cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3"/>
     </svg>
   );
   
-  // Construcción de clases dinámicas
+  // Build dynamic classes
   const buttonClasses = [
     styles.button,
     styles[variant],
     styles[size],
     styles[buttonStyle],
-    styles[forma],
+    styles[shape],
     color && styles[`color-${color}`],
     animation !== 'none' && styles[`animate-${animation}`],
     fullWidth && styles.fullWidth,
     circular && styles.circular,
-    conSombra && styles.conSombra,
-    enGrupo && styles.enGrupo,
-    estaDeshabilitado && styles.disabled,
-    cargando && styles.cargando,
+    withShadow && styles.conSombra,
+    inGroup && styles.enGrupo,
+    isDisabled && styles.disabled,
+    loading && styles.cargando,
     className
   ].filter(Boolean).join(' ');
 
@@ -170,43 +170,50 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({
     <button 
       ref={ref} 
       className={buttonClasses} 
-      disabled={estaDeshabilitado} 
+      disabled={isDisabled} 
       type={type}
-      aria-busy={cargando}
+      aria-busy={loading}
       {...props}
     >
-      {/* Contenido del botón */}
-      <span className={styles.contenido}>
-        {/* Icono de carga */}
-        {cargando && (
-          <span className={styles.iconoCargandoWrapper}>
-            {iconoCargando || spinnerPorDefecto}
+      {/* Button content */}
+      <span className={styles.content}>
+        {/* Loading icon */}
+        {loading && (
+          <span className={styles.loadingIconWrapper}>
+            {loadingIcon || defaultSpinner}
           </span>
         )}
         
-        {/* Icono izquierdo */}
-        {!cargando && iconoIzquierdo && (
-          <span className={styles.iconoIzquierdo}>
-            {iconoIzquierdo}
+        {/* Left icon */}
+        {!loading && leftIcon && (
+          <span className={styles.leftIcon}>
+            {leftIcon}
           </span>
         )}
         
-        {/* Texto del botón */}
-        {!circular && (
-          <Typography variant="span" theme={variant} className={styles.texto}>
-            {cargando && textoCargando ? textoCargando : children}
-          </Typography>
+        {/* Button text */}
+        {!loading && children && (
+          <span className={styles.text}>
+            {children}
+          </span>
         )}
         
-        {/* Icono derecho */}
-        {!cargando && iconoDerecho && (
-          <span className={styles.iconoDerecho}>
-            {iconoDerecho}
+        {/* Loading text */}
+        {loading && loadingText && (
+          <span className={styles.text}>
+            {loadingText}
+          </span>
+        )}
+        
+        {/* Right icon */}
+        {!loading && rightIcon && (
+          <span className={styles.rightIcon}>
+            {rightIcon}
           </span>
         )}
       </span>
       
-      {/* Elemento decorativo para animación wave */}
+      {/* Wave animation */}
       {animation === 'wave' && <span className={styles.wave} aria-hidden="true"></span>}
     </button>
   );

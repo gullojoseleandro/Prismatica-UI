@@ -3,22 +3,24 @@ import { Typography } from '@components/typography/Typography';
 import styles from '@styles/Toggle.module.css';
 
 /**
- * Props del componente `Toggle`.
- * - Extiende atributos de `<input>` (excepto `type`).
- * - `variant`: tema visual.
- * - `label`: texto opcional al lado del switch.
+ * Props for the `Toggle` component.
+ * - Extends `<input>` attributes (except `type`).
+ * - `variant`: visual theme.
+ * - `label`: optional text next to the switch.
+ * - `className`: additional CSS classes.
  */
 export interface ToggleProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
   label?: string;
+  className?: string;
 }
 
 /**
- * Interruptor (switch) accesible basado en `<input type="checkbox">`.
+ * Toggle switch component.
  *
  * @example
  * ```tsx
- * <Toggle checked={activo} onChange={(e) => setActivo(e.target.checked)} label="Activo" />
+ * <Toggle checked={active} onChange={(e) => setActive(e.target.checked)} label="Active" />
  * ```
  */
 export const Toggle: React.FC<ToggleProps> = ({
@@ -35,11 +37,11 @@ export const Toggle: React.FC<ToggleProps> = ({
 
   return (
     <label className={toggleClasses}>
-      {/* El input de tipo checkbox es el que realmente hace el Trabajo */}
+      {/* The checkbox input is what actually does the work */}
       <input type="checkbox" {...props} />
-      {/* El span es el que se encarga de dibujar el switch */}
+      {/* The span is responsible for drawing the switch */}
       <span className={styles.slider}></span>
-      {/* El label es el que se encarga de mostrar el texto */}
+      {/* The label displays the text */}
       {label && <Typography variant="span" className={styles.label}>{label}</Typography>}
     </label>
   );

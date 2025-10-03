@@ -3,9 +3,9 @@ import { Typography } from '@components/typography/Typography';
 import styles from '@styles/Tabs.module.css';
 
 /**
- * Ítem individual de pestaña.
- * - `label`: texto del tab.
- * - `content`: contenido asociado al tab.
+ * Individual tab item.
+ * - `label`: tab text.
+ * - `content`: content associated with the tab.
  */
 export interface TabItem {
   label: string;
@@ -13,10 +13,10 @@ export interface TabItem {
 }
 
 /**
- * Props del componente `Tabs`.
- * - `items`: lista de pestañas a mostrar.
- * - `variant`: tema visual.
- * - `className`: clases CSS adicionales.
+ * Props for the `Tabs` component.
+ * - `items`: list of tabs to display.
+ * - `variant`: visual theme.
+ * - `className`: additional CSS classes.
  */
 export interface TabsProps {
   items: TabItem[];
@@ -25,13 +25,13 @@ export interface TabsProps {
 }
 
 /**
- * Componente de pestañas accesible con soporte de teclado.
- * - Usa roles ARIA: `tablist`, `tab`, `tabpanel`.
- * - Teclas soportadas: Flechas, Home, End.
+ * Accessible tabs component with keyboard support.
+ * - Uses ARIA roles: `tablist`, `tab`, `tabpanel`.
+ * - Supported keys: Arrows, Home, End.
  *
  * @example
  * ```tsx
- * <Tabs items={[{label:'Uno', content:'A'},{label:'Dos', content:'B'}]} />
+ * <Tabs items={[{label:'One', content:'A'},{label:'Two', content:'B'}]} />
  * ```
  */
 export const Tabs: React.FC<TabsProps> = ({
@@ -43,7 +43,7 @@ export const Tabs: React.FC<TabsProps> = ({
   const instanceId = useId();
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Navegación por teclado entre pestañas
+  // Keyboard navigation between tabs
   const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     const lastIndex = items.length - 1;
     if (e.key === 'ArrowRight') {

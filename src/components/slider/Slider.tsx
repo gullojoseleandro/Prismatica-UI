@@ -3,13 +3,13 @@ import { Input } from '@components/input/Input';
 import styles from '@styles/Slider.module.css';
 
 /**
- * Props del componente `Slider`.
- * - `min`: valor mínimo del rango.
- * - `max`: valor máximo del rango.
- * - `value`: valor actual.
- * - `onChange`: callback con el nuevo valor numérico.
- * - `variant`: tema visual.
- * - `className`: clases CSS adicionales.
+ * Props for the `Slider` component.
+ * - `min`: minimum range value.
+ * - `max`: maximum range value.
+ * - `value`: current value.
+ * - `onChange`: callback when value changes.
+ * - `variant`: visual theme.
+ * - `className`: additional CSS classes.
  */
 export interface SliderProps {
   min: number;
@@ -21,11 +21,11 @@ export interface SliderProps {
 }
 
 /**
- * Control deslizante basado en `<input type="range">` estilizado.
+ * Slider control based on styled `<input type="range">`.
  *
  * @example
  * ```tsx
- * <Slider min={0} max={100} value={50} onChange={setValor} />
+ * <Slider min={0} max={100} value={50} onChange={setValue} />
  * ```
  */
 export const Slider: React.FC<SliderProps> = ({
@@ -54,7 +54,7 @@ export const Slider: React.FC<SliderProps> = ({
         className={styles.sliderInput}
         {...props}
       />
-      {/* Valor actual mostrado a la derecha */}
+      {/* Current value displayed on the right */}
       <div className={styles.sliderValue}>{value}</div>
     </div>
   );

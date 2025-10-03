@@ -4,44 +4,44 @@ import { Typography } from '@components/typography/Typography';
 import styles from '@styles/UserProfile.module.css';
 
 /**
- * Props del componente `UserProfile`.
- * - `name`: nombre del usuario.
- * - `email`: correo del usuario.
- * - `avatar`: URL de imagen de avatar.
- * - `bio`: descripción breve del usuario.
- * - `variant`: tema visual.
- * - `className`: clases CSS adicionales.
+ * Props for the `UserProfile` component.
+ * - `name`: user's name.
+ * - `email`: user's email.
+ * - `avatar`: avatar image URL.
+ * - `bio`: brief user description.
+ * - `variant`: visual theme.
+ * - `className`: additional CSS classes.
  */
 export interface UserProfileProps {
   /**
-   * Nombre del usuario.
+   * User's name.
    */
   name: string;
   /**
-   * Correo del usuario.
+   * User's email.
    */
   email: string;
   /**
-   * URL de imagen de avatar.
+   * Avatar image URL.
    */
   avatar: string;
   /**
-   * Descripción breve del usuario.
+   * Brief user description.
    */
   bio: string;
   /**
-   * Tema visual.
+   * Visual theme.
    * @default 'light'
    */
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
   /**
-   * Clases CSS adicionales.
+   * Additional CSS classes.
    */
   className?: string;
 }
 
 /**
- * Tarjeta de perfil de usuario con avatar, datos básicos y acciones.
+ * User profile card with avatar, basic data, and actions.
  *
  * @example
  * ```tsx
@@ -49,7 +49,7 @@ export interface UserProfileProps {
  *   name="Ada Lovelace"
  *   email="ada@example.com"
  *   avatar="/ada.png"
- *   bio="Pionera de la programación"
+ *   bio="Programming pioneer"
  * />
  * ```
  */

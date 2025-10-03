@@ -4,87 +4,87 @@ import { Button } from '@components/Button/Button';
 import styles from '@styles/Alert.module.css';
 
 /**
- * Props del componente `Alert`.
- * Mensaje de alerta o notificación destacada.
+ * Props for the `Alert` component.
+ * Alert or highlighted notification message.
  * 
  * @example
  * ```tsx
  * <Alert
- *   tipo="success"
- *   titulo="¡Éxito!"
- *   mensaje="La operación se completó correctamente"
- *   cerrable
+ *   type="success"
+ *   title="Success!"
+ *   message="The operation completed successfully"
+ *   closable
  * />
  * ```
  */
 export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
-   * Tipo de alerta.
+   * Alert type.
    * @default 'info'
    */
-  tipo?: 'success' | 'error' | 'warning' | 'info';
+  type?: 'success' | 'error' | 'warning' | 'info';
   
   /**
-   * Título de la alerta.
+   * Alert title.
    */
-  titulo?: string;
+  title?: string;
   
   /**
-   * Mensaje de la alerta.
+   * Alert message.
    */
-  mensaje?: string;
+  message?: string;
   
   /**
-   * Contenido personalizado (reemplaza mensaje).
+   * Custom content (replaces message).
    */
   children?: React.ReactNode;
   
   /**
-   * Icono personalizado.
+   * Custom icon.
    */
-  icono?: React.ReactNode;
+  icon?: React.ReactNode;
   
   /**
-   * Mostrar icono por defecto.
+   * Show default icon.
    * @default true
    */
-  mostrarIcono?: boolean;
+  showIcon?: boolean;
   
   /**
-   * Permitir cerrar la alerta.
+   * Allow closing the alert.
    */
-  cerrable?: boolean;
+  closable?: boolean;
   
   /**
-   * Callback al cerrar.
+   * Callback on close.
    */
   onClose?: () => void;
   
   /**
-   * Variante de estilo.
+   * Style variant.
    * @default 'filled'
    */
   variant?: 'filled' | 'outlined' | 'subtle';
   
   /**
-   * Acciones personalizadas (botones).
+   * Custom actions (buttons).
    */
-  acciones?: React.ReactNode;
+  actions?: React.ReactNode;
   
   /**
-   * Tema visual.
+   * Visual theme.
    * @default 'light'
    */
   theme?: 'light' | 'dark';
   
   /**
-   * Clases CSS adicionales.
+   * Additional CSS classes.
    */
   className?: string;
 }
 
 /**
- * Iconos por defecto para cada tipo.
+ * Default icons for each type.
  */
 const defaultIcons = {
   success: (
@@ -117,27 +117,27 @@ const defaultIcons = {
 };
 
 /**
- * Alert - Mensaje de alerta o notificación destacada.
+ * Alert - Alert or highlighted notification message.
  * 
- * Características:
- * - 4 tipos: success, error, warning, info
- * - 3 variantes: filled, outlined, subtle
- * - Iconos personalizables
- * - Cerrable
- * - Acciones personalizadas
- * - Totalmente accesible
+ * Features:
+ * - 4 types: success, error, warning, info
+ * - 3 variants: filled, outlined, subtle
+ * - Customizable icons
+ * - Closable
+ * - Custom actions
+ * - Fully accessible
  */
 export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(({
-  tipo = 'info',
-  titulo,
-  mensaje,
+  type = 'info',
+  title,
+  message,
   children,
-  icono,
-  mostrarIcono = true,
-  cerrable = false,
+  icon,
+  showIcon = true,
+  closable = false,
   onClose,
   variant = 'filled',
-  acciones,
+  actions,
   theme = 'light',
   className,
   ...props
@@ -155,13 +155,13 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(({
 
   const alertClasses = [
     styles.alert,
-    styles[tipo],
+    styles[type],
     styles[variant],
     styles[theme],
     className
   ].filter(Boolean).join(' ');
 
-  const iconToShow = icono || defaultIcons[tipo];
+  const iconToShow = icon || defaultIcons[type];
 
   return (
     <div
@@ -170,40 +170,40 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(({
       role="alert"
       {...props}
     >
-      {mostrarIcono && (
+      {showIcon && (
         <div className={styles.iconContainer}>
           {iconToShow}
         </div>
       )}
       
-      <div className={styles.contenido}>
-        {titulo && (
-          <Typography variant="h4" theme={theme} className={styles.titulo}>
-            {titulo}
+      <div className={styles.content}>
+        {title && (
+          <Typography variant="h4" theme={theme} className={styles.title}>
+            {title}
           </Typography>
         )}
-        {mensaje && (
-          <Typography variant="p" theme={theme} className={styles.mensaje}>
-            {mensaje}
+        {message && (
+          <Typography variant="p" theme={theme} className={styles.message}>
+            {message}
           </Typography>
         )}
         {children}
         
-        {acciones && (
-          <div className={styles.acciones}>
-            {acciones}
+        {actions && (
+          <div className={styles.actions}>
+            {actions}
           </div>
         )}
       </div>
       
-      {cerrable && (
+      {closable && (
         <Button
           size="small"
           buttonStyle="ghost"
           circular
           onClick={handleClose}
           className={styles.closeButton}
-          aria-label="Cerrar alerta"
+          aria-label="Close alert"
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <line x1="18" y1="6" x2="6" y2="18"/>

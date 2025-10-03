@@ -3,26 +3,29 @@ import { Typography } from '@components/typography/Typography';
 import styles from '@styles/Chip.module.css';
 
 /**
- * Props del componente `Chip`.
- * - `label`: texto visible del chip.
- * - `onDelete`: callback opcional al presionar eliminar.
- * - `variant`: tema visual.
- * - `className`: clases adicionales.
+ * Props for the `Chip` component.
+ * - `label`: visible chip text.
+ * - `onDelete`: optional callback when pressing delete.
+ * - `variant`: visual theme.
+ * - `className`: additional CSS classes.
  */
 export interface ChipProps {
   label: string;
   onDelete?: () => void;
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
+  /**
+   * Additional CSS classes.
+   */
   className?: string;
 }
 
 /**
- * `Chip` muestra una etiqueta breve con opción de eliminar.
+ * `Chip` displays a brief label with delete option.
  *
- * @returns Un contenedor con etiqueta y, opcionalmente, botón de borrado.
+ * @returns A container with label and, optionally, delete button.
  * @example
  * ```tsx
- * <Chip label="Etiqueta" variant="holographic" onDelete={() => console.log('borrar')} />
+ * <Chip label="Tag" variant="holographic" onDelete={() => console.log('delete')} />
  * ```
  */
 export const Chip: React.FC<ChipProps> = ({
@@ -32,7 +35,7 @@ export const Chip: React.FC<ChipProps> = ({
   className,
   ...props
 }) => {
-  // Clases dinámicas por tema
+  // Dynamic classes by theme
   const chipClasses = [
     styles.chip,
     styles[variant],

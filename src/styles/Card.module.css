@@ -10,37 +10,36 @@
   flex-direction: column;
 }
 
-/* ===== IMAGEN ===== */
-.imagenContainer {
+/* ===== IMAGE ===== */
+.imageContainer {
   width: 100%;
   overflow: hidden;
   flex-shrink: 0;
 }
 
-.imagen {
+.image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
 
-.hoverable:hover .imagen {
+.card:hover .image {
   transform: scale(1.05);
 }
 
-/*Orientaciones de imagen */
-.imagen-left, .imagen-right {
+/* Image orientations */
+.image-left, .image-right {
   flex-direction: row;
 }
 
-.imagen-left .imagenContainer {
+.image-left .imageContainer {
   width: 40%;
-  height: auto;
+  order: 1;
 }
 
-.imagen-right .imagenContainer {
+.image-right .imageContainer {
   width: 40%;
-  height: auto;
   order: 2;
 }
 
@@ -54,91 +53,84 @@
   border-bottom: 1px solid rgba(128, 128, 128, 0.2);
 }
 
-.headerContenido {
+.headerContent {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
   flex: 1;
 }
 
-.icono {
+.icon {
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
 }
 
-.headerTextos {
+.headerTexts {
   flex: 1;
 }
 
-.titulo {
+.title {
   margin: 0;
   font-size: 1.25rem;
   font-weight: 700;
 }
 
-.subtitulo {
-  margin: 0.5rem 0 0;
-  opacity: 0.7;
+.subtitle {
+  margin: 0;
   font-size: 0.9rem;
 }
 
-.accionesHeader {
+.headerActions {
   display: flex;
   gap: 0.5rem;
 }
 
-/* ===== CONTENIDO ===== */
-.contenido {
+/* ===== CONTENT ===== */
+.content {
   flex: 1;
   font-size: 1rem;
   line-height: 1.6;
 }
 
-/* ===== FOOTER ===== */
 .footer {
   padding: 1rem 1.5rem;
   border-top: 1px solid rgba(128, 128, 128, 0.2);
 }
 
 /* ===== PADDING ===== */
-.padding-none .contenido {
+.padding-none .content {
   padding: 0;
 }
 
-.padding-small .contenido {
+.padding-small .content {
   padding: 1rem;
 }
 
-.padding-normal .contenido {
+.padding-normal .content {
   padding: 1.5rem;
 }
 
-.padding-large .contenido {
+.padding-large .content {
   padding: 2rem;
 }
 
-/* ===== EFECTOS ===== */
-.conSombra {
+/* ===== EFFECTS ===== */
+.withShadow {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.hoverable {
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
 .hoverable:hover {
-  transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
 }
 
-.clickeable {
+.clickable {
   cursor: pointer;
 }
 
-/* ===== BORDES DE COLOR ===== */
+/* ===== COLOR BORDERS ===== */
 .borde-primary {
   border-left: 4px solid #007bff;
 }
@@ -163,7 +155,7 @@
   border-left: 4px solid #17a2b8;
 }
 
-/* ===== TEMAS ===== */
+/* ===== THEMES ===== */
 .light {
   border-color: #e5e7eb;
   color: #000;

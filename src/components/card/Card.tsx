@@ -3,200 +3,200 @@ import { Typography } from '@components/typography/Typography';
 import styles from '@styles/Card.module.css';
 
 /**
- * Props del componente `Card`.
- * Tarjeta extremadamente personalizable con múltiples opciones.
+ * Props for the `Card` component.
+ * Extremely customizable card with multiple options.
  * 
  * @example
  * ```tsx
  * <Card
  *   variant="dark"
- *   titulo="Mi Tarjeta"
- *   subtitulo="Descripción breve"
- *   imagen="/imagen.jpg"
- *   footer={<Button>Acción</Button>}
- *   conSombra
+ *   title="My Card"
+ *   subtitle="Brief description"
+ *   image="/image.jpg"
+ *   footer={<Button>Action</Button>}
+ *   withShadow
  *   hoverable
  * >
- *   Contenido de la tarjeta
+ *   Card content
  * </Card>
  * ```
  */
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
-   * Contenido principal de la tarjeta.
+   * Main content of the card.
    */
   children: React.ReactNode;
   
   /**
-   * Tema visual.
+   * Visual theme.
    * @default 'light'
    */
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
   
   /**
-   * Título del card.
+   * Card title.
    */
-  titulo?: string;
+  title?: string;
   
   /**
-   * Subtítulo o descripción.
+   * Subtitle or description.
    */
-  subtitulo?: string;
+  subtitle?: string;
   
   /**
-   * Imagen a mostrar en la parte superior.
+   * Image to display at the top.
    */
-  imagen?: string | React.ReactNode;
+  image?: string | React.ReactNode;
   
   /**
-   * Altura de la imagen.
+   * Image height.
    * @default '200px'
    */
-  alturaImagen?: string;
+  imageHeight?: string;
   
   /**
-   * Header personalizado (reemplaza título y subtítulo).
+   * Custom header (replaces title and subtitle).
    */
   header?: React.ReactNode;
   
   /**
-   * Footer personalizado.
+   * Custom footer.
    */
   footer?: React.ReactNode;
   
   /**
-   * Icono a mostrar junto al título.
+   * Icon to display next to the title.
    */
-  icono?: React.ReactNode;
+  icon?: React.ReactNode;
   
   /**
-   * Acciones a mostrar en el header (botones, menús, etc.).
+   * Actions to display in the header (buttons, menus, etc.).
    */
-  accionesHeader?: React.ReactNode;
+  headerActions?: React.ReactNode;
   
   /**
-   * Mostrar sombra.
+   * Show shadow.
    */
-  conSombra?: boolean;
+  withShadow?: boolean;
   
   /**
-   * Efecto hover (elevación).
+   * Hover effect (elevation).
    */
   hoverable?: boolean;
   
   /**
-   * Card clickeable (cursor pointer).
+   * Clickable card (cursor pointer).
    */
-  clickeable?: boolean;
+  clickable?: boolean;
   
   /**
-   * Borde de color.
+   * Border color.
    */
-  colorBorde?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
+  borderColor?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
   
   /**
-   * Padding del contenido.
+   * Content padding.
    * @default 'normal'
    */
   padding?: 'none' | 'small' | 'normal' | 'large';
   
   /**
-   * Orientación de la imagen.
+   * Image orientation.
    * @default 'top'
    */
-  orientacionImagen?: 'top' | 'left' | 'right';
+  imageOrientation?: 'top' | 'left' | 'right';
   
   /**
-   * Clases CSS adicionales.
+   * Additional CSS classes.
    */
   className?: string;
 }
 
 /**
- * Tarjeta extremadamente personalizable.
+ * Extremely customizable card component.
  * 
- * Características:
- * - Header y footer personalizables
- * - Imagen con múltiples orientaciones
- * - Iconos y acciones en el header
- * - Efectos hover y sombras
- * - Bordes de colores semánticos
- * - Padding ajustable
- * - Totalmente responsive
+ * Features:
+ * - Customizable header and footer
+ * - Image with multiple orientations
+ * - Icons and actions in the header
+ * - Hover effects and shadows
+ * - Semantic color borders
+ * - Adjustable padding
+ * - Fully responsive
  *
- * @returns Contenedor `<div>` estilizado.
+ * @returns Styled `<div>` container.
  */
 export const Card = React.forwardRef<HTMLDivElement, CardProps>(({ 
   children,
   variant = 'light',
-  titulo,
-  subtitulo,
-  imagen,
-  alturaImagen = '200px',
+  title,
+  subtitle,
+  image,
+  imageHeight = '200px',
   header,
   footer,
-  icono,
-  accionesHeader,
-  conSombra = false,
+  icon,
+  headerActions,
+  withShadow = false,
   hoverable = false,
-  clickeable = false,
-  colorBorde,
+  clickable = false,
+  borderColor,
   padding = 'normal',
-  orientacionImagen = 'top',
+  imageOrientation = 'top',
   className,
   ...props
 }, ref) => {
-  // Clases dinámicas
+  // Dynamic classes
   const cardClasses = [
     styles.card,
     styles[variant],
     styles[`padding-${padding}`],
-    styles[`imagen-${orientacionImagen}`],
-    conSombra && styles.conSombra,
+    styles[`imagen-${imageOrientation}`],
+    withShadow && styles.conSombra,
     hoverable && styles.hoverable,
-    clickeable && styles.clickeable,
-    colorBorde && styles[`borde-${colorBorde}`],
+    clickable && styles.clickeable,
+    borderColor && styles[`borde-${borderColor}`],
     className
   ].filter(Boolean).join(' ');
 
   return (
     <div ref={ref} className={cardClasses} {...props}>
-      {/* Imagen */}
-      {imagen && (
-        <div className={styles.imagenContainer} style={{ height: alturaImagen }}>
-          {typeof imagen === 'string' ? (
-            <img src={imagen} alt="" className={styles.imagen} />
+      {/* Image */}
+      {image && (
+        <div className={styles.imagenContainer} style={{ height: imageHeight }}>
+          {typeof image === 'string' ? (
+            <img src={image} alt="" className={styles.imagen} />
           ) : (
-            imagen
+            image
           )}
         </div>
       )}
       
-      {/* Header personalizado o por defecto */}
-      {(header || titulo || subtitulo) && (
+      {/* Custom header or default */}
+      {(header || title || subtitle) && (
         <div className={styles.header}>
           {header ? (
             header
           ) : (
             <>
-              <div className={styles.headerContenido}>
-                {icono && <div className={styles.icono}>{icono}</div>}
-                <div className={styles.headerTextos}>
-                  {titulo && (
-                    <Typography variant="h3" theme={variant} className={styles.titulo}>
-                      {titulo}
+              <div className={styles.headerContent}>
+                {icon && <div className={styles.icon}>{icon}</div>}
+                <div className={styles.headerTexts}>
+                  {title && (
+                    <Typography variant="h3" theme={variant} className={styles.title}>
+                      {title}
                     </Typography>
                   )}
-                  {subtitulo && (
-                    <Typography variant="p" theme={variant} className={styles.subtitulo}>
-                      {subtitulo}
+                  {subtitle && (
+                    <Typography variant="p" theme={variant} className={styles.subtitle}>
+                      {subtitle}
                     </Typography>
                   )}
                 </div>
               </div>
-              {accionesHeader && (
-                <div className={styles.accionesHeader}>
-                  {accionesHeader}
+              {headerActions && (
+                <div className={styles.headerActions}>
+                  {headerActions}
                 </div>
               )}
             </>
@@ -204,8 +204,8 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(({
         </div>
       )}
       
-      {/* Contenido */}
-      <div className={styles.contenido}>{children}</div>
+      {/* Content */}
+      <div className={styles.content}>{children}</div>
       
       {/* Footer */}
       {footer && (

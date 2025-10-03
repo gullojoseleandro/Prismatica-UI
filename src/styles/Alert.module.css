@@ -4,36 +4,24 @@
   align-items: flex-start;
   gap: 1rem;
   padding: 1rem 1.25rem;
-  border-radius: 8px;
-  border: 1px solid;
-  position: relative;
-}
-
-/* ===== CONTENIDO ===== */
-.iconContainer {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
   height: 24px;
 }
 
-.contenido {
+.content {
   flex: 1;
 }
 
-.titulo {
+.title {
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
-.mensaje {
+.message {
   font-size: 0.9rem;
   line-height: 1.5;
 }
 
-.acciones {
+.actions {
   display: flex;
   gap: 0.5rem;
   margin-top: 0.75rem;
@@ -44,7 +32,7 @@
   margin-left: auto;
 }
 
-/* ===== VARIANTES ===== */
+/* ===== VARIANTS ===== */
 
 /* Filled */
 .filled.success {

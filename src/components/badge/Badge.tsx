@@ -3,109 +3,113 @@ import { Typography } from '@components/typography/Typography';
 import styles from '@styles/Badge.module.css';
 
 /**
- * Props del componente `Badge`.
- * - `variant`: tema visual del badge.
- * - `color`: color semántico adicional.
- * - `children`: contenido interno (texto o nodos React).
- * - `className`: clases CSS extra.
+ * Props for the `Badge` component.
+ * Label to display information or status.
+ * 
+ * @example
+ * ```tsx
+ * <Badge color="success">Active</Badge>
+ * <Badge color="danger" dot>3</Badge>
+ * <Badge variant="outline">New</Badge>
+ * ```
  */
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   /**
-   * Contenido del badge.
+   * Badge content.
    */
   children: React.ReactNode;
 
   /**
-   * Color del badge.
+   * Badge color.
    * @default 'primary'
    */
   color?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'neutral';
 
   /**
-   * Variante del badge.
+   * Badge variant.
    * @default 'solid'
    */
   variant?: 'solid' | 'outline' | 'subtle';
 
   /**
-   * Tamaño del badge.
+   * Badge size.
    * @default 'medium'
    */
   size?: 'small' | 'medium' | 'large';
 
   /**
-   * Forma del badge.
+   * Badge shape.
    * @default 'rounded'
    */
-  forma?: 'rounded' | 'pill' | 'square';
+  shape?: 'rounded' | 'pill' | 'square';
 
   /**
-   * Mostrar punto indicador.
+   * Show dot indicator.
    */
   dot?: boolean;
 
   /**
-   * Icono a mostrar.
+   * Icon to display.
    */
-  icono?: React.ReactNode;
+  icon?: React.ReactNode;
 
   /**
-   * Posición del icono.
+   * Icon position.
    * @default 'left'
    */
-  posicionIcono?: 'left' | 'right';
+  iconPosition?: 'left' | 'right';
 
   /**
-   * Hacer el badge clickeable.
+   * Make the badge clickable.
    */
-  clickeable?: boolean;
+  clickable?: boolean;
 
   /**
-   * Callback al hacer click.
+   * Callback on click.
    */
   onClick?: () => void;
 
   /**
-   * Mostrar botón de cerrar.
+   * Show close button.
    */
-  removible?: boolean;
+  removable?: boolean;
 
   /**
-   * Callback al remover.
+   * Callback on remove.
    */
   onRemove?: () => void;
 
   /**
-   * Clases CSS adicionales.
+   * Additional CSS classes.
    */
   className?: string;
 }
 
 /**
- * Badge - Etiqueta para mostrar información o estado.
+ * Badge - Label to display information or status.
  * 
- * Características:
- * - 7 colores semánticos
- * - 3 variantes (solid, outline, subtle)
- * - 3 tamaños
- * - Formas personalizables
- * - Punto indicador
- * - Iconos
- * - Removible
- * - Clickeable
+ * Features:
+ * - 7 semantic colors
+ * - 3 variants (solid, outline, subtle)
+ * - 3 sizes
+ * - Customizable shapes
+ * - Dot indicator
+ * - Icons
+ * - Removable
+ * - Clickable
  */
 export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(({
   children,
   color = 'primary',
   variant = 'solid',
   size = 'medium',
-  forma = 'rounded',
+  shape = 'rounded',
   dot = false,
-  icono,
-  posicionIcono = 'left',
-  clickeable = false,
+  icon,
+  iconPosition = 'left',
+  clickable = false,
   onClick,
-  removible = false,
+  removable = false,
   onRemove,
   className,
   ...props
@@ -115,8 +119,8 @@ export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(({
     styles[`color-${color}`],
     styles[variant],
     styles[size],
-    styles[forma],
-    (clickeable || onClick) && styles.clickeable,
+    styles[shape],
+    (clickable || onClick) && styles.clickable,
     className
   ].filter(Boolean).join(' ');
 
@@ -143,20 +147,20 @@ export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(({
       {...props}
     >
       {dot && <span className={styles.dot} />}
-      {icono && posicionIcono === 'left' && (
-        <span className={styles.icono}>{icono}</span>
+      {icon && iconPosition === 'left' && (
+        <span className={styles.icon}>{icon}</span>
       )}
-      <Typography variant="span" className={styles.texto}>
+      <Typography variant="span" className={styles.text}>
         {children}
       </Typography>
-      {icono && posicionIcono === 'right' && (
-        <span className={styles.icono}>{icono}</span>
+      {icon && iconPosition === 'right' && (
+        <span className={styles.icon}>{icon}</span>
       )}
-      {removible && (
+      {removable && (
         <button
           className={styles.removeButton}
           onClick={handleRemove}
-          aria-label="Remover"
+          aria-label="Remove"
           type="button"
         >
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

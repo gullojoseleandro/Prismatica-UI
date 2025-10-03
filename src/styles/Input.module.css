@@ -1,4 +1,4 @@
-/* ===== CONTENEDOR PRINCIPAL ===== */
+/* ===== MAIN CONTAINER ===== */
 .inputContainer {
   display: flex;
   flex-direction: column;
@@ -10,22 +10,21 @@
 .label {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.25rem;
   font-size: 0.9rem;
   font-weight: 600;
   margin-bottom: 0.25rem;
 }
 
-.labelTexto {
+.labelText {
   display: flex;
   align-items: center;
   gap: 0.25rem;
 }
 
-.requerido {
+.required {
   color: #dc3545;
-  font-weight: 700;
-  margin-left: 0.15rem;
+  margin-left: 0.25rem;
 }
 
 .tooltip {
@@ -78,113 +77,130 @@
   opacity: 0.5;
 }
 
-/* Con iconos */
-.conIconoIzquierdo .input {
+/* With icons */
+.withLeftIcon .input {
   padding-left: 2.75rem;
 }
-
-.conIconoDerecho .input {
+.withRightIcon .input {
   padding-right: 2.75rem;
 }
 
-/* ===== ICONOS ===== */
-.iconoIzquierdo,
-.iconoDerecho {
+/* ===== ICONS ===== */
+.leftIcon,
+.rightIcon {
   position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 100%;
   pointer-events: none;
-  opacity: 0.6;
+  color: rgba(128, 128, 128, 0.6);
+  transition: color 0.2s ease;
 }
 
-.iconoIzquierdo {
+.inputWrapper:focus-within .leftIcon,
+.inputWrapper:focus-within .rightIcon {
+  color: currentColor;
+}
+
+.leftIcon {
   left: 0;
 }
 
-.iconoDerecho {
+.rightIcon {
   right: 0;
 }
 
-.iconoIzquierdo svg,
-.iconoDerecho svg {
+.leftIcon svg,
+.rightIcon svg {
   width: 20px;
   height: 20px;
 }
 
-/* ===== MENSAJES ===== */
-.mensaje {
+/* ===== MESSAGES ===== */
+.message {
   font-size: 0.85rem;
   margin-top: 0.25rem;
   padding: 0.5rem 0.75rem;
-  border-radius: 6px;
-  animation: slideIn 0.3s ease;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.message svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
 }
 
-.mensaje-default {
+.message::before {
+  content: '';
+  width: 3px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 4px 0 0 4px;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.message:hover::before {
+  opacity: 1;
+}
+
+.message-default {
   color: rgba(128, 128, 128, 0.8);
 }
 
-.mensaje-error {
+.message-error {
   background-color: rgba(220, 53, 69, 0.1);
   border-left: 3px solid #dc3545;
   color: #dc3545;
 }
 
-.mensaje-warning {
+.message-warning {
   background-color: rgba(255, 193, 7, 0.1);
   border-left: 3px solid #ffc107;
   color: #f39c12;
 }
 
-.mensaje-success {
+.message-success {
   background-color: rgba(40, 167, 69, 0.1);
   border-left: 3px solid #28a745;
   color: #28a745;
 }
-
-/* ===== CONTADOR ===== */
-.contador {
+/* ===== COUNTER ===== */
+.counter {
   text-align: right;
   font-size: 0.8rem;
   opacity: 0.6;
   margin-top: 0.25rem;
 }
 
-/* ===== TAMAÑOS ===== */
+/* ===== SIZES ===== */
 .small .input {
   padding: 0.5rem 0.75rem;
   font-size: 0.875rem;
 }
 
-.small.conIconoIzquierdo .input {
+.small.withLeftIcon .input {
   padding-left: 2.25rem;
 }
 
-.small.conIconoDerecho .input {
+.small.withRightIcon .input {
   padding-right: 2.25rem;
 }
 
-.small .iconoIzquierdo,
-.small .iconoDerecho {
+.small .leftIcon,
+.small .rightIcon {
   width: 2rem;
 }
 
-.small .iconoIzquierdo svg,
-.small .iconoDerecho svg {
+.small .leftIcon svg,
+.small .rightIcon svg {
   width: 16px;
   height: 16px;
 }
@@ -194,26 +210,26 @@
   font-size: 1.125rem;
 }
 
-.large.conIconoIzquierdo .input {
-  padding-left: 3.25rem;
+.large.withLeftIcon .input {
+  padding-left: 3.5rem;
 }
 
-.large.conIconoDerecho .input {
-  padding-right: 3.25rem;
+.large.withRightIcon .input {
+  padding-right: 3.5rem;
 }
 
-.large .iconoIzquierdo,
-.large .iconoDerecho {
+.large .leftIcon,
+.large .rightIcon {
   width: 3rem;
 }
 
-.large .iconoIzquierdo svg,
-.large .iconoDerecho svg {
+.large .leftIcon svg,
+.large .rightIcon svg {
   width: 24px;
   height: 24px;
 }
 
-/* ===== ESTADOS ===== */
+/* ===== STATES ===== */
 .default {
   border-color: rgba(128, 128, 128, 0.3);
 }
@@ -249,7 +265,7 @@
   box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
 }
 
-/* ===== TEMAS ===== */
+/* ===== THEMES ===== */
 
 /* Light theme */
 .light {
@@ -289,7 +305,7 @@
   background-color: #2d3748;
 }
 
-.dark .mensaje-default {
+.dark .message-default {
   color: rgba(255, 255, 255, 0.6);
 }
 
@@ -351,7 +367,7 @@
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.transparent-dark .mensaje-default {
+.transparent-dark .message-default {
   color: rgba(255, 255, 255, 0.6);
 }
 

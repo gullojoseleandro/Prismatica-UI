@@ -1,4 +1,4 @@
-/* ===== CONTENEDOR PRINCIPAL ===== */
+/* ===== MAIN CONTAINER ===== */
 .loginFormContainer {
   display: flex;
   justify-content: center;
@@ -8,13 +8,13 @@
   padding: 2rem;
 }
 
-/* Layout centrado */
-.loginFormContainer.centrado {
+/* Centered layout */
+.loginFormContainer.centered {
   flex-direction: column;
 }
 
-/* Layout con imagen lateral */
-.loginFormContainer.con-imagen-lateral {
+/* Layout with side image */
+.loginFormContainer.with-side-image {
   flex-direction: row;
   gap: 2rem;
   max-width: 1200px;
@@ -22,12 +22,12 @@
 }
 
 @media (max-width: 768px) {
-  .loginFormContainer.con-imagen-lateral {
+  .loginFormContainer.with-side-image {
     flex-direction: column;
   }
 }
 
-/* ===== FORMULARIO ===== */
+/* ===== FORM ===== */
 .loginForm {
   max-width: 450px;
   width: 100%;
@@ -54,7 +54,7 @@
   height: auto;
 }
 
-/* ===== HEADER (TÍTULO Y SUBTÍTULO) ===== */
+/* ===== HEADER (TITLE AND SUBTITLE) ===== */
 .headerContainer {
   text-align: center;
   margin-bottom: 2rem;
@@ -66,14 +66,14 @@
   font-weight: 700;
 }
 
-.subtitulo {
+.subtitle {
   margin-top: 0.5rem;
   opacity: 0.8;
   font-size: 0.95rem;
   line-height: 1.5;
 }
 
-/* ===== MENSAJE DE ERROR ===== */
+/* ===== ERROR MESSAGE ===== */
 .errorMessage {
   padding: 0.75rem 1rem;
   margin-bottom: 1.5rem;
@@ -101,7 +101,7 @@
   margin-bottom: 1.25rem;
 }
 
-/* ===== OPCIONES (RECORDARME Y OLVIDÉ contrASEÑA) ===== */
+/* ===== OPTIONS (REMEMBER ME AND FORGOT PASSWORD) ===== */
 .optionsRow {
   display: flex;
   justify-content: space-between;
@@ -146,7 +146,7 @@
   text-decoration: underline;
 }
 
-/* ===== BOTÓN DE SUBMIT ===== */
+/* ===== SUBMIT BUTTON ===== */
 .submitButton {
   width: 100%;
   margin-top: 0.5rem;
@@ -155,28 +155,28 @@
   font-size: 1rem;
 }
 
-/* ===== DIVISOR SOCIAL ===== */
-.divisorSocial {
+/* ===== SOCIAL DIVIDER ===== */
+.socialDivider {
   display: flex;
   align-items: center;
   gap: 1rem;
   margin: 2rem 0 1.5rem;
 }
 
-.divisorLinea {
+.dividerLine {
   flex: 1;
   height: 1px;
   background-color: rgba(128, 128, 128, 0.3);
 }
 
-.divisorTexto {
+.dividerText {
   font-size: 0.85rem;
   opacity: 0.7;
   white-space: nowrap;
 }
 
-/* ===== BOTONES DE REDES SOCIALES ===== */
-.botonesRedesSociales {
+/* ===== SOCIAL BUTTONS ===== */
+.socialButtons {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -191,7 +191,7 @@
   text-align: center;
 }
 
-/* ===== SECCIÓN DE IMAGEN LATERAL ===== */
+/* ===== SIDE IMAGE SECTION ===== */
 .formSection {
   flex: 1;
   display: flex;
@@ -199,7 +199,7 @@
   align-items: center;
 }
 
-.imagenLateralSection {
+.sideImageSection {
   flex: 1;
   display: flex;
   justify-content: center;
@@ -209,7 +209,7 @@
   overflow: hidden;
 }
 
-.imagenLateral {
+.sideImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -217,12 +217,12 @@
 }
 
 @media (max-width: 768px) {
-  .imagenLateralSection {
+  .sideImageSection {
     min-height: 300px;
   }
 }
 
-/* ===== TEMAS ===== */
+/* ===== THEMES ===== */
 
 /* Light theme */
 .light .loginForm {

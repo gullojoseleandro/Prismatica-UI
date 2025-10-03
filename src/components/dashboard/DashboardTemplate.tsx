@@ -7,9 +7,9 @@ import { Typography } from '@components/typography/Typography';
 import styles from '@styles/DashboardTemplate.module.css';
 
 /**
- * Props del componente `DashboardTemplate`.
- * - `variant`: tema visual global del dashboard.
- * - `className`: clases CSS adicionales.
+ * Props for the `DashboardTemplate` component.
+ * - `variant`: global visual theme of the dashboard.
+ * - `className`: additional CSS classes.
  */
 export interface DashboardTemplateProps {
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
@@ -17,8 +17,8 @@ export interface DashboardTemplateProps {
 }
 
 /**
- * Plantilla de Dashboard con `Header`, `Sidebar` y contenido principal.
- * Incluye secciones de Overview, Recent Activity y Quick Actions.
+ * Dashboard template with `Header`, `Sidebar`, and main content.
+ * Includes Overview, Recent Activity, and Quick Actions sections.
  *
  * @example
  * ```tsx
@@ -32,63 +32,59 @@ export const DashboardTemplate: React.FC<DashboardTemplateProps> = ({
 }) => {
   const dashboardClasses = [
     styles.dashboard,
-    styles[variant],
     className
   ].filter(Boolean).join(' ');
 
   return (
     <div className={dashboardClasses} {...props}>
-      {/* Encabezado con navegación y búsqueda */}
+      {/* Header with navigation and search */}
       <Header
         logo={<div className={styles.logo}>FutureUI</div>}
         title="Dashboard"
         menuItems={[
-          { label: 'Home', href: '#' },
-          { label: 'Analytics', href: '#' },
-          { label: 'Settings', href: '#' },
+          { label: 'Overview', href: '#overview' },
+          { label: 'Analytics', href: '#analytics' },
+          { label: 'Settings', href: '#settings' },
         ]}
         onSearch={(query) => console.log('Search:', query)}
         variant={variant}
       />
-      {/* Layout principal con barra lateral y contenido */}
-      <div className={styles.content}>
+      <div className={styles.layout}>
+        {/* Sidebar with side navigation */}
         <Sidebar
           items={[
-            { label: 'Overview', icon: '📊' , href: '#' },
-            { label: 'Users', icon: '👥' , href: '#' },
-            { label: 'Products', icon: '📦' , href: '#' },
-            { label: 'Orders', icon: '🛒' , href: '#' },
+            { label: 'Dashboard', href: '#', icon: '📊' },
+            { label: 'Reports', href: '#', icon: '📈' },
+            { label: 'Users', href: '#', icon: '👥' },
           ]}
           variant={variant}
         />
         <main className={styles.main}>
-          {/* Sección: Overview con tarjetas de estadísticas */}
+          {/* Section: Overview with statistics cards */}
           <section className={styles.overview}>
             <Typography variant="h2">Overview</Typography>
             <div className={styles.statsGrid}>
-              {['Total Users', 'Total Products', 'Total Orders', 'Revenue'].map((stat, index) => (
+              {['Total Users', 'Revenue', 'Active Sessions'].map((stat, index) => (
                 <Card key={index} variant={variant} className={styles.statCard}>
                   <Typography variant="h3">{stat}</Typography>
-                  <Typography variant="h4">{Math.floor(Math.random() * 10000)}</Typography>
+                  <Typography variant="h1">{(index + 1) * 1000}</Typography>
                 </Card>
               ))}
             </div>
           </section>
-          {/* Sección: Actividad reciente */}
+          {/* Section: Recent activity */}
           <section className={styles.recentActivity}>
             <Typography variant="h2">Recent Activity</Typography>
             <Card variant={variant} className={styles.activityList}>
-              {['User signup', 'New order', 'Product update', 'Payment received'].map((activity, index) => (
+              {['User logged in', 'New order placed', 'Report generated'].map((activity, index) => (
                 <div key={index} className={styles.activityItem}>
                   <Typography variant="p">{activity}</Typography>
-                  <Typography variant="span" className={styles.activityTime}>
-                    {new Date().toLocaleTimeString()}
-                  </Typography>
+                  <Typography variant="span" className={styles.timestamp}>2 hours ago</Typography>
                 </div>
               ))}
             </Card>
           </section>
-          {/* Sección: Acciones rápidas */}
+          {/* Section: Quick actions */}
           <section className={styles.quickActions}>
             <Typography variant="h2">Quick Actions</Typography>
             <div className={styles.actionButtons}>

@@ -3,10 +3,10 @@ import { Typography } from '@components/typography/Typography';
 import styles from '@styles/Sidebar.module.css';
 
 /**
- * Item de la barra lateral.
- * - `label`: texto del ítem.
- * - `icon`: ícono opcional a mostrar.
- * - `href`: enlace de navegación.
+ * Individual sidebar item.
+ * - `label`: item text.
+ * - `icon`: optional icon to display.
+ * - `href`: navigation link.
  */
 export interface SidebarItem {
   label: string;
@@ -15,10 +15,10 @@ export interface SidebarItem {
 }
 
 /**
- * Props del componente `Sidebar`.
- * - `items`: lista de ítems a renderizar.
- * - `variant`: tema visual.
- * - `className`: clases CSS adicionales.
+ * Props for the `Sidebar` component.
+ * - `items`: list of items to render.
+ * - `variant`: visual theme.
+ * - `className`: additional CSS classes.
  */
 export interface SidebarProps {
   items: SidebarItem[];
@@ -27,7 +27,7 @@ export interface SidebarProps {
 }
 
 /**
- * Barra lateral navegable.
+ * Navigable sidebar.
  *
  * @example
  * ```tsx
@@ -50,7 +50,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   ].filter(Boolean).join(' ');
 
   return (
-    // Contenedor de navegación lateral
+    // Side navigation container
     <nav className={sidebarClasses} {...props}>
       <ul className={styles.sidebarList}>
         {items.map((item, index) => (

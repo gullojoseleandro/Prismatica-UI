@@ -2,212 +2,212 @@ import React from 'react';
 import styles from '@styles/Avatar.module.css';
 
 /**
- * Props del componente `Avatar`.
- * Avatar extremadamente personalizable con múltiples opciones.
+ * Props for the `Avatar` component.
+ * Extremely customizable avatar with multiple options.
  *
  * @example
  * ```tsx
  * <Avatar
  *   src="/user.png"
- *   alt="Juan Pérez"
+ *   alt="John Doe"
  *   size="large"
  *   badge={<span>3</span>}
  *   status="online"
- *   forma="square"
- *   conBorde
+ *   shape="square"
+ *   withBorder
  * />
  * ```
  */
 export interface AvatarProps {
   /**
-   * URL de la imagen o iniciales como fallback.
+   * Image URL or initials as fallback.
    */
   src?: string;
   
   /**
-   * Texto alternativo accesible.
+   * Accessible alt text.
    */
   alt: string;
   
   /**
-   * Tamaño del avatar.
+   * Avatar size.
    * @default 'medium'
    */
   size?: 'xs' | 'small' | 'medium' | 'large' | 'xl';
   
   /**
-   * Tema visual.
+   * Visual theme.
    * @default 'light'
    */
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
   
   /**
-   * Forma del avatar.
+   * Avatar shape.
    * @default 'circle'
    */
-  forma?: 'circle' | 'square' | 'rounded';
+  shape?: 'circle' | 'square' | 'rounded';
   
   /**
-   * Indicador de estado (online, offline, busy, away).
+   * Status indicator (online, offline, busy, away).
    */
   status?: 'online' | 'offline' | 'busy' | 'away';
   
   /**
-   * Badge o notificación a mostrar.
+   * Badge or notification to display.
    */
   badge?: React.ReactNode;
   
   /**
-   * Posición del badge.
+   * Badge position.
    * @default 'top-right'
    */
-  posicionBadge?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
+  badgePosition?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
   
   /**
-   * Mostrar borde.
+   * Show border.
    */
-  conBorde?: boolean;
+  withBorder?: boolean;
   
   /**
-   * Color del borde.
+   * Border color.
    */
-  colorBorde?: string;
+  borderColor?: string;
   
   /**
-   * Grosor del borde.
+   * Border thickness.
    * @default '2px'
    */
-  grosorBorde?: string;
+  borderWidth?: string;
   
   /**
-   * Icono a mostrar en lugar de imagen.
+   * Icon to display instead of image.
    */
-  icono?: React.ReactNode;
+  icon?: React.ReactNode;
   
   /**
-   * Iniciales a mostrar si no hay imagen.
+   * Initials to display if no image.
    */
-  iniciales?: string;
+  initials?: string;
   
   /**
-   * Callback al hacer click.
+   * Callback on click.
    */
   onClick?: () => void;
   
   /**
-   * Avatar clickeable.
+   * Clickable avatar.
    */
-  clickeable?: boolean;
+  clickable?: boolean;
   
   /**
-   * Grupo de avatares (para apilar).
+   * Avatar group (for stacking).
    */
-  enGrupo?: boolean;
+  inGroup?: boolean;
   
   /**
-   * Clases CSS adicionales.
+   * Additional CSS classes.
    */
   className?: string;
 }
 
 /**
- * Avatar extremadamente personalizable.
+ * Extremely customizable avatar component.
  * 
- * Características:
- * - Múltiples tamaños y formas
- * - Indicadores de estado (online, offline, etc.)
- * - Badges personalizables
- * - Fallback a iniciales o icono
- * - Bordes personalizables
- * - Clickeable
- * - Apilable en grupos
- * - Totalmente accesible
+ * Features:
+ * - Multiple sizes and shapes
+ * - Status indicators (online, offline, etc.)
+ * - Fallback to initials or icon
+ * - Customizable borders
+ * - Clickable
+ * - Stackable in groups
+ * - Fully accessible
+ * - Customizable background color
  */
 export const Avatar: React.FC<AvatarProps> = ({
   src,
   alt,
   size = 'medium',
   variant = 'light',
-  forma = 'circle',
+  shape = 'circle',
   status,
   badge,
-  posicionBadge = 'top-right',
-  conBorde = false,
-  colorBorde,
-  grosorBorde = '2px',
-  icono,
-  iniciales,
+  badgePosition = 'top-right',
+  withBorder = false,
+  borderColor,
+  borderWidth = '2px',
+  icon,
+  initials,
   onClick,
-  clickeable = false,
-  enGrupo = false,
+  clickable = false,
+  inGroup = false,
   className,
   ...props
 }) => {
-  const [imagenError, setImagenError] = React.useState(false);
+  const [imageError, setImageError] = React.useState(false);
   
-  // Generar iniciales desde alt si no se proporcionan
-  const obtenerIniciales = () => {
-    if (iniciales) return iniciales;
+  // Generate initials from alt if not provided
+  const getInitials = () => {
+    if (initials) return initials;
     return alt
       .split(' ')
-      .map(palabra => palabra[0])
+      .map(word => word[0])
       .join('')
       .toUpperCase()
       .slice(0, 2);
   };
   
-  // Construcción de clases dinámicas
+  // Build dynamic classes
   const avatarClasses = [
     styles.avatar,
     styles[size],
     styles[variant],
-    styles[forma],
-    conBorde && styles.conBorde,
-    (clickeable || onClick) && styles.clickeable,
-    enGrupo && styles.enGrupo,
+    styles[shape],
+    withBorder && styles.withBorder,
+    (clickable || onClick) && styles.clickable,
+    inGroup && styles.inGroup,
     className
   ].filter(Boolean).join(' ');
   
-  const estilosPersonalizados: React.CSSProperties = {};
-  if (conBorde && colorBorde) {
-    estilosPersonalizados.borderColor = colorBorde;
-    estilosPersonalizados.borderWidth = grosorBorde;
+  const customStyles: React.CSSProperties = {};
+  if (withBorder && borderColor) {
+    customStyles.borderColor = borderColor;
+    customStyles.borderWidth = borderWidth;
   }
 
   return (
     <div 
       className={avatarClasses} 
       onClick={onClick}
-      style={estilosPersonalizados}
+      style={customStyles}
       role={onClick ? 'button' : undefined}
       tabIndex={onClick ? 0 : undefined}
       {...props}
     >
-      {/* Contenido del avatar */}
-      {src && !imagenError ? (
+      {/* Avatar content */}
+      {src && !imageError ? (
         <img 
           src={src} 
           alt={alt} 
           className={styles.avatarImage}
-          onError={() => setImagenError(true)}
+          onError={() => setImageError(true)}
         />
-      ) : icono ? (
-        <div className={styles.avatarIcono}>{icono}</div>
+      ) : icon ? (
+        <div className={styles.avatarIcon}>{icon}</div>
       ) : (
-        <div className={styles.avatarIniciales}>{obtenerIniciales()}</div>
+        <div className={styles.avatarInitials}>{getInitials()}</div>
       )}
       
-      {/* Indicador de estado */}
+      {/* Status indicator */}
       {status && (
         <span 
           className={`${styles.statusIndicator} ${styles[`status-${status}`]}`}
-          aria-label={`Estado: ${status}`}
+          aria-label={`Status: ${status}`}
         />
       )}
       
       {/* Badge */}
       {badge && (
-        <span className={`${styles.badge} ${styles[`badge-${posicionBadge}`]}`}>
+        <span className={`${styles.badge} ${styles[`badge-${badgePosition}`]}`}>
           {badge}
         </span>
       )}

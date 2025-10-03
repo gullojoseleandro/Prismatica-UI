@@ -3,44 +3,44 @@ import { Button } from '@components/Button/Button';
 import styles from '@styles/Pagination.module.css';
 
 /**
- * Props del componente `Pagination`.
- * - `currentPage`: página actual (1-indexed).
- * - `totalPages`: total de páginas.
- * - `onPageChange`: callback al cambiar de página.
- * - `variant`: tema visual.
- * - `className`: clases CSS adicionales.
+ * Props for the `Pagination` component.
+ * - `currentPage`: current page (1-indexed).
+ * - `totalPages`: total pages.
+ * - `onPageChange`: callback when page changes.
+ * - `variant`: visual theme.
+ * - `className`: additional CSS classes.
  */
 export interface PaginationProps {
   /**
-   * Página actual (1-indexed).
+   * Current page (1-indexed).
    */
   currentPage: number;
   /**
-   * Total de páginas.
+   * Total pages.
    */
   totalPages: number;
   /**
-   * Callback al cambiar de página.
-   * @param page Nueva página.
+   * Callback when page changes.
+   * @param page New page.
    */
   onPageChange: (page: number) => void;
   /**
-   * Tema visual.
+   * Visual theme.
    * @default 'light'
    */
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
   /**
-   * Clases CSS adicionales.
+   * Additional CSS classes.
    */
   className?: string;
 }
 
 /**
- * Navegación paginada con botones anterior/siguiente y ventana de páginas.
+ * Paginated navigation with previous/next buttons and page window.
  *
  * @example
  * ```tsx
- * <Pagination currentPage={2} totalPages={10} onPageChange={(p) => setPagina(p)} />
+ * <Pagination currentPage={2} totalPages={10} onPageChange={(p) => setPage(p)} />
  * ```
  */
 export const Pagination: React.FC<PaginationProps> = ({
@@ -57,7 +57,7 @@ export const Pagination: React.FC<PaginationProps> = ({
     className
   ].filter(Boolean).join(' ');
 
-  // Renderiza números con bordes (1, actual±1, último) e inserta elipsis
+  // Renders numbers with edges (1, current±1, last) and inserts ellipsis
   const renderPageNumbers = () => {
     const pageNumbers = [];
     for (let i = 1; i <= totalPages; i++) {

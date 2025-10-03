@@ -1,20 +1,28 @@
 .badge {
-    display: inline-block;
-    padding: 0.25em 0.4em;
-    font-size: 75%;
-    font-weight: 600;
-    line-height: 1;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: baseline;
-    border-radius: 0.25rem;
-  }
-  
-  /* Light theme */
-  .light {
-    background-color: #f8f9fa;
-    color: #212529;
-  }
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease;
+}
+
+/* ===== ICON ===== */
+.icon {
+  display: flex;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+}
+
+/* Light theme */
+.light {
+  background-color: #f8f9fa;
+  color: #212529;
+}
   
   .light.primary { background-color: #007bff; color: #fff; }
   .light.success { background-color: #28a745; color: #fff; }

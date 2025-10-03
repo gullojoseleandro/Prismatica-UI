@@ -35,7 +35,7 @@
   }
 }
 
-/* ===== POSICIONES ===== */
+/* ===== POSITIONS ===== */
 .top-left { top: 1rem; left: 1rem; }
 .top-center { top: 1rem; left: 50%; transform: translateX(-50%); }
 .top-right { top: 1rem; right: 1rem; }
@@ -43,7 +43,7 @@
 .bottom-center { bottom: 1rem; left: 50%; transform: translateX(-50%); }
 .bottom-right { bottom: 1rem; right: 1rem; }
 
-/* ===== CONTENIDO ===== */
+/* ===== CONTENT ===== */
 .iconContainer {
   flex-shrink: 0;
   display: flex;
@@ -53,21 +53,21 @@
   height: 24px;
 }
 
-.contenido {
+.content {
   flex: 1;
 }
 
-.titulo {
+.title {
   font-weight: 600;
   margin-bottom: 0.25rem;
 }
 
-.mensaje {
+.message {
   font-size: 0.9rem;
   opacity: 0.9;
 }
 
-.accionButton {
+.actionButton {
   margin-top: 0.5rem;
 }
 
@@ -76,7 +76,7 @@
   margin-left: auto;
 }
 
-/* ===== TIPOS ===== */
+/* ===== TYPES ===== */
 .success {
   background-color: #d4edda;
   border-left: 4px solid #28a745;
@@ -101,7 +101,7 @@
   color: #0c5460;
 }
 
-/* ===== TEMAS ===== */
+/* ===== THEMES ===== */
 .dark.success { background-color: rgba(40, 167, 69, 0.2); color: #4dff88; }
 .dark.error { background-color: rgba(220, 53, 69, 0.2); color: #ff6b7a; }
 .dark.warning { background-color: rgba(255, 193, 7, 0.2); color: #ffd54f; }

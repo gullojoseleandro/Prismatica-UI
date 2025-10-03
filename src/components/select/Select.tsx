@@ -2,23 +2,23 @@ import React from 'react';
 import styles from '@styles/Select.module.css';
 
 /**
- * Props del componente `Select`.
- * - `variant`: tema visual.
- * - `inputSize`: tamaño visual (small, medium, large).
- * - `state`: estado visual (default, error, warning).
- * - `options`: opciones a renderizar con `value` y `label`.
- * - Extiende atributos nativos de `<select>`.
+ * Props for the `Select` component.
+ * - `variant`: visual theme.
+ * - `inputSize`: visual size (small, medium, large).
+ * - `state`: visual state (default, error, warning).
+ * - `className`: additional CSS classes.
  */
 export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
   inputSize?: 'small' | 'medium' | 'large';
   state?: 'default' | 'error' | 'warning';
+  className?: string;
   options: Array<{ value: string; label: string }>;
 }
 
 /**
- * Select estilizado con variantes y tamaños.
- * Marca aria-invalid cuando state = 'error' (sobrescribible).
+ * Styled select with variants and sizes.
+ * Marks aria-invalid when state = 'error' (overridable).
  *
  * @example
  * ```tsx
@@ -37,7 +37,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(({
   className,
   ...props
 }, ref) => {
-  // Clases dinámicas por tema, tamaño y estado visual
+  // Dynamic classes by theme, size, and visual state
   const selectClasses = [
     styles.select,
     styles[variant],

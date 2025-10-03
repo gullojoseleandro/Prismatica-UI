@@ -2,123 +2,123 @@ import React from 'react';
 import styles from '@styles/Input.module.css';
 
 /**
- * Props del componente `Input`.
- * Campo de entrada extremadamente personalizable con múltiples opciones.
+ * Props for the `Input` component.
+ * Extremely customizable input field with multiple options.
  * 
  * @example
  * ```tsx
  * <Input
- *   label="Correo electrónico"
- *   placeholder="tu@email.com"
+ *   label="Email"
+ *   placeholder="your@email.com"
  *   variant="dark"
  *   inputSize="large"
- *   iconoIzquierdo={<Mail />}
- *   mensajeAyuda="Ingresa tu correo registrado"
+ *   leftIcon={<Mail />}
+ *   helpMessage="Enter your registered email"
  *   required
  * />
  * ```
  */
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   /**
-   * Tema visual del input.
+   * Visual theme for the input.
    * @default 'light'
    */
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
   
   /**
-   * Tamaño del input.
+   * Size of the input.
    * @default 'medium'
    */
   inputSize?: 'small' | 'medium' | 'large';
   
   /**
-   * Estado visual del input.
+   * Visual state of the input.
    * @default 'default'
    */
   state?: 'default' | 'error' | 'warning' | 'success';
   
   /**
-   * Label o etiqueta del input.
+   * Label for the input.
    */
   label?: string;
   
   /**
-   * Icono a mostrar a la izquierda del input.
+   * Icon to display on the left side of the input.
    */
-  iconoIzquierdo?: React.ReactNode;
+  leftIcon?: React.ReactNode;
   
   /**
-   * Icono a mostrar a la derecha del input.
+   * Icon to display on the right side of the input.
    */
-  iconoDerecho?: React.ReactNode;
+  rightIcon?: React.ReactNode;
   
   /**
-   * Mensaje de ayuda debajo del input.
+   * Help message below the input.
    */
-  mensajeAyuda?: string;
+  helpMessage?: string;
   
   /**
-   * Mensaje de error a mostrar.
+   * Error message to display.
    */
-  mensajeError?: string;
+  errorMessage?: string;
   
   /**
-   * Mensaje de advertencia a mostrar.
+   * Warning message to display.
    */
-  mensajeAdvertencia?: string;
+  warningMessage?: string;
   
   /**
-   * Mensaje de éxito a mostrar.
+   * Success message to display.
    */
-  mensajeExito?: string;
+  successMessage?: string;
   
   /**
-   * Mostrar contador de caracteres.
+   * Show character counter.
    */
-  mostrarContador?: boolean;
+  showCounter?: boolean;
   
   /**
-   * Longitud máxima para el contador.
+   * Maximum length for the counter.
    */
   maxLength?: number;
   
   /**
-   * Mostrar indicador de campo requerido en el label.
+   * Show required indicator on the label.
    */
-  mostrarRequerido?: boolean;
+  showRequired?: boolean;
   
   /**
-   * Tooltip informativo al lado del label.
+   * Informative tooltip next to the label.
    */
   tooltip?: string;
   
   /**
-   * Clase CSS adicional para el contenedor.
+   * Additional CSS class for the container.
    */
   containerClassName?: string;
   
   /**
-   * Clase CSS adicional para el label.
+   * Additional CSS class for the label.
    */
   labelClassName?: string;
 }
 
 /**
- * Campo de entrada extremadamente personalizable.
+ * Extremely customizable input field.
  * 
- * Características:
- * - Label con indicador de requerido
- * - Iconos a izquierda y derecha
- * - Mensajes de ayuda, error, advertencia y éxito
- * - Contador de caracteres
- * - Tooltip informativo
- * - Múltiples estados visuales
- * - Totalmente accesible
+ * Features:
+ * - Label with required indicator
+ * - Left and right icons
+ * - Help, error, warning, and success messages
+ * - Character counter
+ * - Informative tooltip
+ * - Multiple visual states
+ * - Fully accessible
  * 
- * Accesibilidad: 
- * - Usa aria-invalid cuando hay error
- * - Usa aria-describedby para mensajes
- * - Label asociado con id único
+ * Accessibility: 
+ * - Uses aria-invalid when there's an error
+ * - Uses aria-describedby for messages
+ * - Label associated with unique id
  */
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(({ 
   variant = 'light',
@@ -128,48 +128,45 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(({
   containerClassName,
   labelClassName,
   label,
-  iconoIzquierdo,
-  iconoDerecho,
-  mensajeAyuda,
-  mensajeError,
-  mensajeAdvertencia,
-  mensajeExito,
-  mostrarContador = false,
+  leftIcon,
+  rightIcon,
+  helpMessage,
+  errorMessage,
+  warningMessage,
+  successMessage,
+  showCounter = false,
   maxLength,
-  mostrarRequerido = false,
+  showRequired = false,
   tooltip,
   value,
   ...props
 }, ref) => {
-  // Generar ID único para accesibilidad
+  // Generate unique ID for accessibility
   const inputId = React.useId();
-  const mensajeId = `${inputId}-mensaje`;
+  const messageId = `${inputId}-message`;
   
-  // Determinar el estado basado en los mensajes
-  let estadoFinal = state;
-  if (mensajeError) estadoFinal = 'error';
-  else if (mensajeAdvertencia) estadoFinal = 'warning';
-  else if (mensajeExito) estadoFinal = 'success';
+  // Determine final state based on messages
+  let finalState = state;
+  if (errorMessage) finalState = 'error';
+  else if (warningMessage) finalState = 'warning';
+  else if (successMessage) finalState = 'success';
   
-  // Determinar qué mensaje mostrar
-  const mensajeMostrar = mensajeError || mensajeAdvertencia || mensajeExito || mensajeAyuda;
+  // Determine which message to show
+  const messageToShow = errorMessage || warningMessage || successMessage || helpMessage;
   
-  // Calcular longitud actual para el contador
-  const longitudActual = typeof value === 'string' ? value.length : 0;
+  // Calculate current length for counter
+  const currentLength = typeof value === 'string' ? value.length : 0;
   
-  // Clases dinámicas
+  // Dynamic classes
   const containerClasses = [
     styles.inputContainer,
-    containerClassName
   ].filter(Boolean).join(' ');
   
   const wrapperClasses = [
     styles.inputWrapper,
-    styles[variant],
-    styles[inputSize],
-    styles[estadoFinal],
-    iconoIzquierdo ? styles.conIconoIzquierdo : '',
-    iconoDerecho ? styles.conIconoDerecho : ''
+    leftIcon && styles.withLeftIcon,
+    rightIcon && styles.withRightIcon,
+    styles[variant]
   ].filter(Boolean).join(' ');
   
   const inputClasses = [
@@ -183,17 +180,17 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(({
     labelClassName
   ].filter(Boolean).join(' ');
   
-  const ariaInvalid = estadoFinal === 'error' ? true : undefined;
-  const ariaDescribedBy = mensajeMostrar ? mensajeId : undefined;
+  const ariaInvalid = finalState === 'error' ? true : undefined;
+  const ariaDescribedBy = messageToShow ? messageId : undefined;
 
   return (
     <div className={containerClasses}>
       {/* Label */}
       {label && (
         <label htmlFor={inputId} className={labelClasses}>
-          <span className={styles.labelTexto}>
+          <span className={styles.labelText}>
             {label}
-            {mostrarRequerido && <span className={styles.requerido}>*</span>}
+            {showRequired && <span className={styles.required}>*</span>}
           </span>
           {tooltip && (
             <span className={styles.tooltip} title={tooltip}>
@@ -207,47 +204,50 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(({
         </label>
       )}
       
-      {/* Input wrapper con iconos */}
+      {/* Input wrapper with icons */}
       <div className={wrapperClasses}>
-        {iconoIzquierdo && (
-          <span className={styles.iconoIzquierdo}>
-            {iconoIzquierdo}
+        {/* Left icon */}
+        {leftIcon && (
+          <span className={styles.leftIcon}>
+            {leftIcon}
           </span>
         )}
         
+        {/* Input field */}
         <input
           ref={ref}
           id={inputId}
-          className={inputClasses}
-          aria-invalid={ariaInvalid}
-          aria-describedby={ariaDescribedBy}
+          className={styles.input}
+          aria-invalid={finalState === 'error'}
+          aria-describedby={messageToShow ? messageId : undefined}
+          aria-required={showRequired}
           maxLength={maxLength}
-          value={value}
           {...props}
         />
         
-        {iconoDerecho && (
-          <span className={styles.iconoDerecho}>
-            {iconoDerecho}
+        {/* Right icon */}
+        {rightIcon && (
+          <span className={styles.rightIcon}>
+            {rightIcon}
           </span>
         )}
       </div>
       
-      {/* Mensaje de ayuda/error/advertencia/éxito */}
-      {mensajeMostrar && (
+      {/* Help/error/warning/success message */}
+      {messageToShow && (
         <div 
-          id={mensajeId} 
-          className={`${styles.mensaje} ${styles[`mensaje-${estadoFinal}`]}`}
-          role={estadoFinal === 'error' ? 'alert' : 'status'}
+          id={messageId} 
+          className={`${styles.message} ${styles[`message-${finalState}`]}`}
+          role={finalState === 'error' ? 'alert' : 'status'}
         >
-          {mensajeMostrar}
+          {messageToShow}
         </div>
       )}
       
-      {/* Contador de caracteres */}
-      {mostrarContador && maxLength && (
-        <div className={styles.contador}>
-          {longitudActual} / {maxLength}
+      {/* Character counter */}
+      {showCounter && maxLength && (
+        <div className={styles.counter}>
+          {currentLength} / {maxLength}
         </div>
       )}
     </div>

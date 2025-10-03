@@ -4,136 +4,135 @@ import { Button } from '@components/Button/Button';
 import styles from '@styles/Modal.module.css';
 
 /**
- * Props del componente `Modal`.
- * Modal extremadamente personalizable con múltiples opciones.
+ * Props for the `Modal` component.
+ * Extremely customizable modal with multiple options.
  * 
  * @example
  * ```tsx
  * <Modal
  *   isOpen={open}
  *   onClose={() => setOpen(false)}
- *   titulo="Confirmar acción"
- *   subtitulo="Esta acción no se puede deshacer"
+ *   title="Confirm action"
+ *   subtitle="This action cannot be undone"
  *   size="large"
- *   footer={<Button>Confirmar</Button>}
- *   centrado
+ *   footer={<Button>Confirm</Button>}
+ *   centered
  * >
- *   Contenido del modal
+ *   Modal content
  * </Modal>
  * ```
  */
 export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
-   * Controla visibilidad del modal.
+   * Controls modal visibility.
    */
   isOpen: boolean;
   
   /**
-   * Callback para cerrar.
+   * Callback to close the modal.
    */
   onClose: () => void;
   
   /**
-   * Título del modal.
+   * Modal title.
    */
-  titulo?: string;
+  title?: string;
   
   /**
-   * Subtítulo o descripción.
+   * Subtitle or description.
    */
-  subtitulo?: string;
+  subtitle?: string;
   
   /**
-   * Contenido del modal.
+   * Modal content.
    */
   children: React.ReactNode;
   
   /**
-   * Tema visual.
+   * Visual theme.
    * @default 'light'
    */
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
   
   /**
-   * Tamaño del modal.
+   * Modal size.
    * @default 'medium'
    */
   size?: 'small' | 'medium' | 'large' | 'fullscreen';
   
   /**
-   * Footer personalizado.
+   * Custom footer.
    */
   footer?: React.ReactNode;
   
   /**
-   * Icono en el header.
+   * Icon in the header.
    */
-  icono?: React.ReactNode;
+  icon?: React.ReactNode;
   
   /**
-   * Mostrar botón de cerrar.
+   * Show close button.
    * @default true
    */
-  mostrarBotonCerrar?: boolean;
+  showCloseButton?: boolean;
   
   /**
-   * Cerrar al hacer click en el overlay.
+   * Close when clicking outside.
    * @default true
    */
-  cerrarAlClickFuera?: boolean;
+  closeOnClickOutside?: boolean;
   
   /**
-   * Cerrar al presionar Escape.
+   * Close when pressing Escape.
    * @default true
    */
-  cerrarConEscape?: boolean;
+  closeOnEscape?: boolean;
   
   /**
-   * Centrar verticalmente.
+   * Center vertically.
    */
-  centrado?: boolean;
+  centered?: boolean;
   
   /**
-   * Animación de entrada.
+   * Entry animation.
    * @default 'fade'
    */
-  animacion?: 'fade' | 'slide' | 'zoom' | 'none';
+  animation?: 'fade' | 'slide' | 'zoom' | 'none';
   
   /**
-   * Clases CSS adicionales.
+   * Additional CSS classes.
    */
   className?: string;
 }
 
 /**
- * Modal extremadamente personalizable.
+ * Extremely customizable modal component.
  * 
- * Características:
- * - Múltiples tamaños y animaciones
- * - Header y footer personalizables
- * - Icono en el header
- * - Control de cierre (Escape, click fuera)
- * - Centrado vertical
- * - Totalmente accesible
+ * Features:
+ * - Multiple sizes and animations
+ * - Customizable header and footer
+ * - Icon in the header
+ * - Close control (Escape, click outside)
+ * - Vertical centering
+ * - Fully accessible
  * 
- * ARIA:
  * - `role="dialog"`, `aria-modal`, `aria-labelledby`
  */
 export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(({ 
   isOpen,
   onClose,
-  titulo,
-  subtitulo,
+  title,
+  subtitle,
   children,
   variant = 'light',
   size = 'medium',
   footer,
-  icono,
-  mostrarBotonCerrar = true,
-  cerrarAlClickFuera = true,
-  cerrarConEscape = true,
-  centrado = false,
-  animacion = 'fade',
+  icon,
+  showCloseButton = true,
+  closeOnClickOutside = true,
+  closeOnEscape = true,
+  centered = false,
+  animation = 'fade',
   className,
   ...props
 }, ref) => {
@@ -141,18 +140,18 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(({
 
   const instanceId = useId();
 
-  // Cerrar con tecla Escape
+  // Close with Escape key
   useEffect(() => {
-    if (!cerrarConEscape) return;
+    if (!closeOnEscape) return;
     
     const handler = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
     };
     document.addEventListener('keydown', handler);
     return () => document.removeEventListener('keydown', handler);
-  }, [onClose, cerrarConEscape]);
+  }, [onClose, closeOnEscape]);
 
-  // Bloquear scroll del body
+  // Block body scroll
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     return () => {
@@ -162,8 +161,8 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(({
 
   const overlayClasses = [
     styles.modalOverlay,
-    styles[`animacion-${animacion}`],
-    centrado && styles.centrado,
+    styles[`animation-${animation}`],
+    centered && styles.centrado,
     className
   ].filter(Boolean).join(' ');
   
@@ -174,7 +173,7 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(({
   ].filter(Boolean).join(' ');
 
   const handleOverlayClick = (e: React.MouseEvent) => {
-    if (cerrarAlClickFuera && e.target === e.currentTarget) {
+    if (closeOnClickOutside && e.target === e.currentTarget) {
       onClose();
     }
   };
@@ -184,37 +183,37 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(({
       className={overlayClasses}
       role="dialog"
       aria-modal="true"
-      aria-labelledby={titulo ? `modal-title-${instanceId}` : undefined}
+      aria-labelledby={title ? `modal-title-${instanceId}` : undefined}
       onClick={handleOverlayClick}
       {...props}
     >
       <div ref={ref} className={contentClasses} role="document">
         {/* Header */}
-        {(titulo || subtitulo || mostrarBotonCerrar) && (
+        {(title || subtitle || showCloseButton) && (
           <div className={styles.modalHeader}>
-            <div className={styles.headerContenido}>
-              {icono && <div className={styles.icono}>{icono}</div>}
-              <div className={styles.headerTextos}>
-                {titulo && (
+            <div className={styles.headerContent}>
+              {icon && <div className={styles.icon}>{icon}</div>}
+              <div className={styles.headerTexts}>
+                {title && (
                   <Typography 
                     id={`modal-title-${instanceId}`} 
                     variant="h2" 
                     theme={variant}
-                    className={styles.titulo}
+                    className={styles.title}
                   >
-                    {titulo}
+                    {title}
                   </Typography>
                 )}
-                {subtitulo && (
-                  <Typography variant="p" theme={variant} className={styles.subtitulo}>
-                    {subtitulo}
+                {subtitle && (
+                  <Typography variant="p" theme={variant} className={styles.subtitle}>
+                    {subtitle}
                   </Typography>
                 )}
               </div>
             </div>
-            {mostrarBotonCerrar && (
+            {showCloseButton && (
               <Button 
-                aria-label="Cerrar modal" 
+                aria-label="Close modal" 
                 variant={variant}
                 buttonStyle="ghost"
                 size="small" 

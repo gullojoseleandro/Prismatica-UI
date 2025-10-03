@@ -14,8 +14,8 @@
   object-fit: cover;
 }
 
-.avatarIcono,
-.avatarIniciales {
+.avatarIcon,
+.avatarInitials {
   width: 100%;
   height: 100%;
   display: flex;
@@ -26,7 +26,7 @@
   color: white;
 }
 
-/* ===== TAMAÑOS ===== */
+/* ===== SIZES ===== */
 .xs {
   width: 24px;
   height: 24px;
@@ -57,7 +57,7 @@
   font-size: 1.75rem;
 }
 
-/* ===== FORMAS ===== */
+/* ===== STATUS ===== */
 .circle {
   border-radius: 50%;
 }
@@ -66,100 +66,11 @@
   border-radius: 0;
 }
 
-.rounded {
-  border-radius: 8px;
-}
-
-/* ===== BORDE ===== */
-.conBorde {
-  border: 2px solid;
-}
-
-/* ===== CLICKEABLE ===== */
-.clickeable {
-  cursor: pointer;
-}
-
-.clickeable:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* ===== STATUS INDICATOR ===== */
-.statusIndicator {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 25%;
-  height: 25%;
-  border-radius: 50%;
-  border: 2px solid white;
-}
-
-.status-online {
-  background-color: #28a745;
-}
-
-.status-offline {
-  background-color: #6c757d;
-}
-
-.status-busy {
-  background-color: #dc3545;
-}
-
-.status-away {
-  background-color: #ffc107;
-}
-
-/* ===== BADGE ===== */
-.badge {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 20px;
-  height: 20px;
-  padding: 0 6px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: white;
-  background-color: #dc3545;
-  border-radius: 10px;
-  border: 2px solid white;
-}
-
-.badge-top-right {
-  top: -4px;
-  right: -4px;
-}
-
-.badge-top-left {
-  top: -4px;
-  left: -4px;
-}
-
-.badge-bottom-right {
-  bottom: -4px;
-  right: -4px;
-}
-
-.badge-bottom-left {
-  bottom: -4px;
-  left: -4px;
-}
-
-/* ===== GRUPO ===== */
-.enGrupo {
-  margin-left: -12px;
-  border: 2px solid white;
-}
-
-.enGrupo:first-child {
+.inGroup:first-child {
   margin-left: 0;
 }
 
-/* ===== TEMAS ===== */
+/* ===== EFFECTS ===== */
 .light {
   border-color: #f0f0f0;
 }

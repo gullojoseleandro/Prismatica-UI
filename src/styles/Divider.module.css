@@ -4,7 +4,7 @@
   margin: 0;
 }
 
-/* ===== ORIENTACIONES ===== */
+/* ===== ORIENTATIONS ===== */
 .horizontal {
   width: 100%;
   border-top-style: solid;
@@ -19,50 +19,50 @@
   display: inline-block;
 }
 
-/* ===== GROSORES ===== */
-.grosor-thin.horizontal { border-top-width: 1px; }
-.grosor-medium.horizontal { border-top-width: 2px; }
-.grosor-thick.horizontal { border-top-width: 4px; }
+/* ===== THICKNESS ===== */
+.thickness-thin.horizontal { border-top-width: 1px; }
+.thickness-medium.horizontal { border-top-width: 2px; }
+.thickness-thick.horizontal { border-top-width: 4px; }
 
-.grosor-thin.vertical { border-left-width: 1px; }
-.grosor-medium.vertical { border-left-width: 2px; }
-.grosor-thick.vertical { border-left-width: 4px; }
+.thickness-thin.vertical { border-left-width: 1px; }
+.thickness-medium.vertical { border-left-width: 2px; }
+.thickness-thick.vertical { border-left-width: 4px; }
 
-/* ===== ESTILOS ===== */
-.estilo-solid { border-style: solid; }
-.estilo-dashed { border-style: dashed; }
-.estilo-dotted { border-style: dotted; }
+/* ===== STYLES ===== */
+.style-solid { border-style: solid; }
+.style-dashed { border-style: dashed; }
+.style-dotted { border-style: dotted; }
 
-/* ===== ESPACIADO ===== */
-.espaciado-none { margin: 0; }
-.espaciado-small { margin: 0.5rem 0; }
-.espaciado-normal { margin: 1rem 0; }
-.espaciado-large { margin: 2rem 0; }
+/* ===== SPACING ===== */
+.spacing-none { margin: 0; }
+.spacing-small { margin: 0.5rem 0; }
+.spacing-normal { margin: 1rem 0; }
+.spacing-large { margin: 2rem 0; }
 
-/* ===== CON TEXTO ===== */
-.conTexto {
+/* ===== WITH TEXT ===== */
+.withText {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.linea {
+.line {
   flex: 1;
   height: 1px;
   background-color: currentColor;
   opacity: 0.2;
 }
 
-.textoContenido {
+.textContent {
   font-size: 0.875rem;
   opacity: 0.6;
   white-space: nowrap;
 }
 
-.texto-left .linea:first-child { flex: 0.2; }
-.texto-right .linea:last-child { flex: 0.2; }
+.text-left .line:first-child { flex: 0.2; }
+.text-right .line:last-child { flex: 0.2; }
 
-/* ===== TEMAS ===== */
+/* ===== THEMES ===== */
 .light { border-color: rgba(0, 0, 0, 0.12); }
 .dark { border-color: rgba(255, 255, 255, 0.12); }
 .primary { border-color: #007bff; }

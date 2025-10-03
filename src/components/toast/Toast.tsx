@@ -1,95 +1,94 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Typography } from '@components/typography/Typography';
 import { Button } from '@components/Button/Button';
 import styles from '@styles/Toast.module.css';
 
 /**
- * Props del componente `Toast`.
- * Notificación temporal con auto-cierre.
+ * Props for the `Toast` component.
+ * Temporary notification with auto-close.
  * 
  * @example
  * ```tsx
  * <Toast
- *   tipo="success"
- *   titulo="¡Éxito!"
- *   mensaje="Los cambios se guardaron correctamente"
- *   visible={showToast}
- *   onClose={() => setShowToast(false)}
+ *   type="success"
+ *   message="Operation successful"
+ *   visible={show}
+ *   onClose={() => setShow(false)}
  * />
  * ```
  */
 export interface ToastProps {
   /**
-   * Tipo de notificación.
+   * Type of notification.
    * @default 'info'
    */
-  tipo?: 'success' | 'error' | 'warning' | 'info';
+  type?: 'success' | 'error' | 'warning' | 'info';
   
   /**
-   * Título del toast.
+   * Toast title.
    */
-  titulo?: string;
+  title?: string;
   
   /**
-   * Mensaje del toast.
+   * Toast message.
    */
-  mensaje: string;
+  message: string;
   
   /**
-   * Icono personalizado.
+   * Custom icon.
    */
-  icono?: React.ReactNode;
+  icon?: React.ReactNode;
   
   /**
-   * Duración en milisegundos antes de auto-cerrar.
+   * Duration in milliseconds before auto-close.
    * @default 5000
    */
-  duracion?: number;
+  duration?: number;
   
   /**
-   * Posición del toast.
+   * Toast position.
    * @default 'top-right'
    */
-  posicion?: 'top-left' | 'top-center' | 'top-right' | 'bottom-left' | 'bottom-center' | 'bottom-right';
+  position?: 'top-left' | 'top-center' | 'top-right' | 'bottom-left' | 'bottom-center' | 'bottom-right';
   
   /**
-   * Mostrar botón de cerrar.
+   * Show close button.
    * @default true
    */
-  mostrarBotonCerrar?: boolean;
+  showCloseButton?: boolean;
   
   /**
-   * Callback al cerrar.
+   * Callback on close.
    */
   onClose?: () => void;
   
   /**
-   * Acción personalizada.
+   * Custom action.
    */
-  accion?: {
-    texto: string;
+  action?: {
+    text: string;
     onClick: () => void;
   };
   
   /**
-   * Controla la visibilidad.
+   * Controls visibility.
    */
   visible?: boolean;
   
   /**
-   * Variante de tema.
+   * Theme variant.
    * @default 'light'
    */
   variant?: 'light' | 'dark';
   
   /**
-   * Clases CSS adicionales.
+   * Additional CSS classes.
    */
   className?: string;
 }
 
 /**
- * Iconos por defecto para cada tipo.
+ * Default icons for each type.
  */
 const defaultIcons = {
   success: (
@@ -122,26 +121,26 @@ const defaultIcons = {
 };
 
 /**
- * Componente Toast para notificaciones temporales.
+ * Toast component for temporary notifications.
  * 
- * Características:
- * - 4 tipos: success, error, warning, info
- * - Auto-cierre configurable
- * - 6 posiciones disponibles
- * - Acción personalizable
- * - Animaciones suaves
- * - Totalmente accesible
+ * Features:
+ * - 4 types: success, error, warning, info
+ * - Configurable auto-close
+ * - 6 available positions
+ * - Customizable action
+ * - Smooth animations
+ * - Fully accessible
  */
 export const Toast: React.FC<ToastProps> = ({
-  tipo = 'info',
-  titulo,
-  mensaje,
-  icono,
-  duracion = 5000,
-  posicion = 'top-right',
-  mostrarBotonCerrar = true,
+  type = 'info',
+  title,
+  message,
+  icon,
+  duration = 5000,
+  position = 'top-right',
+  showCloseButton = true,
   onClose,
-  accion,
+  action,
   visible = true,
   variant = 'light',
   className,
@@ -157,35 +156,35 @@ export const Toast: React.FC<ToastProps> = ({
   }, [visible]);
 
   useEffect(() => {
-    if (!isVisible || duracion === 0) return;
+    if (!isVisible || duration === 0) return;
 
     const timer = setTimeout(() => {
       handleClose();
-    }, duracion);
+    }, duration);
 
     return () => clearTimeout(timer);
-  }, [isVisible, duracion]);
+  }, [isVisible, duration]);
 
   const handleClose = () => {
     setIsExiting(true);
     setTimeout(() => {
       setIsVisible(false);
       if (onClose) onClose();
-    }, 300); // Duración de la animación de salida
+    }, 300); // Exit animation duration
   };
 
   if (!isVisible) return null;
 
   const toastClasses = [
     styles.toast,
-    styles[tipo],
-    styles[posicion],
+    styles[type],
+    styles[position],
     styles[variant],
     isExiting && styles.exiting,
     className
   ].filter(Boolean).join(' ');
 
-  const iconToShow = icono || defaultIcons[tipo];
+  const iconToShow = icon || defaultIcons[type];
 
   return (
     <div className={toastClasses} role="alert" aria-live="polite">
@@ -193,36 +192,36 @@ export const Toast: React.FC<ToastProps> = ({
         {iconToShow}
       </div>
       
-      <div className={styles.contenido}>
-        {titulo && (
-          <Typography variant="h4" theme={variant} className={styles.titulo}>
-            {titulo}
+      <div className={styles.content}>
+        {title && (
+          <Typography variant="h4" theme={variant} className={styles.title}>
+            {title}
           </Typography>
         )}
-        <Typography variant="p" theme={variant} className={styles.mensaje}>
-          {mensaje}
+        <Typography variant="p" theme={variant} className={styles.message}>
+          {message}
         </Typography>
         
-        {accion && (
+        {action && (
           <Button
             size="small"
             buttonStyle="ghost"
-            onClick={accion.onClick}
-            className={styles.accionButton}
+            onClick={action.onClick}
+            className={styles.actionButton}
           >
-            {accion.texto}
+            {action.text}
           </Button>
         )}
       </div>
       
-      {mostrarBotonCerrar && (
+      {showCloseButton && (
         <Button
           size="small"
           buttonStyle="ghost"
           circular
           onClick={handleClose}
           className={styles.closeButton}
-          aria-label="Cerrar notificación"
+          aria-label="Close notification"
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <line x1="18" y1="6" x2="6" y2="18"/>
@@ -235,33 +234,33 @@ export const Toast: React.FC<ToastProps> = ({
 };
 
 /**
- * Hook para gestionar toasts de forma programática.
+ * Hook to manage toasts programmatically.
  * 
  * @example
  * ```tsx
- * const { mostrarToast } = useToast();
+ * const { showToast } = useToast();
  * 
- * mostrarToast({
- *   tipo: 'success',
- *   mensaje: '¡Guardado!'
+ * showToast({
+ *   type: 'success',
+ *   message: 'Saved!'
  * });
  * ```
  */
 export const useToast = () => {
   const [toasts, setToasts] = useState<Array<ToastProps & { id: string }>>([]);
 
-  const mostrarToast = (props: Omit<ToastProps, 'visible' | 'onClose'>) => {
+  const showToast = (props: Omit<ToastProps, 'visible' | 'onClose'>) => {
     const id = Math.random().toString(36).substr(2, 9);
     setToasts(prev => [...prev, { ...props, id, visible: true }]);
   };
 
-  const cerrarToast = (id: string) => {
+  const closeToast = (id: string) => {
     setToasts(prev => prev.filter(toast => toast.id !== id));
   };
 
   return {
     toasts,
-    mostrarToast,
-    cerrarToast,
+    showToast,
+    closeToast,
   };
 };

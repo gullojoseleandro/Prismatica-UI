@@ -2,8 +2,8 @@ import React from 'react';
 import styles from '@styles/Skeleton.module.css';
 
 /**
- * Props del componente `Skeleton`.
- * Placeholder animado para contenido en carga.
+ * Props for the `Skeleton` component.
+ * Animated placeholder for loading content.
  * 
  * @example
  * ```tsx
@@ -14,53 +14,53 @@ import styles from '@styles/Skeleton.module.css';
  */
 export interface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
-   * Variante del skeleton.
+   * Skeleton variant.
    * @default 'rectangular'
    */
   variant?: 'text' | 'circular' | 'rectangular' | 'rounded';
   
   /**
-   * Ancho del skeleton.
+   * Skeleton width.
    */
   width?: string | number;
   
   /**
-   * Alto del skeleton.
+   * Skeleton height.
    */
   height?: string | number;
   
   /**
-   * Número de líneas (solo para variant="text").
+   * Number of lines (only for variant="text").
    */
   lines?: number;
   
   /**
-   * Animación del skeleton.
+   * Skeleton animation.
    * @default 'pulse'
    */
   animation?: 'pulse' | 'wave' | 'none';
   
   /**
-   * Tema visual.
+   * Visual theme.
    * @default 'light'
    */
   theme?: 'light' | 'dark';
   
   /**
-   * Clases CSS adicionales.
+   * Additional CSS classes.
    */
   className?: string;
 }
 
 /**
- * Skeleton loader para estados de carga.
+ * Skeleton loader for loading states.
  * 
- * Características:
- * - Múltiples variantes (text, circular, rectangular, rounded)
- * - Animaciones (pulse, wave)
- * - Tamaños personalizables
- * - Soporte para múltiples líneas
- * - Temas claro y oscuro
+ * Features:
+ * - Multiple variants (text, circular, rectangular, rounded)
+ * - Animations (pulse, wave)
+ * - Customizable sizes
+ * - Support for multiple lines
+ * - Light and dark themes
  */
 export const Skeleton = React.forwardRef<HTMLDivElement, SkeletonProps>(({
   variant = 'rectangular',
@@ -87,7 +87,7 @@ export const Skeleton = React.forwardRef<HTMLDivElement, SkeletonProps>(({
     ...style,
   };
 
-  // Para variant="text" con múltiples líneas
+  // For variant="text" with multiple lines
   if (variant === 'text' && lines > 1) {
     return (
       <div className={styles.textContainer} ref={ref} {...props}>
@@ -97,7 +97,7 @@ export const Skeleton = React.forwardRef<HTMLDivElement, SkeletonProps>(({
             className={skeletonClasses}
             style={{
               ...skeletonStyle,
-              width: index === lines - 1 ? '80%' : '100%', // Última línea más corta
+              width: index === lines - 1 ? '80%' : '100%', // Last line shorter
             }}
           />
         ))}
@@ -118,58 +118,58 @@ export const Skeleton = React.forwardRef<HTMLDivElement, SkeletonProps>(({
 Skeleton.displayName = 'Skeleton';
 
 /**
- * Props del componente `SkeletonCard`.
- * Skeleton predefinido para tarjetas.
+ * Props for the `SkeletonCard` component.
+ * Predefined skeleton for cards.
  */
 export interface SkeletonCardProps {
   /**
-   * Mostrar imagen.
+   * Show image.
    * @default true
    */
-  conImagen?: boolean;
+  withImage?: boolean;
   
   /**
-   * Número de líneas de texto.
+   * Number of text lines.
    * @default 3
    */
-  lineasTexto?: number;
+  textLines?: number;
   
   /**
-   * Mostrar avatar.
+   * Show avatar.
    */
-  conAvatar?: boolean;
+  withAvatar?: boolean;
   
   /**
-   * Tema visual.
+   * Visual theme.
    * @default 'light'
    */
   theme?: 'light' | 'dark';
   
   /**
-   * Clases CSS adicionales.
+   * Additional CSS classes.
    */
   className?: string;
 }
 
 /**
- * Skeleton predefinido para tarjetas.
+ * Predefined skeleton for cards.
  * 
- * Incluye imagen, avatar opcional y líneas de texto.
+ * Includes image, optional avatar, and text lines.
  */
 export const SkeletonCard: React.FC<SkeletonCardProps> = ({
-  conImagen = true,
-  lineasTexto = 3,
-  conAvatar = false,
+  withImage = true,
+  textLines = 3,
+  withAvatar = false,
   theme = 'light',
   className,
 }) => {
   return (
     <div className={`${styles.skeletonCard} ${className || ''}`}>
-      {conImagen && (
+      {withImage && (
         <Skeleton variant="rectangular" height="200px" theme={theme} />
       )}
       <div className={styles.skeletonCardContent}>
-        {conAvatar && (
+        {withAvatar && (
           <div className={styles.skeletonCardHeader}>
             <Skeleton variant="circular" width="40px" height="40px" theme={theme} />
             <div style={{ flex: 1 }}>
@@ -178,7 +178,7 @@ export const SkeletonCard: React.FC<SkeletonCardProps> = ({
             </div>
           </div>
         )}
-        <Skeleton variant="text" lines={lineasTexto} theme={theme} />
+        <Skeleton variant="text" lines={textLines} theme={theme} />
       </div>
     </div>
   );

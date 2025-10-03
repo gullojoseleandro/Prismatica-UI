@@ -3,12 +3,12 @@ import { Typography } from '@components/typography/Typography';
 import styles from '@styles/Tooltip.module.css';
 
 /**
- * Props del componente `Tooltip`.
- * - `content`: texto a mostrar dentro del tooltip.
- * - `position`: posición relativa (top, right, bottom, left).
- * - `variant`: tema visual (light, dark, holographic).
- * - `children`: nodo disparador que muestra el tooltip al pasar el mouse.
- * - `className`: clases CSS adicionales.
+ * Props for the `Tooltip` component.
+ * - `content`: text to display inside the tooltip.
+ * - `position`: relative position (top, right, bottom, left).
+ * - `variant`: visual theme (light, dark, holographic).
+ * - `children`: element that triggers the tooltip on hover.
+ * - `className`: additional CSS classes.
  */
 export interface TooltipProps {
   content: string;
@@ -19,11 +19,11 @@ export interface TooltipProps {
 }
 
 /**
- * Tooltip simple basado en eventos de mouse.
+ * Simple tooltip based on mouse events.
  *
  * @example
  * ```tsx
- * <Tooltip content="Información" position="top">
+ * <Tooltip content="Information" position="top">
  *   <button>Hover</button>
  * </Tooltip>
  * ```
@@ -49,7 +49,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   return (
     <div 
       className={styles.tooltipWrapper}
-      // Mostrar/ocultar tooltip según interacción
+      // Show/hide tooltip based on interaction
       onMouseEnter={() => setIsVisible(true)}
       onMouseLeave={() => setIsVisible(false)}
       {...props}

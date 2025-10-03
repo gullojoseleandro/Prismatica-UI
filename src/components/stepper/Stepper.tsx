@@ -3,9 +3,9 @@ import { Typography } from '@components/typography/Typography';
 import styles from '@styles/Stepper.module.css';
 
 /**
- * Paso individual dentro del `Stepper`.
- * - `label`: título del paso.
- * - `description`: texto opcional descriptivo.
+ * Individual step within the `Stepper`.
+ * - `label`: step title.
+ * - `description`: optional descriptive text.
  */
 export interface Step {
   label: string;
@@ -13,11 +13,11 @@ export interface Step {
 }
 
 /**
- * Props del componente `Stepper`.
- * - `steps`: lista de pasos a mostrar.
- * - `activeStep`: índice del paso activo (0-indexed).
- * - `variant`: tema visual.
- * - `className`: clases CSS adicionales.
+ * Props for the `Stepper` component.
+ * - `steps`: list of steps to display.
+ * - `activeStep`: active step index (0-indexed).
+ * - `variant`: visual theme.
+ * - `className`: additional CSS classes.
  */
 export interface StepperProps {
   steps: Step[];
@@ -27,12 +27,12 @@ export interface StepperProps {
 }
 
 /**
- * Indicador de progreso por pasos (Stepper).
+ * Step-by-step progress indicator (Stepper).
  *
  * @example
  * ```tsx
  * <Stepper
- *   steps={[{label:'Inicio'}, {label:'Datos'}, {label:'Confirmación'}]}
+ *   steps={[{label:'Start'}, {label:'Data'}, {label:'Confirmation'}]}
  *   activeStep={1}
  * />
  * ```
@@ -44,7 +44,7 @@ export const Stepper: React.FC<StepperProps> = ({
   className,
   ...props
 }) => {
-  // Clases dinámicas por tema
+  // Dynamic classes by theme
   const stepperClasses = [
     styles.stepper,
     styles[variant],

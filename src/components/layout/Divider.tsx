@@ -3,105 +3,107 @@ import { Typography } from '@components/typography/Typography';
 import styles from '@styles/Divider.module.css';
 
 /**
- * Props del componente `Divider`.
- * Separador visual entre secciones.
+ * Props for the `Divider` component.
+ * Visual separator between sections.
  * 
  * @example
  * ```tsx
  * <Divider />
  * <Divider orientation="vertical" />
- * <Divider texto="O" />
+ * <Divider text="OR" />
  * ```
  */
 export interface DividerProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
-   * Orientación del divider.
+   * Divider orientation.
    * @default 'horizontal'
    */
   orientation?: 'horizontal' | 'vertical';
   
   /**
-   * Texto a mostrar en el divider.
+   * Text to display in the divider.
    */
-  texto?: string;
+  text?: string;
   
   /**
-   * Alineación del texto.
+   * Text alignment.
    * @default 'center'
    */
-  alineacionTexto?: 'left' | 'center' | 'right';
+  textAlign?: 'left' | 'center' | 'right';
   
   /**
-   * Grosor del divider.
+   * Divider thickness.
    * @default 'thin'
    */
-  grosor?: 'thin' | 'medium' | 'thick';
+  thickness?: 'thin' | 'medium' | 'thick';
   
   /**
-   * Estilo del divider.
+   * Divider style.
    * @default 'solid'
    */
-  estilo?: 'solid' | 'dashed' | 'dotted';
+  lineStyle?: 'solid' | 'dashed' | 'dotted';
   
   /**
-   * Tema visual.
+   * Visual theme.
    * @default 'light'
    */
   variant?: 'light' | 'dark' | 'primary' | 'secondary';
   
   /**
-   * Espaciado vertical (solo horizontal).
+   * Vertical spacing (horizontal only).
    * @default 'normal'
    */
-  espaciado?: 'none' | 'small' | 'normal' | 'large';
+  spacing?: 'none' | 'small' | 'normal' | 'large';
   
   /**
-   * Clases CSS adicionales.
+   * Additional CSS classes.
    */
   className?: string;
 }
 
 /**
- * Divider - Separador visual entre secciones.
+ * Divider - Visual separator between sections.
  * 
- * Características:
- * - Orientación horizontal y vertical
- * - Texto opcional
- * - Múltiples estilos (solid, dashed, dotted)
- * - Grosores personalizables
- * - Espaciado ajustable
+ * Features:
+ * - Horizontal and vertical orientation
+ * - Optional text
+ * - Multiple styles (solid, dashed, dotted)
+ * - Customizable thickness
+ * - Adjustable spacing
  */
-export const Divider = React.forwardRef<HTMLDivElement, DividerProps>(({
-  orientation = 'horizontal',
-  texto,
-  alineacionTexto = 'center',
-  grosor = 'thin',
-  estilo = 'solid',
-  variant = 'light',
-  espaciado = 'normal',
-  className,
-  ...props
-}, ref) => {
+export const Divider = React.forwardRef<HTMLDivElement, DividerProps>((
+  {
+    orientation = 'horizontal',
+    text,
+    textAlign = 'center',
+    thickness = 'thin',
+    lineStyle = 'solid',
+    variant = 'light',
+    spacing = 'normal',
+    className,
+    ...props
+  },
+  ref
+) => {
   const dividerClasses = [
     styles.divider,
     styles[orientation],
-    styles[`grosor-${grosor}`],
-    styles[`estilo-${estilo}`],
+    styles[`style-${lineStyle}`],
     styles[variant],
-    styles[`espaciado-${espaciado}`],
-    texto && styles.conTexto,
-    texto && styles[`texto-${alineacionTexto}`],
+    styles[`spacing-${spacing}`],
+    text && styles.withText,
+    text && styles[`text-${textAlign}`],
     className
   ].filter(Boolean).join(' ');
 
-  if (texto && orientation === 'horizontal') {
+  if (text) {
     return (
       <div ref={ref} className={dividerClasses} role="separator" {...props}>
-        <span className={styles.linea}></span>
-        <Typography variant="span" className={styles.textoContenido}>
-          {texto}
+        <span className={styles.line}></span>
+        <Typography variant="span" className={styles.textContent}>
+          {text}
         </Typography>
-        <span className={styles.linea}></span>
+        <span className={styles.line}></span>
       </div>
     );
   }

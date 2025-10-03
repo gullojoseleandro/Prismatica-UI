@@ -3,7 +3,7 @@ import { Typography } from '@components/typography/Typography';
 import styles from '@styles/ProgressBar.module.css';
 
 /**
- * Barra de progreso con estilos temáticos y porcentaje opcional.
+ * Progress bar with thematic styles and optional percentage.
  *
  * @example
  * ```tsx
@@ -12,28 +12,28 @@ import styles from '@styles/ProgressBar.module.css';
  */
 export interface ProgressBarProps {
   /**
-   * Porcentaje de avance (0-100).
+   * Progress percentage (0-100).
    */
   progress: number;
   /**
-   * Tema visual (light, dark, holographic).
+   * Visual theme (light, dark, holographic).
    */
   variant?: 'light' | 'dark' | 'holographic';
   /**
-   * Mostrar el porcentaje como texto.
+   * Show percentage as text.
    */
   showPercentage?: boolean;
   /**
-   * Clases CSS adicionales.
+   * Additional CSS classes.
    */
   className?: string;
 }
 
 /**
- * Componente `ProgressBar`.
+ * `ProgressBar` component.
  *
- * @param {ProgressBarProps} props - Props del componente.
- * @returns {React.ReactElement} - Elemento JSX del componente.
+ * @param {ProgressBarProps} props - Component props.
+ * @returns {React.ReactElement} - JSX element of the component.
  */
 export const ProgressBar: React.FC<ProgressBarProps> = ({
   progress,
@@ -50,7 +50,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
 
   return (
     <div className={progressBarClasses} {...props}>
-      {/* Trazo de avance en porcentaje */}
+      {/* Progress bar in percentage */}
       <div 
         className={styles.progress} 
         style={{ width: `${progress}%` }}

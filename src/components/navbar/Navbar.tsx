@@ -3,34 +3,34 @@ import { Typography } from '@components/typography/Typography';
 import styles from '@styles/Navbar.module.css';
 
 /**
- * Props del componente `Navbar`.
- * - `logo`: nodo opcional para el logo/marca.
- * - `title`: título textual opcional.
- * - `menuItems`: arreglo de enlaces de navegación.
- * - `variant`: tema visual.
- * - `className`: clases CSS adicionales.
- * - `acciones`: nodo opcional para acciones a la derecha (botones, etc.).
- * - Extiende atributos nativos de `<nav>` mediante `React.HTMLAttributes<HTMLElement>`.
+ * Props for the `Navbar` component.
+ * - `logo`: optional node for logo/brand.
+ * - `title`: optional text title.
+ * - `menuItems`: array of navigation links.
+ * - `actions`: optional node for actions on the right (e.g. buttons).
+ * - `variant`: visual theme.
+ * - `className`: additional CSS classes.
+ * - Extends native `<nav>` attributes via `React.HTMLAttributes<HTMLElement>`.
  */
 export interface NavbarProps extends React.HTMLAttributes<HTMLElement> {
   logo?: React.ReactNode;
   title?: string;
   menuItems: Array<{ label: string; href: string }>;
+  actions?: React.ReactNode;
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
   className?: string;
-  acciones?: React.ReactNode;
 }
 
 /**
- * Barra de navegación principal.
+ * Main navigation bar.
  *
  * @example
  * ```tsx
  * <Navbar
- *   logo={<img src="/logo.svg" alt="Marca" />}
+ *   logo={<img src="/logo.svg" alt="Brand" />}
  *   title="App"
- *   menuItems={[{label:'Inicio', href:'#'}]}
- *   acciones={<Button>Salir</Button>}
+ *   menuItems={[{label:'Home', href:'#'}]}
+ *   actions={<Button>Logout</Button>}
  * />
  * ```
  */
@@ -40,7 +40,7 @@ export const Navbar = React.forwardRef<HTMLElement, NavbarProps>(({
   menuItems,
   variant = 'light',
   className,
-  acciones,
+  actions,
   ...props
 }, ref) => {
   const navbarClasses = [
@@ -54,7 +54,7 @@ export const Navbar = React.forwardRef<HTMLElement, NavbarProps>(({
     <nav
       ref={ref}
       className={navbarClasses}
-      aria-label={title ? undefined : 'Navegación principal'}
+      aria-label={title ? undefined : 'Main navigation'}
       {...props}
     >
       <div className={styles.navbarBrand}>
@@ -71,7 +71,7 @@ export const Navbar = React.forwardRef<HTMLElement, NavbarProps>(({
         ))}
       </ul>
       <div className={styles.navbarActions}>
-        {acciones}
+        {actions}
       </div>
     </nav>
   );

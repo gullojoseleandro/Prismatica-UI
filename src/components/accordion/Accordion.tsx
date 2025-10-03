@@ -3,9 +3,9 @@ import { Typography } from '@components/typography/Typography';
 import styles from '@styles/Accordion.module.css';
 
 /**
- * Ítem individual del acordeón.
- * - `title`: encabezado clickable del ítem.
- * - `content`: contenido que se expande/colapsa.
+ * Individual accordion item.
+ * - `title`: clickable header of the item.
+ * - `content`: content that expands/collapses.
  */
 export interface AccordionItem {
   title: string;
@@ -13,10 +13,10 @@ export interface AccordionItem {
 }
 
 /**
- * Props del componente `Accordion`.
- * - `items`: lista de ítems a renderizar.
- * - `variant`: tema visual.
- * - `className`: clases CSS extra.
+ * Props for the `Accordion` component.
+ * - `items`: list of items to render.
+ * - `variant`: visual theme.
+ * - `className`: additional CSS classes.
  */
 export interface AccordionProps extends React.HTMLAttributes<HTMLDivElement> {
   items: AccordionItem[];
@@ -25,16 +25,16 @@ export interface AccordionProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * Componente `Accordion` accesible con ARIA.
- * - Usa `aria-expanded`, `aria-controls` y `role="region"` para accesibilidad.
- * - Controla un único ítem abierto a la vez.
+ * Accessible `Accordion` component with ARIA.
+ * - Uses `aria-expanded`, `aria-controls` and `role="region"` for accessibility.
+ * - Controls a single open item at a time.
  *
- * @returns Contenedor `<div>` con una lista de ítems expandibles.
+ * @returns `<div>` container with a list of expandable items.
  * @example
  * ```tsx
  * <Accordion
  *   variant="light"
- *   items={[{ title: 'Sección 1', content: 'Contenido 1' }, { title: 'Sección 2', content: 'Contenido 2' }]}
+ *   items={[{ title: 'Section 1', content: 'Content 1' }, { title: 'Section 2', content: 'Content 2' }]}
  * />
  * ```
  */
@@ -47,7 +47,7 @@ export const Accordion: React.FC<AccordionProps> = ({
   const instanceId = useId();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-  // Alterna el índice activo; si se repite, colapsa
+  // Toggle active index; if repeated, collapse
   const toggleItem = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
@@ -65,7 +65,7 @@ export const Accordion: React.FC<AccordionProps> = ({
           <button
             className={`${styles.accordionHeader} ${activeIndex === index ? styles.active : ''}`}
             onClick={() => toggleItem(index)}
-            // Estado expandido y relación con el panel
+            // Expanded state and relation to panel
             aria-expanded={activeIndex === index}
             aria-controls={`accordion-panel-${index}-${instanceId}`}
             id={`accordion-header-${index}-${instanceId}`}
@@ -79,7 +79,7 @@ export const Accordion: React.FC<AccordionProps> = ({
             <div
               className={styles.accordionContent}
               id={`accordion-panel-${index}-${instanceId}`}
-              // Región asociada al encabezado del ítem
+              // Region associated with item header
               role="region"
               aria-labelledby={`accordion-header-${index}-${instanceId}`}
             >

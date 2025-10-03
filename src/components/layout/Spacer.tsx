@@ -2,8 +2,8 @@ import React from 'react';
 import styles from '@styles/Spacer.module.css';
 
 /**
- * Props del componente `Spacer`.
- * Espacio flexible entre elementos.
+ * Props for the `Spacer` component.
+ * Flexible space between elements.
  * 
  * @example
  * ```tsx
@@ -14,32 +14,32 @@ import styles from '@styles/Spacer.module.css';
  */
 export interface SpacerProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
-   * Tamaño del espacio.
-   * Puede ser un preset o un valor personalizado.
+   * Space size.
+   * Can be a preset or a custom value.
    * @default 'normal'
    */
   size?: 'xs' | 'small' | 'normal' | 'large' | 'xl' | '2xl' | string | number;
   
   /**
-   * Eje del espacio.
+   * Space axis.
    * @default 'vertical'
    */
   axis?: 'vertical' | 'horizontal';
   
   /**
-   * Clases CSS adicionales.
+   * Additional CSS classes.
    */
   className?: string;
 }
 
 /**
- * Spacer - Espacio flexible entre elementos.
+ * Spacer - Flexible space between elements.
  * 
- * Características:
- * - Presets de tamaño (xs, small, normal, large, xl, 2xl)
- * - Tamaños personalizados
- * - Eje vertical u horizontal
- * - Útil para layouts flexibles
+ * Features:
+ * - Size presets (xs, small, normal, large, xl, 2xl)
+ * - Custom sizes
+ * - Vertical or horizontal axis
+ * - Useful for flexible layouts
  */
 export const Spacer = React.forwardRef<HTMLDivElement, SpacerProps>(({
   size = 'normal',

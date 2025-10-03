@@ -3,9 +3,9 @@ import { Typography } from '@components/typography/Typography';
 import styles from '@styles/Breadcrumb.module.css';
 
 /**
- * Item de migas de pan (breadcrumb).
- * - `label`: texto visible del ítem.
- * - `href`: destino del enlace.
+ * Breadcrumb item.
+ * - `label`: visible text of the item.
+ * - `href`: link destination.
  */
 export interface BreadcrumbItem {
   label: string;
@@ -13,10 +13,10 @@ export interface BreadcrumbItem {
 }
 
 /**
- * Props del componente `Breadcrumb`.
- * - `items`: lista ordenada de ítems.
- * - `variant`: tema visual.
- * - `className`: clases CSS adicionales.
+ * Props for the `Breadcrumb` component.
+ * - `items`: ordered list of items.
+ * - `variant`: visual theme.
+ * - `className`: additional CSS classes.
  */
 export interface BreadcrumbProps {
   items: BreadcrumbItem[];
@@ -25,15 +25,15 @@ export interface BreadcrumbProps {
 }
 
 /**
- * Navegación tipo "breadcrumb" con soporte de accesibilidad.
- * - Usa `nav` con `aria-label="Breadcrumb"` y lista ordenada.
- * - El último ítem se marca como página actual.
+ * Breadcrumb navigation with accessibility support.
+ * - Uses `nav` with `aria-label="Breadcrumb"` and ordered list.
+ * - The last item is marked as current page.
  *
- * @returns Estructura `<nav><ol>...</ol></nav>`.
+ * @returns Structure `<nav><ol>...</ol></nav>`.
  * @example
  * ```tsx
  * <Breadcrumb
- *   items={[{ label: 'Home', href: '/' }, { label: 'Productos', href: '/productos' }, { label: 'Item', href: '#' }]}
+ *   items={[{ label: 'Home', href: '/' }, { label: 'Products', href: '/products' }, { label: 'Item', href: '#' }]}
  *   variant="dark"
  * />
  * ```
@@ -44,7 +44,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
   className,
   ...props
 }) => {
-  // Clases dinámicas por tema
+  // Dynamic classes by theme
   const breadcrumbClasses = [
     styles.breadcrumb,
     styles[variant],
@@ -52,19 +52,19 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
   ].filter(Boolean).join(' ');
 
   return (
-    // Contenedor de navegación accesible
+    // Accessible navigation container
     <nav className={breadcrumbClasses} aria-label="Breadcrumb" {...props}>
       <ol className={styles.breadcrumbList}>
         {items.map((item, index) => (
           <li key={index} className={styles.breadcrumbItem}>
             {index > 0 && <span className={styles.separator}>/</span>}
             {index === items.length - 1 ? (
-              // Último ítem: página actual
+              // Last item: current page
               <Typography variant="span" theme={variant} className={styles.currentPage}>
                 {item.label}
               </Typography>
             ) : (
-              // Enlace a la página anterior
+              // Link to previous page
               <a href={item.href} className={styles.breadcrumbLink}>
                 <Typography variant="span" theme={variant}>
                   {item.label}

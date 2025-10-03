@@ -6,7 +6,7 @@
   overflow: hidden;
 }
 
-/* ===== VARIANTES ===== */
+/* ===== VARIANTS ===== */
 .text {
   height: 1rem;
   margin-bottom: 0.5rem;
@@ -25,7 +25,7 @@
   border-radius: 8px;
 }
 
-/* ===== ANIMACIONES ===== */
+/* ===== ANIMATIONS ===== */
 .animation-pulse {
   animation: pulse 1.5s ease-in-out infinite;
 }
@@ -50,7 +50,7 @@
   to { left: 100%; }
 }
 
-/* ===== TEMAS ===== */
+/* ===== THEMES ===== */
 .dark {
   background-color: #424242;
 }
@@ -59,7 +59,7 @@
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
 }
 
-/* ===== CONTENEDORES ===== */
+/* ===== CONTAINERS ===== */
 .textContainer {
   display: flex;
   flex-direction: column;
