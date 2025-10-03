@@ -1,6 +1,6 @@
 {
   "name": "prismatica-ui",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "React modern components library",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
@@ -11,7 +11,7 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     },
-      "./styles.css": {
+    "./styles.css": {
       "default": "./dist/styles.css"
     }
   },
