@@ -11,6 +11,16 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
  * Campo de entrada con variantes visuales y tamaños.
  * 
  * Accesibilidad: cuando state = 'error' se marca aria-invalid por defecto (sobrescribible).
+ *
+ * @example
+ * ```tsx
+ * <Input
+ *   placeholder="Correo"
+ *   variant="light"
+ *   inputSize="large"
+ *   state="default"
+ * />
+ * ```
  */
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(({ 
   variant = 'light',
@@ -19,6 +29,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(({
   className,
   ...props
 }, ref) => {
+  // Clases dinámicas por tema, tamaño y estado visual
   const inputClasses = [
     styles.input,
     styles[variant],

@@ -4,11 +4,24 @@ import { Button } from '@components/Button/Button';
 import { Typography } from '@components/typography/Typography';
 import styles from '@styles/LandingPageTemplate.module.css';
 
+/**
+ * Props del componente `LandingPage`.
+ * - `variant`: tema visual de la página.
+ * - `className`: clases CSS adicionales.
+ */
 export interface LandingPageProps {
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
   className?: string;
 }
 
+/**
+ * Plantilla de landing page con hero, features, pricing y contacto.
+ *
+ * @example
+ * ```tsx
+ * <LandingPage variant="light" />
+ * ```
+ */
 export const LandingPage: React.FC<LandingPageProps> = ({
   variant = 'light',
   className,
@@ -22,6 +35,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
 
   return (
     <div className={pageClasses} {...props}>
+      {/* Navbar superior con navegación principal */}
       <Navbar
         logo={<div className={styles.logo}>FutureUI</div>}
         title="FutureUI"
@@ -34,11 +48,13 @@ export const LandingPage: React.FC<LandingPageProps> = ({
         variant={variant}
       />
       <main className={styles.main}>
+        {/* Sección hero de bienvenida */}
         <section className={styles.hero}>
           <Typography variant="h1" className={styles.heroTitle}>Welcome to FutureUI</Typography>
           <Typography variant="p" className={styles.heroSubtitle}>The next generation of user interfaces</Typography>
           <Button variant={variant} size="large" className={styles.ctaButton}>Get Started</Button>
         </section>
+        {/* Sección de características */}
         <section id="features" className={styles.features}>
           <Typography variant="h2">Features</Typography>
           <div className={styles.featureGrid}>
@@ -50,6 +66,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             ))}
           </div>
         </section>
+        {/* Sección de precios */}
         <section id="pricing" className={styles.pricing}>
           <Typography variant="h2">Pricing</Typography>
           <div className={styles.pricingGrid}>
@@ -62,6 +79,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             ))}
           </div>
         </section>
+        {/* Sección de contacto */}
         <section id="contact" className={styles.contact}>
           <Typography variant="h2">Contact Us</Typography>
           <form className={styles.contactForm}>
@@ -72,6 +90,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
           </form>
         </section>
       </main>
+      {/* Footer simple con derechos reservados */}
       <footer className={styles.footer}>
         <Typography variant="p">&copy; 2023 FutureUI. All rights reserved.</Typography>
       </footer>

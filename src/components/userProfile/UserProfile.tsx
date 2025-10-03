@@ -3,15 +3,56 @@ import { Button } from '@components/Button/Button';
 import { Typography } from '@components/typography/Typography';
 import styles from '@styles/UserProfile.module.css';
 
+/**
+ * Props del componente `UserProfile`.
+ * - `name`: nombre del usuario.
+ * - `email`: correo del usuario.
+ * - `avatar`: URL de imagen de avatar.
+ * - `bio`: descripción breve del usuario.
+ * - `variant`: tema visual.
+ * - `className`: clases CSS adicionales.
+ */
 export interface UserProfileProps {
+  /**
+   * Nombre del usuario.
+   */
   name: string;
+  /**
+   * Correo del usuario.
+   */
   email: string;
+  /**
+   * URL de imagen de avatar.
+   */
   avatar: string;
+  /**
+   * Descripción breve del usuario.
+   */
   bio: string;
+  /**
+   * Tema visual.
+   * @default 'light'
+   */
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
+  /**
+   * Clases CSS adicionales.
+   */
   className?: string;
 }
 
+/**
+ * Tarjeta de perfil de usuario con avatar, datos básicos y acciones.
+ *
+ * @example
+ * ```tsx
+ * <UserProfile
+ *   name="Ada Lovelace"
+ *   email="ada@example.com"
+ *   avatar="/ada.png"
+ *   bio="Pionera de la programación"
+ * />
+ * ```
+ */
 export const UserProfile: React.FC<UserProfileProps> = ({
   name,
   email,

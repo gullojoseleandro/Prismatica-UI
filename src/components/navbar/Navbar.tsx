@@ -2,6 +2,16 @@ import React from 'react';
 import { Typography } from '@components/typography/Typography';
 import styles from '@styles/Navbar.module.css';
 
+/**
+ * Props del componente `Navbar`.
+ * - `logo`: nodo opcional para el logo/marca.
+ * - `title`: título textual opcional.
+ * - `menuItems`: arreglo de enlaces de navegación.
+ * - `variant`: tema visual.
+ * - `className`: clases CSS adicionales.
+ * - `acciones`: nodo opcional para acciones a la derecha (botones, etc.).
+ * - Extiende atributos nativos de `<nav>` mediante `React.HTMLAttributes<HTMLElement>`.
+ */
 export interface NavbarProps extends React.HTMLAttributes<HTMLElement> {
   logo?: React.ReactNode;
   title?: string;
@@ -11,6 +21,19 @@ export interface NavbarProps extends React.HTMLAttributes<HTMLElement> {
   acciones?: React.ReactNode;
 }
 
+/**
+ * Barra de navegación principal.
+ *
+ * @example
+ * ```tsx
+ * <Navbar
+ *   logo={<img src="/logo.svg" alt="Marca" />}
+ *   title="App"
+ *   menuItems={[{label:'Inicio', href:'#'}]}
+ *   acciones={<Button>Salir</Button>}
+ * />
+ * ```
+ */
 export const Navbar = React.forwardRef<HTMLElement, NavbarProps>(({ 
   logo,
   title,

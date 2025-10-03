@@ -2,14 +2,47 @@ import React from 'react';
 import { Button } from '@components/Button/Button';
 import styles from '@styles/Pagination.module.css';
 
+/**
+ * Props del componente `Pagination`.
+ * - `currentPage`: página actual (1-indexed).
+ * - `totalPages`: total de páginas.
+ * - `onPageChange`: callback al cambiar de página.
+ * - `variant`: tema visual.
+ * - `className`: clases CSS adicionales.
+ */
 export interface PaginationProps {
+  /**
+   * Página actual (1-indexed).
+   */
   currentPage: number;
+  /**
+   * Total de páginas.
+   */
   totalPages: number;
+  /**
+   * Callback al cambiar de página.
+   * @param page Nueva página.
+   */
   onPageChange: (page: number) => void;
+  /**
+   * Tema visual.
+   * @default 'light'
+   */
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
+  /**
+   * Clases CSS adicionales.
+   */
   className?: string;
 }
 
+/**
+ * Navegación paginada con botones anterior/siguiente y ventana de páginas.
+ *
+ * @example
+ * ```tsx
+ * <Pagination currentPage={2} totalPages={10} onPageChange={(p) => setPagina(p)} />
+ * ```
+ */
 export const Pagination: React.FC<PaginationProps> = ({
   currentPage,
   totalPages,
@@ -24,6 +57,7 @@ export const Pagination: React.FC<PaginationProps> = ({
     className
   ].filter(Boolean).join(' ');
 
+  // Renderiza números con bordes (1, actual±1, último) e inserta elipsis
   const renderPageNumbers = () => {
     const pageNumbers = [];
     for (let i = 1; i <= totalPages; i++) {

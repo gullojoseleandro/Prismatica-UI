@@ -2,11 +2,24 @@ import React, { useState } from 'react';
 import { Typography } from '@components/typography/Typography';
 import styles from '@styles/Dropdown.module.css';
 
+/**
+ * Opción de selección para `Dropdown`.
+ * - `label`: texto visible.
+ * - `value`: valor asociado a la opción.
+ */
 export interface DropdownOption {
   label: string;
   value: string;
 }
 
+/**
+ * Props del componente `Dropdown`.
+ * - `options`: lista de opciones disponibles.
+ * - `placeholder`: texto cuando no hay selección.
+ * - `variant`: tema visual (light, dark, holographic).
+ * - `onChange`: callback con el `value` seleccionado.
+ * - `className`: clases adicionales.
+ */
 export interface DropdownProps {
   options: DropdownOption[];
   placeholder?: string;
@@ -15,6 +28,18 @@ export interface DropdownProps {
   className?: string;
 }
 
+/**
+ * `Dropdown` simple controlado internamente.
+ * - Muestra una lista desplegable y devuelve el `value` de la opción elegida.
+ *
+ * @example
+ * ```tsx
+ * <Dropdown
+ *   options={[{label: 'A', value: 'a'}, {label: 'B', value: 'b'}]}
+ *   onChange={(v) => console.log(v)}
+ * />
+ * ```
+ */
 export const Dropdown: React.FC<DropdownProps> = ({
   options,
   placeholder = 'Select an option',
@@ -32,6 +57,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
     className
   ].filter(Boolean).join(' ');
 
+  // Selección de opción: actualiza estado y notifica al consumidor
   const handleOptionClick = (option: DropdownOption) => {
     setSelectedOption(option);
     setIsOpen(false);
