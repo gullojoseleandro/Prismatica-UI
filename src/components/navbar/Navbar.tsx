@@ -1,5 +1,6 @@
 import React from 'react';
 import { Typography } from '@components/typography/Typography';
+import { Button } from '@components/Button/Button';
 import styles from '@styles/Navbar.module.css';
 
 /**
@@ -19,6 +20,14 @@ export interface NavbarProps extends React.HTMLAttributes<HTMLElement> {
   actions?: React.ReactNode;
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
   className?: string;
+  /** Optional version badge text (e.g., v2.0.2) */
+  version?: string;
+  /** Shows a theme toggle button on the right */
+  showThemeToggle?: boolean;
+  /** Callback when theme toggle is clicked */
+  onToggleTheme?: () => void;
+  /** Custom label for theme toggle button */
+  themeToggleLabel?: string;
 }
 
 /**
@@ -41,6 +50,10 @@ export const Navbar = React.forwardRef<HTMLElement, NavbarProps>(({
   variant = 'light',
   className,
   actions,
+  version,
+  showThemeToggle,
+  onToggleTheme,
+  themeToggleLabel,
   ...props
 }, ref) => {
   const navbarClasses = [
@@ -72,6 +85,27 @@ export const Navbar = React.forwardRef<HTMLElement, NavbarProps>(({
       </ul>
       <div className={styles.navbarActions}>
         {actions}
+        {showThemeToggle && (
+          <Button
+            size="small"
+            buttonStyle="outline"
+            variant={variant}
+            onClick={onToggleTheme}
+            style={{ marginLeft: '0.5rem' }}
+          >
+            {themeToggleLabel || 'Theme'}
+          </Button>
+        )}
+        {version && (
+          <span
+            className={styles.versionBadge}
+            style={{ marginLeft: '0.5rem', opacity: 0.8 }}
+            aria-label={`Version ${version}`}
+            title={`Version ${version}`}
+          >
+            {version}
+          </span>
+        )}
       </div>
     </nav>
   );

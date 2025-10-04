@@ -10,7 +10,7 @@ import styles from '@styles/SearchBar.module.css';
  * - `placeholder`: input text when empty.
  * - `className`: additional CSS classes.
  */
-export interface SearchBarProps {
+export interface SearchBarProps extends React.FormHTMLAttributes<HTMLFormElement> {
   /**
    * Callback that receives the entered text on submit.
    * @param {string} query - Search term.
@@ -30,6 +30,18 @@ export interface SearchBarProps {
    * Additional CSS classes.
    */
   className?: string;
+  /** Size of the control */
+  size?: 'small' | 'medium' | 'large';
+  /** Shape of the control */
+  shape?: 'rounded' | 'pill' | 'square';
+  /** Stretch to full width */
+  fullWidth?: boolean;
+  /** Show the submit button */
+  showButton?: boolean;
+  /** Submit button label */
+  buttonLabel?: string;
+  /** Place the button on left or right */
+  buttonPosition?: 'left' | 'right';
 }
 
 /**
@@ -45,6 +57,12 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   variant = 'light',
   placeholder = 'Search...',
   className,
+  size = 'medium',
+  shape = 'rounded',
+  fullWidth = false,
+  showButton = true,
+  buttonLabel = 'Search',
+  buttonPosition = 'right',
   ...props
 }) => {
   const [query, setQuery] = useState('');
@@ -58,22 +76,34 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   const searchBarClasses = [
     styles.searchBar,
     styles[variant],
+    styles[`size-${size}`],
+    styles[shape],
+    fullWidth && styles.fullWidth,
     className
   ].filter(Boolean).join(' ');
 
+  const inputEl = (
+    <Input
+      type="text"
+      placeholder={placeholder}
+      value={query}
+      onChange={(e) => setQuery(e.target.value)}
+      variant={variant}
+      className={styles.searchInput}
+    />
+  );
+
+  const buttonEl = showButton ? (
+    <Button type="submit" variant={variant} className={styles.searchButton}>
+      {buttonLabel}
+    </Button>
+  ) : null;
+
   return (
     <form className={searchBarClasses} onSubmit={handleSubmit} {...props}>
-      <Input
-        type="text"
-        placeholder={placeholder}
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        variant={variant}
-        className={styles.searchInput}
-      />
-      <Button type="submit" variant={variant} className={styles.searchButton}>
-        Search
-      </Button>
+      {buttonPosition === 'left' && buttonEl}
+      {inputEl}
+      {buttonPosition === 'right' && buttonEl}
     </form>
   );
 };
