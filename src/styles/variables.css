@@ -1,0 +1,164 @@
+/**
+ * Global CSS Variables for Prismatik UI
+ * Auto-adapts based on data-theme attribute on <html>
+ */
+
+/* Default theme (dark) */
+:root {
+  /* Colors */
+  --primary: #667eea;
+  --primary-hover: #5568d3;
+  --secondary: #764ba2;
+  
+  /* Backgrounds */
+  --background: #1a1a1a;
+  --surface: #2a2a2a;
+  --surface-hover: #3a3a3a;
+  
+  /* Text */
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --text-tertiary: #999999;
+  
+  /* Borders */
+  --border-color: #404040;
+  --border-hover: #606060;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  
+  /* Component specific */
+  --card-bg: #2a2a2a;
+  --card-border: #404040;
+  --button-bg: #667eea;
+  --button-hover: #5568d3;
+  --input-bg: #2a2a2a;
+  --input-border: #404040;
+  --navbar-bg: #1a1a1a;
+  --modal-overlay: rgba(0, 0, 0, 0.7);
+}
+
+/* Light theme */
+:root[data-theme="light"] {
+  /* Backgrounds */
+  --background: #ffffff;
+  --surface: #f9fafb;
+  --surface-hover: #f3f4f6;
+  
+  /* Text */
+  --text-primary: #1a1a1a;
+  --text-secondary: #666666;
+  --text-tertiary: #999999;
+  
+  /* Borders */
+  --border-color: #e5e5e5;
+  --border-hover: #d4d4d4;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  
+  /* Component specific */
+  --card-bg: #ffffff;
+  --card-border: #e5e5e5;
+  --button-bg: #667eea;
+  --button-hover: #5568d3;
+  --input-bg: #ffffff;
+  --input-border: #e5e5e5;
+  --navbar-bg: #ffffff;
+  --modal-overlay: rgba(0, 0, 0, 0.5);
+}
+
+/* Dark theme (explicit) */
+:root[data-theme="dark"] {
+  /* Same as default/root */
+  --background: #1a1a1a;
+  --surface: #2a2a2a;
+  --surface-hover: #3a3a3a;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --text-tertiary: #999999;
+  --border-color: #404040;
+  --border-hover: #606060;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  --card-bg: #2a2a2a;
+  --card-border: #404040;
+  --button-bg: #667eea;
+  --button-hover: #5568d3;
+  --input-bg: #2a2a2a;
+  --input-border: #404040;
+  --navbar-bg: #1a1a1a;
+  --modal-overlay: rgba(0, 0, 0, 0.7);
+}
+
+/* Holographic theme */
+:root[data-theme="holographic"] {
+  --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --surface: rgba(255, 255, 255, 0.1);
+  --surface-hover: rgba(255, 255, 255, 0.2);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --text-tertiary: rgba(255, 255, 255, 0.6);
+  --border-color: rgba(255, 255, 255, 0.2);
+  --border-hover: rgba(255, 255, 255, 0.3);
+  --card-bg: rgba(255, 255, 255, 0.1);
+  --card-border: rgba(255, 255, 255, 0.2);
+  --button-bg: rgba(255, 255, 255, 0.2);
+  --button-hover: rgba(255, 255, 255, 0.3);
+  --input-bg: rgba(255, 255, 255, 0.1);
+  --input-border: rgba(255, 255, 255, 0.2);
+  --navbar-bg: rgba(0, 0, 0, 0.3);
+  --modal-overlay: rgba(0, 0, 0, 0.8);
+}
+
+/* Transparent light theme */
+:root[data-theme="transparent-light"] {
+  --background: transparent;
+  --surface: rgba(255, 255, 255, 0.8);
+  --surface-hover: rgba(255, 255, 255, 0.9);
+  --text-primary: #1a1a1a;
+  --text-secondary: #666666;
+  --text-tertiary: #999999;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --border-hover: rgba(0, 0, 0, 0.2);
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --card-border: rgba(0, 0, 0, 0.1);
+  --button-bg: #667eea;
+  --button-hover: #5568d3;
+  --input-bg: rgba(255, 255, 255, 0.8);
+  --input-border: rgba(0, 0, 0, 0.1);
+  --navbar-bg: rgba(255, 255, 255, 0.9);
+  --modal-overlay: rgba(0, 0, 0, 0.5);
+}
+
+/* Transparent dark theme */
+:root[data-theme="transparent-dark"] {
+  --background: transparent;
+  --surface: rgba(0, 0, 0, 0.6);
+  --surface-hover: rgba(0, 0, 0, 0.7);
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --text-tertiary: #999999;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-hover: rgba(255, 255, 255, 0.2);
+  --card-bg: rgba(0, 0, 0, 0.6);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --button-bg: #667eea;
+  --button-hover: #5568d3;
+  --input-bg: rgba(0, 0, 0, 0.6);
+  --input-border: rgba(255, 255, 255, 0.1);
+  --navbar-bg: rgba(0, 0, 0, 0.8);
+  --modal-overlay: rgba(0, 0, 0, 0.7);
+}
+
+/* Base styles that use variables */
+body {
+  background: var(--background);
+  color: var(--text-primary);
+  transition: background 0.3s ease, color 0.3s ease;
+}

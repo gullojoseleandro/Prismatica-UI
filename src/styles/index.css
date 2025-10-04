@@ -1,0 +1,47 @@
+/**
+ * Prismatik UI - Main Styles Entry Point
+ * Import this file to get all component styles with auto-theme support
+ */
+
+/* Import CSS Variables first - these enable auto-theme switching */
+@import './variables.css';
+
+/* Import all component styles */
+@import './Accordion.module.css';
+@import './Alert.module.css';
+@import './Avatar.module.css';
+@import './Badge.module.css';
+@import './Breadcrumb.module.css';
+@import './Button.module.css';
+@import './Card.module.css';
+@import './Chip.module.css';
+@import './Container.module.css';
+@import './DashboardTemplate.module.css';
+@import './Divider.module.css';
+@import './Drawer.module.css';
+@import './Dropdown.module.css';
+@import './Grid.module.css';
+@import './Header.module.css';
+@import './Input.module.css';
+@import './LandingPageTemplate.module.css';
+@import './LoginForm.module.css';
+@import './Modal.module.css';
+@import './Navbar.module.css';
+@import './Pagination.module.css';
+@import './ProductCard.module.css';
+@import './ProgressBar.module.css';
+@import './SearchBar.module.css';
+@import './Select.module.css';
+@import './Sidebar.module.css';
+@import './Skeleton.module.css';
+@import './Slider.module.css';
+@import './SocialButton.module.css';
+@import './Spacer.module.css';
+@import './Spinner.module.css';
+@import './Stepper.module.css';
+@import './Tabs.module.css';
+@import './Toast.module.css';
+@import './Toggle.module.css';
+@import './Tooltip.module.css';
+@import './Typography.module.css';
+@import './UserProfile.module.css';

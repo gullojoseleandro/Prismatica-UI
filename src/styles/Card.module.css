@@ -1,13 +1,14 @@
 /* ===== CARD BASE ===== */
 .card {
-  background-color: transparent;
-  border: 2px solid;
+  background-color: var(--card-bg);
+  border: 2px solid var(--card-border);
   border-radius: 12px;
   transition: all 0.3s ease;
   font-family: inherit;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  color: var(--text-primary);
 }
 
 /* ===== IMAGE ===== */
@@ -50,7 +51,7 @@
   align-items: flex-start;
   gap: 1rem;
   padding: 1.5rem;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .headerContent {
@@ -96,7 +97,7 @@
 
 .footer {
   padding: 1rem 1.5rem;
-  border-top: 1px solid rgba(128, 128, 128, 0.2);
+  border-top: 1px solid var(--border-color);
 }
 
 /* ===== PADDING ===== */
@@ -156,53 +157,40 @@
 }
 
 /* ===== THEMES ===== */
+/* Themes are now handled automatically via CSS variables in variables.css */
+/* The card adapts based on :root[data-theme] attribute */
+
+/* Optional: Keep variant classes for manual override if needed */
 .light {
-  border-color: #e5e7eb;
-  color: #000;
-  background-color: #fff;
+  --card-bg: #ffffff;
+  --card-border: #e5e7eb;
+  --text-primary: #000000;
 }
 
 .dark {
-  border-color: #4a5568;
-  color: #e5e7eb;
-  background-color: #1f2937;
-}
-
-.dark .title {
-  color: #fff;
-}
-
-.dark .subtitle {
-  color: #d1d5db;
+  --card-bg: #1f2937;
+  --card-border: #4a5568;
+  --text-primary: #e5e7eb;
 }
 
 .holographic {
-  border-color: transparent;
-  background: linear-gradient(135deg, rgba(138, 43, 226, 0.2), rgba(0, 150, 255, 0.2));
+  --card-bg: linear-gradient(135deg, rgba(138, 43, 226, 0.2), rgba(0, 150, 255, 0.2));
+  --card-border: rgba(138, 43, 226, 0.3);
+  --text-primary: #f3f4f6;
   backdrop-filter: blur(10px);
-  color: #f3f4f6;
-  border: 2px solid rgba(138, 43, 226, 0.3);
-}
-
-.holographic .title {
-  color: #fff;
-}
-
-.holographic .subtitle {
-  color: #e5e7eb;
 }
 
 .transparent-light {
-  border-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
-  background-color: rgba(255, 255, 255, 0.1);
+  --card-bg: rgba(255, 255, 255, 0.1);
+  --card-border: rgba(255, 255, 255, 0.2);
+  --text-primary: #ffffff;
   backdrop-filter: blur(5px);
 }
 
 .transparent-dark {
-  border-color: rgba(0, 0, 0, 0.2);
-  color: #000;
-  background-color: rgba(0, 0, 0, 0.1);
+  --card-bg: rgba(0, 0, 0, 0.1);
+  --card-border: rgba(0, 0, 0, 0.2);
+  --text-primary: #000000;
   backdrop-filter: blur(5px);
 }
 

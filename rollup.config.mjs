@@ -30,7 +30,8 @@ const basePlugins = [
     modules: true,
     extract: path.resolve(projectRoot, 'dist/styles.css'),
     minimize: true,
-    sourceMap: true
+    sourceMap: true,
+    inject: false
   }),
   typescript({ tsconfig: path.resolve(projectRoot, 'tsconfig.json') }),
   terser()

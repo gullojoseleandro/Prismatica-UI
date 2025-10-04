@@ -1,6 +1,7 @@
 .typography {
   font-family: inherit;
   margin: 0;
+  color: var(--text-primary);
 }
 
 .h1 { font-size: 2.5rem; font-weight: 700; }
@@ -12,11 +13,12 @@
 .p { font-size: 1rem; line-height: 1.5; }
 .span { font-size: inherit; }
 
-.light { color: #000; }
-.dark { color: #fff; }
+/* Themes now use CSS variables - auto-adapt based on data-theme */
+.light { color: var(--text-primary); }
+.dark { color: var(--text-primary); }
 .holographic {
-  color: #fff;
+  color: var(--text-primary);
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
-.transparent-light { color: #fff; }
-.transparent-dark { color: #000; }
+.transparent-light { color: var(--text-primary); }
+.transparent-dark { color: var(--text-primary); }

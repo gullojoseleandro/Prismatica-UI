@@ -4,12 +4,36 @@
   align-items: center;
   padding: 1rem 2rem;
   font-family: inherit;
+  background-color: var(--navbar-bg);
+  color: var(--text-primary);
 }
 
 .navbarBrand {
   display: flex;
   align-items: center;
+}
+
+.navbarMenuItem {
+  padding: 0.5rem 1rem;
+}
+
+.navbarMenuLink {
+  text-decoration: none;
+  transition: all 0.3s ease;
+  color: var(--text-primary);
+}
+
+.navbarActions {
+  display: flex;
+  align-items: center;
+}
+
+.navbarMenu {
+  display: flex;
+  list-style-type: none;
   gap: 1rem;
+  margin: 0;
+  padding: 0;
 }
 
 .logo {
@@ -23,28 +47,7 @@
   margin: 0;
 }
 
-.navbarMenu {
-  display: flex;
-  list-style-type: none;
-  gap: 1rem;
-  margin: 0;
-  padding: 0;
-}
-
-.navbarMenuItem {
-  padding: 0.5rem 1rem;
-}
-
-.navbarMenuLink {
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.navbarActions {
-  display: flex;
-  align-items: center;
-}
-
+/* Themes - now use CSS variables */
 .light {
   background-color: #fff;
   color: #000;

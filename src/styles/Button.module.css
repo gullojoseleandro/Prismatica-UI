@@ -5,8 +5,9 @@
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  border: 2px solid;
-  background-color: transparent;
+  border: 2px solid var(--button-bg);
+  background-color: var(--button-bg);
+  color: var(--text-primary);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -17,6 +18,11 @@
   white-space: nowrap;
   user-select: none;
   outline: none;
+}
+
+.button:hover {
+  background-color: var(--button-hover);
+  border-color: var(--button-hover);
 }
 
 .button:focus-visible {
