@@ -11,9 +11,10 @@
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: inherit;
 }
 
 .labelText {
@@ -71,6 +72,22 @@
   outline: none;
   color: inherit;
   width: 100%;
+}
+
+/* Input sizes */
+.small .input {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.medium .input {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+}
+
+.large .input {
+  padding: 1rem 1.25rem;
+  font-size: 1.125rem;
 }
 
 .input::placeholder {
@@ -175,8 +192,9 @@
 /* ===== COUNTER ===== */
 .counter {
   text-align: right;
-  font-size: 0.8rem;
-  opacity: 0.6;
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 500;
   margin-top: 0.25rem;
 }
 

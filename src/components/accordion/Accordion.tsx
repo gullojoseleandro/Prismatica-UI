@@ -16,11 +16,13 @@ export interface AccordionItem {
  * Props for the `Accordion` component.
  * - `items`: list of items to render.
  * - `variant`: visual theme.
+ * - `defaultOpenItem`: index of the item that should be open by default.
  * - `className`: additional CSS classes.
  */
 export interface AccordionProps extends React.HTMLAttributes<HTMLDivElement> {
   items: AccordionItem[];
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
+  defaultOpenItem?: number | null;
   className?: string;
 }
 
@@ -34,6 +36,7 @@ export interface AccordionProps extends React.HTMLAttributes<HTMLDivElement> {
  * ```tsx
  * <Accordion
  *   variant="light"
+ *   defaultOpenItem={0}
  *   items={[{ title: 'Section 1', content: 'Content 1' }, { title: 'Section 2', content: 'Content 2' }]}
  * />
  * ```
@@ -41,11 +44,12 @@ export interface AccordionProps extends React.HTMLAttributes<HTMLDivElement> {
 export const Accordion: React.FC<AccordionProps> = ({
   items,
   variant = 'light',
+  defaultOpenItem = null,
   className,
   ...props
 }) => {
   const instanceId = useId();
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(defaultOpenItem);
 
   // Toggle active index; if repeated, collapse
   const toggleItem = (index: number) => {

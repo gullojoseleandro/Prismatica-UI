@@ -89,15 +89,16 @@ export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   closeOnEscape?: boolean;
   
   /**
-   * Center vertically.
+   * Modal position on screen.
+   * @default 'center'
    */
-  centered?: boolean;
+  position?: 'top' | 'center' | 'bottom' | 'left' | 'right' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
   
   /**
    * Entry animation.
    * @default 'fade'
    */
-  animation?: 'fade' | 'slide' | 'zoom' | 'none';
+  animation?: 'fade' | 'slide' | 'slideUp' | 'slideDown' | 'slideLeft' | 'slideRight' | 'zoom' | 'none';
   
   /**
    * Additional CSS classes.
@@ -113,7 +114,7 @@ export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
  * - Customizable header and footer
  * - Icon in the header
  * - Close control (Escape, click outside)
- * - Vertical centering
+ * - Customizable position on screen
  * - Fully accessible
  * 
  * - `role="dialog"`, `aria-modal`, `aria-labelledby`
@@ -131,7 +132,7 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(({
   showCloseButton = true,
   closeOnClickOutside = true,
   closeOnEscape = true,
-  centered = false,
+  position = 'center',
   animation = 'fade',
   className,
   ...props
@@ -162,7 +163,7 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(({
   const overlayClasses = [
     styles.modalOverlay,
     styles[`animation-${animation}`],
-    centered && styles.centrado,
+    styles[`position-${position}`],
     className
   ].filter(Boolean).join(' ');
   

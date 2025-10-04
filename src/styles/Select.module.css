@@ -2,51 +2,76 @@
   font-family: inherit;
   padding: 10px 15px;
   font-size: 16px;
-  border: 1px solid;
+  border: 2px solid;
+  border-radius: 8px;
   background-color: transparent;
   transition: all 0.3s ease-in-out;
   appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23000' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 10px center;
-  padding-right: 30px;
+  background-position: right 12px center;
+  padding-right: 40px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .select:focus {
   outline: none;
-  border-color: #666;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
 }
 
 .light {
-  border-color: #000;
+  border-color: #e0e0e0;
   color: #000;
   background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23333' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+}
+
+.light:hover {
+  border-color: #667eea;
+}
+
+.light option {
+  background-color: #fff;
+  color: #000;
 }
 
 .dark {
-  border-color: #fff;
+  border-color: #555;
   color: #fff;
-  background-color: #333;
+  background-color: #2a2a2a;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23fff' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+}
+
+.dark:hover {
+  border-color: #667eea;
+}
+
+.dark option {
+  background-color: #2a2a2a;
+  color: #fff;
 }
 
 .holographic {
-  border-color: transparent;
-  background: linear-gradient(45deg, rgba(255, 0, 240, 0.1), rgba(0, 80, 255, 0.1), rgba(0, 255, 159, 0.1), rgba(255, 0, 240, 0.1));
+  border-color: rgba(255, 255, 255, 0.3);
+  background: linear-gradient(45deg, rgba(255, 0, 240, 0.15), rgba(0, 80, 255, 0.15), rgba(0, 255, 159, 0.15), rgba(255, 0, 240, 0.15));
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   color: #fff;
+  backdrop-filter: blur(10px);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23fff' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E"), linear-gradient(45deg, rgba(255, 0, 240, 0.15), rgba(0, 80, 255, 0.15), rgba(0, 255, 159, 0.15), rgba(255, 0, 240, 0.15));
+  background-position: right 12px center, 0% 50%;
+  background-repeat: no-repeat, no-repeat;
 }
 
-.transparent-light {
-  border-color: #fff;
+.holographic:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.holographic option {
+  background-color: #2a2a2a;
   color: #fff;
-  background-color: transparent;
-}
-
-.transparent-dark {
-  border-color: #000;
-  color: #000;
-  background-color: transparent;
 }
 
 @keyframes gradient {
@@ -56,12 +81,20 @@
 }
 
 .small {
-  padding: 8px 12px;
+  padding: 6px 10px;
+  padding-right: 35px;
   font-size: 14px;
 }
 
+.medium {
+  padding: 10px 15px;
+  padding-right: 40px;
+  font-size: 16px;
+}
+
 .large {
-  padding: 12px 18px;
+  padding: 14px 20px;
+  padding-right: 45px;
   font-size: 18px;
 }
 

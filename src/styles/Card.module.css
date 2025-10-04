@@ -164,15 +164,32 @@
 
 .dark {
   border-color: #4a5568;
+  color: #e5e7eb;
+  background-color: #1f2937;
+}
+
+.dark .title {
   color: #fff;
-  background-color: #1a1a1a;
+}
+
+.dark .subtitle {
+  color: #d1d5db;
 }
 
 .holographic {
   border-color: transparent;
-  background: linear-gradient(135deg, rgba(255, 0, 240, 0.1), rgba(0, 80, 255, 0.1));
+  background: linear-gradient(135deg, rgba(138, 43, 226, 0.2), rgba(0, 150, 255, 0.2));
   backdrop-filter: blur(10px);
+  color: #f3f4f6;
+  border: 2px solid rgba(138, 43, 226, 0.3);
+}
+
+.holographic .title {
   color: #fff;
+}
+
+.holographic .subtitle {
+  color: #e5e7eb;
 }
 
 .transparent-light {

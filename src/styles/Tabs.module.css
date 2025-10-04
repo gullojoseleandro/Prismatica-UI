@@ -61,7 +61,7 @@
 
 /* Dark theme */
 .dark {
-  background-color: #333333;
+  background-color: #1a1a1a;
   color: #ffffff;
 }
 
@@ -69,15 +69,31 @@
   border-color: #555555;
 }
 
+.dark .tabButton {
+  color: #ffffff;
+}
+
 /* Holographic theme */
 .holographic {
-  background: linear-gradient(45deg, rgba(255, 0, 240, 0.1), rgba(0, 80, 255, 0.1));
+  background: linear-gradient(45deg, rgba(255, 0, 240, 0.15), rgba(0, 80, 255, 0.15), rgba(0, 255, 159, 0.15));
+  background-size: 400% 400%;
+  animation: holographicGradient 15s ease infinite;
   backdrop-filter: blur(10px);
   color: #ffffff;
 }
 
 .holographic .tabList {
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.holographic .tabButton {
+  color: #ffffff;
+}
+
+@keyframes holographicGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Transparent Light theme */

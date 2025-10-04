@@ -5,12 +5,14 @@ import styles from '@styles/Chip.module.css';
 /**
  * Props for the `Chip` component.
  * - `label`: visible chip text.
+ * - `icon`: optional icon to display.
  * - `onDelete`: optional callback when pressing delete.
  * - `variant`: visual theme.
  * - `className`: additional CSS classes.
  */
 export interface ChipProps {
   label: string;
+  icon?: React.ReactNode;
   onDelete?: () => void;
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
   /**
@@ -30,6 +32,7 @@ export interface ChipProps {
  */
 export const Chip: React.FC<ChipProps> = ({
   label,
+  icon,
   onDelete,
   variant = 'light',
   className,
@@ -43,6 +46,7 @@ export const Chip: React.FC<ChipProps> = ({
   ].filter(Boolean).join(' ');
   return (
     <div className={chipClasses} {...props}>
+      {icon && <span className={styles.icon}>{icon}</span>}
       <Typography variant="span" theme={variant} className={styles.label}>{label}</Typography>
       {onDelete && (
         <button className={styles.deleteButton} onClick={onDelete} aria-label="Delete">
