@@ -58,7 +58,7 @@
   
   .light .active .stepIcon {
     background-color: #007bff;
-    color: #fff;
+    color: var(--text-primary);
   }
   
   .light .active .stepConnector {
@@ -68,7 +68,7 @@
   /* Dark theme */
   .dark .stepIcon {
     background-color: #555;
-    color: #fff;
+    color: var(--text-primary);
   }
   
   .dark .stepConnector {
@@ -86,7 +86,7 @@
   /* Holographic theme */
   .holographic .stepIcon {
     background: linear-gradient(45deg, rgba(255, 0, 240, 0.2), rgba(0, 80, 255, 0.2));
-    color: #fff;
+    color: var(--text-primary);
   }
   
   .holographic .stepConnector {
@@ -104,7 +104,7 @@
   /* Transparent Light theme */
   .transparent-light .stepIcon {
     background-color: rgba(0, 0, 0, 0.1);
-    color: #000;
+    color: var(--text-primary);
   }
   
   .transparent-light .stepConnector {
@@ -113,7 +113,7 @@
   
   .transparent-light .active .stepIcon {
     background-color: rgba(0, 123, 255, 0.7);
-    color: #fff;
+    color: var(--text-primary);
   }
   
   .transparent-light .active .stepConnector {
@@ -123,7 +123,7 @@
   /* Transparent Dark theme */
   .transparent-dark .stepIcon {
     background-color: rgba(255, 255, 255, 0.1);
-    color: #fff;
+    color: var(--text-primary);
   }
   
   .transparent-dark .stepConnector {

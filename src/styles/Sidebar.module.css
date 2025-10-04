@@ -41,11 +41,11 @@
   }
   
   .dark {
-    background-color: #333;
+    background-color: var(--surface);
   }
   
   .dark .sidebarLink {
-    color: #fff;
+    color: var(--text-primary);
   }
   
   .dark .sidebarLink:hover {
@@ -59,7 +59,7 @@
   }
   
   .holographic .sidebarLink {
-    color: #fff;
+    color: var(--text-primary);
   }
   
   .holographic .sidebarLink:hover {

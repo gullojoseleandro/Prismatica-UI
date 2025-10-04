@@ -61,11 +61,11 @@
   }
   
   .light .sliderInput::-webkit-slider-thumb {
-    background: #667eea;
+    background: var(--primary);
   }
   
   .light .sliderInput::-moz-range-thumb {
-    background: #667eea;
+    background: var(--primary);
   }
   
   /* Dark theme */
@@ -74,12 +74,12 @@
   }
   
   .dark .sliderInput::-webkit-slider-thumb {
-    background: #667eea;
+    background: var(--primary);
     border-color: #2a2a2a;
   }
   
   .dark .sliderInput::-moz-range-thumb {
-    background: #667eea;
+    background: var(--primary);
     border-color: #2a2a2a;
   }
   

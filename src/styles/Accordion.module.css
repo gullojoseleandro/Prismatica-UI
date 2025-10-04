@@ -57,29 +57,29 @@
 
 /* Light theme */
 .light {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: var(--surface);
+  color: var(--text-primary);
 }
 
 .light .accordionItem {
-  border-color: #e0e0e0;
+  border-color: var(--border-color);
 }
 
 /* Dark theme */
 .dark {
   background-color: #333333;
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 .dark .accordionItem {
-  border-color: #555555;
+  border-color: var(--border-color);
 }
 
 /* Holographic theme */
 .holographic {
   background: linear-gradient(45deg, rgba(255, 0, 240, 0.1), rgba(0, 80, 255, 0.1));
   backdrop-filter: blur(10px);
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 .holographic .accordionItem {
@@ -89,7 +89,7 @@
 /* Transparent Light theme */
 .transparent-light {
   background-color: rgba(255, 255, 255, 0.1);
-  color: #000000;
+  color: var(--text-primary);
 }
 
 .transparent-light .accordionItem {
@@ -99,7 +99,7 @@
 /* Transparent Dark theme */
 .transparent-dark {
   background-color: rgba(0, 0, 0, 0.1);
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 .transparent-dark .accordionItem {

@@ -8,8 +8,8 @@
 
 /* Google */
 .google {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: var(--surface);
+  color: var(--text-primary);
   border: 2px solid #dadce0;
 }
 
@@ -21,7 +21,7 @@
 /* Facebook */
 .facebook {
   background-color: #1877F2;
-  color: #ffffff;
+  color: var(--text-primary);
   border-color: #1877F2;
 }
 
@@ -33,7 +33,7 @@
 /* GitHub */
 .github {
   background-color: #24292e;
-  color: #ffffff;
+  color: var(--text-primary);
   border-color: #24292e;
 }
 
@@ -45,7 +45,7 @@
 /* Twitter */
 .twitter {
   background-color: #1DA1F2;
-  color: #ffffff;
+  color: var(--text-primary);
   border-color: #1DA1F2;
 }
 
@@ -57,7 +57,7 @@
 /* LinkedIn */
 .linkedin {
   background-color: #0A66C2;
-  color: #ffffff;
+  color: var(--text-primary);
   border-color: #0A66C2;
 }
 
@@ -69,19 +69,19 @@
 /* Apple */
 .apple {
   background-color: #000000;
-  color: #ffffff;
+  color: var(--text-primary);
   border-color: #000000;
 }
 
 .apple:hover {
-  background-color: #1a1a1a;
+  background-color: var(--surface);
   border-color: #1a1a1a;
 }
 
 /* Microsoft */
 .microsoft {
   background-color: #00A4EF;
-  color: #ffffff;
+  color: var(--text-primary);
   border-color: #00A4EF;
 }
 

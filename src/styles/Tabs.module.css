@@ -1,10 +1,12 @@
 .tabs {
   width: 100%;
+  background-color: var(--surface);
+  color: var(--text-primary);
 }
 
 .tabList {
   display: flex;
-  border-bottom: 2px solid;
+  border-bottom: 2px solid var(--border-color);
 }
 
 .tabButton {
@@ -14,6 +16,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
+  color: var(--text-primary);
 }
 
 .tabButton::after {
@@ -51,26 +54,26 @@
 
 /* Light theme */
 .light {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: var(--surface);
+  color: var(--text-primary);
 }
 
 .light .tabList {
-  border-color: #e0e0e0;
+  border-color: var(--border-color);
 }
 
 /* Dark theme */
 .dark {
-  background-color: #1a1a1a;
-  color: #ffffff;
+  background-color: var(--surface);
+  color: var(--text-primary);
 }
 
 .dark .tabList {
-  border-color: #555555;
+  border-color: var(--border-color);
 }
 
 .dark .tabButton {
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 /* Holographic theme */
@@ -79,7 +82,7 @@
   background-size: 400% 400%;
   animation: holographicGradient 15s ease infinite;
   backdrop-filter: blur(10px);
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 .holographic .tabList {
@@ -87,7 +90,7 @@
 }
 
 .holographic .tabButton {
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 @keyframes holographicGradient {
@@ -99,7 +102,7 @@
 /* Transparent Light theme */
 .transparent-light {
   background-color: rgba(255, 255, 255, 0.1);
-  color: #000000;
+  color: var(--text-primary);
 }
 
 .transparent-light .tabList {
@@ -109,7 +112,7 @@
 /* Transparent Dark theme */
 .transparent-dark {
   background-color: rgba(0, 0, 0, 0.1);
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 .transparent-dark .tabList {

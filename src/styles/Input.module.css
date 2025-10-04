@@ -287,12 +287,12 @@
 
 /* Light theme */
 .light {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: var(--surface);
+  color: var(--text-primary);
 }
 
 .light .label {
-  color: #000000;
+  color: var(--text-primary);
 }
 
 .light.default {
@@ -306,16 +306,16 @@
 
 /* Dark theme */
 .dark {
-  background-color: #1a1a1a;
-  color: #ffffff;
+  background-color: var(--surface);
+  color: var(--text-primary);
 }
 
 .dark .label {
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 .dark.default {
-  border-color: #4a5568;
+  border-color: var(--border-color);
 }
 
 .dark.default:focus-within {
@@ -332,11 +332,11 @@
   background: linear-gradient(135deg, rgba(255, 0, 240, 0.1), rgba(0, 80, 255, 0.1));
   backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 255, 255, 0.2);
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 .holographic .label {
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 .holographic:focus-within {
@@ -349,11 +349,11 @@
 .transparent-light {
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(5px);
-  color: #000000;
+  color: var(--text-primary);
 }
 
 .transparent-light .label {
-  color: #000000;
+  color: var(--text-primary);
 }
 
 .transparent-light.default {
@@ -369,11 +369,11 @@
 .transparent-dark {
   background-color: rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 .transparent-dark .label {
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 .transparent-dark.default {

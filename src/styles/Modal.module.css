@@ -229,20 +229,20 @@
 
 /* ===== THEMES ===== */
 .light .modalContent {
-  background-color: #ffffff;
-  color: #000;
+  background-color: var(--surface);
+  color: var(--text-primary);
 }
 
 .dark .modalContent {
-  background-color: #1a1a1a;
-  color: #fff;
+  background-color: var(--surface);
+  color: var(--text-primary);
 }
 
 .holographic .modalContent {
   background: linear-gradient(45deg, rgba(255, 0, 240, 0.2), rgba(0, 80, 255, 0.2), rgba(0, 255, 159, 0.2), rgba(255, 0, 240, 0.2));
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
-  color: #fff;
+  color: var(--text-primary);
   backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
@@ -255,14 +255,14 @@
 
 .transparent-light .modalContent {
   background-color: rgba(255, 255, 255, 0.9);
-  color: #000;
+  color: var(--text-primary);
   border: 1px solid rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
 }
 
 .transparent-dark .modalContent {
   background-color: rgba(0, 0, 0, 0.8);
-  color: #fff;
+  color: var(--text-primary);
   border: 1px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
 }

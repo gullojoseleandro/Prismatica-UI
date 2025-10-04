@@ -226,8 +226,8 @@
 
 /* Light theme */
 .light .loginForm {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: var(--surface);
+  color: var(--text-primary);
 }
 
 .light .link {
@@ -240,8 +240,8 @@
 
 /* Dark theme */
 .dark .loginForm {
-  background-color: #1a1a1a;
-  color: #ffffff;
+  background-color: var(--surface);
+  color: var(--text-primary);
 }
 
 .dark .link {
@@ -263,7 +263,7 @@
   background: linear-gradient(135deg, rgba(255, 0, 240, 0.15), rgba(0, 80, 255, 0.15));
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 .holographic .link {
@@ -284,7 +284,7 @@
 .transparent-light .loginForm {
   background-color: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(10px);
-  color: #000000;
+  color: var(--text-primary);
 }
 
 .transparent-light .link {
@@ -299,7 +299,7 @@
 .transparent-dark .loginForm {
   background-color: rgba(26, 26, 26, 0.85);
   backdrop-filter: blur(10px);
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 .transparent-dark .link {

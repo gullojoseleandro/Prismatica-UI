@@ -49,32 +49,32 @@
 
 /* Themes - now use CSS variables */
 .light {
-  background-color: #fff;
-  color: #000;
+  background-color: var(--surface);
+  color: var(--text-primary);
 }
 
 .light .navbarMenuLink {
-  color: #000;
+  color: var(--text-primary);
 }
 
 .dark {
-  background-color: #333;
-  color: #fff;
+  background-color: var(--surface);
+  color: var(--text-primary);
 }
 
 .dark .navbarMenuLink {
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .holographic {
   background: linear-gradient(45deg, rgba(255, 0, 240, 0.1), rgba(0, 80, 255, 0.1), rgba(0, 255, 159, 0.1), rgba(255, 0, 240, 0.1));
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .holographic .navbarMenuLink {
-  color: #fff;
+  color: var(--text-primary);
 }
 
 @keyframes gradient {
@@ -88,19 +88,19 @@
 }
 
 .transparent-light {
-  color: #000;
+  color: var(--text-primary);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .transparent-light .navbarMenuLink {
-  color: #000;
+  color: var(--text-primary);
 }
 
 .transparent-dark {
-  color: #fff;
+  color: var(--text-primary);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .transparent-dark .navbarMenuLink {
-  color: #fff;
+  color: var(--text-primary);
 }
