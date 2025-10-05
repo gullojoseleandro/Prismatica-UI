@@ -18,12 +18,12 @@ export interface SearchBarProps extends React.FormHTMLAttributes<HTMLFormElement
   onSearch: (query: string) => void;
   /**
    * Visual theme.
-   * @default 'light'
+   * @defaultValue 'light'
    */
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
   /**
    * Input text when empty.
-   * @default 'Search...'
+   * @defaultValue 'Search...'
    */
   placeholder?: string;
   /**

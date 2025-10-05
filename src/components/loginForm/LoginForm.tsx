@@ -25,7 +25,7 @@ import styles from '@styles/LoginForm.module.css';
 export interface LoginFormProps {
   /**
    * Visual theme for the form.
-   * @default 'light'
+   * @defaultValue 'light'
    */
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
   
@@ -41,7 +41,7 @@ export interface LoginFormProps {
   
   /**
    * Main title of the form.
-   * @default 'Login'
+   * @defaultValue 'Login'
    */
   title?: string;
   
@@ -62,31 +62,31 @@ export interface LoginFormProps {
   
   /**
    * Custom placeholder for the email field.
-   * @default 'Email'
+   * @defaultValue 'Email'
    */
   emailPlaceholder?: string;
   
   /**
    * Custom placeholder for the password field.
-   * @default 'Password'
+   * @defaultValue 'Password'
    */
   passwordPlaceholder?: string;
   
   /**
    * Text for the submit button.
-   * @default 'Log In'
+   * @defaultValue 'Log In'
    */
   buttonText?: string;
   
   /**
    * Show "Forgot Password" link.
-   * @default true
+   * @defaultValue true
    */
   showForgotPassword?: boolean;
   
   /**
    * Custom text for the forgot password link.
-   * @default 'Forgot Password?'
+   * @defaultValue 'Forgot Password?'
    */
   forgotPasswordText?: string;
   
@@ -112,7 +112,7 @@ export interface LoginFormProps {
   
   /**
    * Text for the social divider.
-   * @default 'Or continue with'
+   * @defaultValue 'Or continue with'
    */
   socialDividerText?: string;
   
@@ -123,7 +123,7 @@ export interface LoginFormProps {
   
   /**
    * Text for the remember me checkbox.
-   * @default 'Remember me'
+   * @defaultValue 'Remember me'
    */
   rememberMeText?: string;
   
@@ -149,7 +149,7 @@ export interface LoginFormProps {
   
   /**
    * Form layout: 'centered' or 'with-side-image'.
-   * @default 'centered'
+   * @defaultValue 'centered'
    */
   layout?: 'centered' | 'with-side-image';
 }

@@ -16,13 +16,13 @@ export interface SpacerProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Space size.
    * Can be a preset or a custom value.
-   * @default 'normal'
+   * @defaultValue 'normal'
    */
   size?: 'xs' | 'small' | 'normal' | 'large' | 'xl' | '2xl' | string | number;
   
   /**
    * Space axis.
-   * @default 'vertical'
+   * @defaultValue 'vertical'
    */
   axis?: 'vertical' | 'horizontal';
   

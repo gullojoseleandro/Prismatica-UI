@@ -31,19 +31,19 @@ export interface AvatarProps {
   
   /**
    * Avatar size.
-   * @default 'medium'
+   * @defaultValue 'medium'
    */
   size?: 'xs' | 'small' | 'medium' | 'large' | 'xl';
   
   /**
    * Visual theme.
-   * @default 'light'
+   * @defaultValue 'light'
    */
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
   
   /**
    * Avatar shape.
-   * @default 'circle'
+   * @defaultValue 'circle'
    */
   shape?: 'circle' | 'square' | 'rounded';
   
@@ -59,7 +59,7 @@ export interface AvatarProps {
   
   /**
    * Badge position.
-   * @default 'top-right'
+   * @defaultValue 'top-right'
    */
   badgePosition?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
   
@@ -75,7 +75,7 @@ export interface AvatarProps {
   
   /**
    * Border thickness.
-   * @default '2px'
+   * @defaultValue '2px'
    */
   borderWidth?: string;
   

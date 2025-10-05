@@ -21,19 +21,19 @@ import styles from '@styles/Input.module.css';
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   /**
    * Visual theme for the input.
-   * @default 'light'
+   * @defaultValue 'light'
    */
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
   
   /**
    * Size of the input.
-   * @default 'medium'
+   * @defaultValue 'medium'
    */
   inputSize?: 'small' | 'medium' | 'large';
   
   /**
    * Visual state of the input.
-   * @default 'default'
+   * @defaultValue 'default'
    */
   state?: 'default' | 'error' | 'warning' | 'success';
   

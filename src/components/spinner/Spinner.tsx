@@ -10,12 +10,12 @@ import styles from '@styles/Spinner.module.css';
 export interface SpinnerProps {
   /**
    * Visual theme for the spinner.
-   * @default 'light'
+   * @defaultValue 'light'
    */
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
   /**
    * Spinner size.
-   * @default 'medium'
+   * @defaultValue 'medium'
    */
   size?: 'small' | 'medium' | 'large';
   /**

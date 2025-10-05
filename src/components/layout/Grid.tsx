@@ -17,13 +17,13 @@ import styles from '@styles/Grid.module.css';
 export interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Number of columns.
-   * @default 12
+   * @defaultValue 12
    */
   cols?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
   
   /**
    * Space between elements.
-   * @default 'normal'
+   * @defaultValue 'normal'
    */
   gap?: 'none' | 'xs' | 'small' | 'normal' | 'large' | 'xl';
   
@@ -114,7 +114,7 @@ Grid.displayName = 'Grid';
 export interface GridItemProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Number of columns the item spans.
-   * @default 1
+   * @defaultValue 1
    */
   colSpan?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 'full';
   

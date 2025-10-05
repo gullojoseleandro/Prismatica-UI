@@ -29,7 +29,7 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   
   /**
    * Visual theme.
-   * @default 'light'
+   * @defaultValue 'light'
    */
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
   
@@ -50,7 +50,7 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   
   /**
    * Image height.
-   * @default '200px'
+   * @defaultValue '200px'
    */
   imageHeight?: string;
   
@@ -96,13 +96,13 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   
   /**
    * Content padding.
-   * @default 'normal'
+   * @defaultValue 'normal'
    */
   padding?: 'none' | 'small' | 'normal' | 'large';
   
   /**
    * Image orientation.
-   * @default 'top'
+   * @defaultValue 'top'
    */
   imageOrientation?: 'top' | 'left' | 'right';
   

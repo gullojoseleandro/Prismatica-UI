@@ -33,7 +33,7 @@ export interface HeaderProps {
   onSearch: (query: string) => void;
   /**
    * Visual theme.
-   * @default 'light'
+   * @defaultValue 'light'
    */
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
   /**

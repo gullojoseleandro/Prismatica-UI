@@ -1,28 +1,26 @@
-// ===== COMPONENTES BÁSICOS =====
+// ===== BASIC COMPONENTS =====
 export * from './Button/Button';
 export * from './input/Input';
 export * from './typography/Typography';
-
 // ===== LAYOUT =====
 export * from './layout/Container';
 export * from './layout/Grid';
 export * from './layout/Divider';
 export * from './layout/Spacer';
-
-// ===== NAVEGACIÓN =====
+// ===== NAVIGATION =====
 export * from './navbar/Navbar';
 export * from './sidebar/Sidebar';
 export * from './breadcrumb/Breadcrumb';
 export * from './tabs/Tabs';
 
-// ===== FORMULARIOS =====
+// ===== FORMS =====
 export * from './loginForm/LoginForm';
 export * from './select/Select';
 export * from './searchBar/SearchBar';
 export * from './toggle/Toggle';
 export * from './slider/Slider';
 
-// ===== AUTENTICACIÓN SOCIAL =====
+// ===== SOCIAL AUTHENTICATION =====
 export * from './socialAuth/SocialButton';
 
 // ===== FEEDBACK =====
@@ -34,18 +32,18 @@ export * from './progressBar/ProgressBar';
 export * from './skeleton/Skeleton';
 export * from './tooltip/Tooltip';
 
-// ===== CONTENEDORES =====
+// ===== CONTAINERS =====
 export * from './card/Card';
 export * from './card/ProductCard';
 export * from './accordion/Accordion';
 export * from './drawer/Drawer';
 
-// ===== VISUALIZACIÓN =====
+// ===== VISUALIZATION =====
 export * from './avatar/Avatar';
 export * from './badge/Badge';
 export * from './chip/Chip';
 
-// ===== OTROS =====
+// ===== MISCELLANEOUS =====
 export * from './dropdown/Dropdown';
 export * from './header/Header';
 export * from './pagination/Pagination';

@@ -16,7 +16,7 @@ import styles from '@styles/Divider.module.css';
 export interface DividerProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Divider orientation.
-   * @default 'horizontal'
+   * @defaultValue 'horizontal'
    */
   orientation?: 'horizontal' | 'vertical';
   
@@ -27,31 +27,31 @@ export interface DividerProps extends React.HTMLAttributes<HTMLDivElement> {
   
   /**
    * Text alignment.
-   * @default 'center'
+   * @defaultValue 'center'
    */
   textAlign?: 'left' | 'center' | 'right';
   
   /**
    * Divider thickness.
-   * @default 'thin'
+   * @defaultValue 'thin'
    */
   thickness?: 'thin' | 'medium' | 'thick';
   
   /**
    * Divider style.
-   * @default 'solid'
+   * @defaultValue 'solid'
    */
   lineStyle?: 'solid' | 'dashed' | 'dotted';
   
   /**
    * Visual theme.
-   * @default 'light'
+   * @defaultValue 'light'
    */
   variant?: 'light' | 'dark' | 'primary' | 'secondary';
   
   /**
    * Vertical spacing (horizontal only).
-   * @default 'normal'
+   * @defaultValue 'normal'
    */
   spacing?: 'none' | 'small' | 'normal' | 'large';
   

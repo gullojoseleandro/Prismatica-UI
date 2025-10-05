@@ -20,7 +20,7 @@ import styles from '@styles/Alert.module.css';
 export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Alert type.
-   * @default 'info'
+   * @defaultValue 'info'
    */
   type?: 'success' | 'error' | 'warning' | 'info';
   
@@ -46,7 +46,7 @@ export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
   
   /**
    * Show default icon.
-   * @default true
+   * @defaultValue true
    */
   showIcon?: boolean;
   
@@ -62,7 +62,7 @@ export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
   
   /**
    * Style variant.
-   * @default 'filled'
+   * @defaultValue 'filled'
    */
   variant?: 'filled' | 'outlined' | 'subtle';
   
@@ -73,7 +73,7 @@ export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
   
   /**
    * Visual theme.
-   * @default 'light'
+   * @defaultValue 'light'
    */
   theme?: 'light' | 'dark';
   

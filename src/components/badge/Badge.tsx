@@ -21,25 +21,25 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
 
   /**
    * Badge color.
-   * @default 'primary'
+   * @defaultValue 'primary'
    */
   color?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'neutral';
 
   /**
    * Badge variant.
-   * @default 'solid'
+   * @defaultValue 'solid'
    */
   variant?: 'solid' | 'outline' | 'subtle';
 
   /**
    * Badge size.
-   * @default 'medium'
+   * @defaultValue 'medium'
    */
   size?: 'small' | 'medium' | 'large';
 
   /**
    * Badge shape.
-   * @default 'rounded'
+   * @defaultValue 'rounded'
    */
   shape?: 'rounded' | 'pill' | 'square';
 
@@ -55,7 +55,7 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
 
   /**
    * Icon position.
-   * @default 'left'
+   * @defaultValue 'left'
    */
   iconPosition?: 'left' | 'right';
 

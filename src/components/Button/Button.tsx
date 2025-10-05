@@ -2,45 +2,45 @@ import React from 'react';
 import { Typography } from '@components/typography/Typography';
 import styles from '@styles/Button.module.css';
 
-/**
- * Props for the `Button` component.
- * Extremely customizable button with multiple options.
- * 
- * @example
- * ```tsx
- * <Button
- *   variant="dark"
- *   size="large"
- *   leftIcon={<Save />}
- *   loading={isLoading}
- *   fullWidth
- * >
- *   Save Changes
- * </Button>
- * ```
- */
+  /**
+   * Props for the `Button` component.
+   * Extremely customizable button with multiple options.
+   * 
+   * @example
+   * ```tsx
+   * <Button
+   *   variant="dark"
+   *   size="large"
+   *   leftIcon={<Save />}
+   *   loading={isLoading}
+   *   fullWidth
+   * >
+   *   Save Changes
+   * </Button>
+   * ```
+   */
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * Visual theme for the button.
-   * @default 'light'
+   * @defaultValue 'light'
    */
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
   
   /**
    * Size of the button.
-   * @default 'medium'
+   * @defaultValue 'medium'
    */
   size?: 'small' | 'medium' | 'large';
   
   /**
    * Animation for the button.
-   * @default 'none'
+   * @defaultValue 'none'
    */
   animation?: 'pulse' | 'shake' | 'glow' | 'wave' | 'none';
   
   /**
    * Button style: 'solid', 'outline', 'ghost', 'link'.
-   * @default 'solid'
+   * @defaultValue 'solid'
    */
   buttonStyle?: 'solid' | 'outline' | 'ghost' | 'link';
   
@@ -81,7 +81,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   
   /**
    * Button shape: 'rounded', 'square', 'pill'.
-   * @default 'rounded'
+   * @defaultValue 'rounded'
    */
   shape?: 'rounded' | 'square' | 'pill';
   

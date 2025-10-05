@@ -31,7 +31,7 @@ export interface UserProfileProps {
   bio: string;
   /**
    * Visual theme.
-   * @default 'light'
+   * @defaultValue 'light'
    */
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
   /**

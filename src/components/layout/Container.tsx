@@ -6,6 +6,7 @@ import styles from '@styles/Container.module.css';
  * Responsive container with predefined max widths.
  * 
  * @example
+ * ```tsx
  * <Container maxWidth="lg" centered>
  *   <h1>Content</h1>
  * </Container>
@@ -19,13 +20,13 @@ export interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   
   /**
    * Maximum width of the container.
-   * @default 'lg'
+   * @defaultValue 'lg'
    */
   maxWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
   
   /**
    * Center horizontally.
-   * @default true
+   * @defaultValue true
    */
   centered?: boolean;
   
@@ -36,7 +37,7 @@ export interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   
   /**
    * Horizontal padding.
-   * @default 'normal'
+   * @defaultValue 'normal'
    */
   padding?: 'none' | 'small' | 'normal' | 'large';
   

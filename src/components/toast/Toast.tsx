@@ -20,7 +20,7 @@ import styles from '@styles/Toast.module.css';
 export interface ToastProps {
   /**
    * Type of notification.
-   * @default 'info'
+   * @defaultValue 'info'
    */
   type?: 'success' | 'error' | 'warning' | 'info';
   
@@ -41,19 +41,19 @@ export interface ToastProps {
   
   /**
    * Duration in milliseconds before auto-close.
-   * @default 5000
+   * @defaultValue 5000
    */
   duration?: number;
   
   /**
    * Toast position.
-   * @default 'top-right'
+   * @defaultValue 'top-right'
    */
   position?: 'top-left' | 'top-center' | 'top-right' | 'bottom-left' | 'bottom-center' | 'bottom-right';
   
   /**
    * Show close button.
-   * @default true
+   * @defaultValue true
    */
   showCloseButton?: boolean;
   
@@ -77,7 +77,7 @@ export interface ToastProps {
   
   /**
    * Theme variant.
-   * @default 'light'
+   * @defaultValue 'light'
    */
   variant?: 'light' | 'dark';
   

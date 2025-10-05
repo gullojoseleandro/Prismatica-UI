@@ -15,7 +15,7 @@ import styles from '@styles/Skeleton.module.css';
 export interface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Skeleton variant.
-   * @default 'rectangular'
+   * @defaultValue 'rectangular'
    */
   variant?: 'text' | 'circular' | 'rectangular' | 'rounded';
   
@@ -36,13 +36,13 @@ export interface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
   
   /**
    * Skeleton animation.
-   * @default 'pulse'
+   * @defaultValue 'pulse'
    */
   animation?: 'pulse' | 'wave' | 'none';
   
   /**
    * Visual theme.
-   * @default 'light'
+   * @defaultValue 'light'
    */
   theme?: 'light' | 'dark';
   
@@ -124,13 +124,13 @@ Skeleton.displayName = 'Skeleton';
 export interface SkeletonCardProps {
   /**
    * Show image.
-   * @default true
+   * @defaultValue true
    */
   withImage?: boolean;
   
   /**
    * Number of text lines.
-   * @default 3
+   * @defaultValue 3
    */
   textLines?: number;
   
@@ -141,7 +141,7 @@ export interface SkeletonCardProps {
   
   /**
    * Visual theme.
-   * @default 'light'
+   * @defaultValue 'light'
    */
   theme?: 'light' | 'dark';
   

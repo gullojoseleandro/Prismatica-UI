@@ -26,7 +26,7 @@ export interface PaginationProps {
   onPageChange: (page: number) => void;
   /**
    * Visual theme.
-   * @default 'light'
+   * @defaultValue 'light'
    */
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
   /**

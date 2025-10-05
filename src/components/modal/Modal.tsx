@@ -50,13 +50,13 @@ export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   
   /**
    * Visual theme.
-   * @default 'light'
+   * @defaultValue 'light'
    */
   variant?: 'light' | 'dark' | 'holographic' | 'transparent-light' | 'transparent-dark';
   
   /**
    * Modal size.
-   * @default 'medium'
+   * @defaultValue 'medium'
    */
   size?: 'small' | 'medium' | 'large' | 'fullscreen';
   
@@ -72,31 +72,31 @@ export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   
   /**
    * Show close button.
-   * @default true
+   * @defaultValue true
    */
   showCloseButton?: boolean;
   
   /**
    * Close when clicking outside.
-   * @default true
+   * @defaultValue true
    */
   closeOnClickOutside?: boolean;
   
   /**
    * Close when pressing Escape.
-   * @default true
+   * @defaultValue true
    */
   closeOnEscape?: boolean;
   
   /**
    * Modal position on screen.
-   * @default 'center'
+   * @defaultValue 'center'
    */
   position?: 'top' | 'center' | 'bottom' | 'left' | 'right' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
   
   /**
    * Entry animation.
-   * @default 'fade'
+   * @defaultValue 'fade'
    */
   animation?: 'fade' | 'slide' | 'slideUp' | 'slideDown' | 'slideLeft' | 'slideRight' | 'zoom' | 'none';
   
