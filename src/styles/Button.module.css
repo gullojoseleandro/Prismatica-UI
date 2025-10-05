@@ -375,50 +375,94 @@
 
 /* Light theme */
 .light.solid {
-  border-color: #000;
-  color: var(--text-primary);
-  background-color: var(--surface);
+  background-color: #ffffff;
+  border-color: #e5e7eb;
+  color: #1f2937;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .light.solid:hover {
-  background-color: #f8f9fa;
+  background-color: #f3f4f6;
+  border-color: #d1d5db;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .light.outline {
-  color: var(--text-primary);
-  border-color: #000;
+  background-color: transparent;
+  color: #1f2937;
+  border-color: #d1d5db;
+}
+
+.light.outline:hover {
+  background-color: #f9fafb;
+  border-color: #9ca3af;
+  color: #111827 !important;
 }
 
 .light.ghost {
-  color: var(--text-primary);
+  background-color: transparent;
+  color: #1f2937;
+  border-color: transparent;
+}
+
+.light.ghost:hover {
+  background-color: #f3f4f6;
 }
 
 .light.link {
-  color: #007bff;
+  color: #2563eb;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.light.link:hover {
+  color: #1d4ed8;
 }
 
 /* Dark theme */
 .dark.solid {
-  border-color: #fff;
-  color: var(--text-primary);
-  background-color: var(--surface);
+  background-color: #1f2937;
+  border-color: #374151;
+  color: #f9fafb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .dark.solid:hover {
-  background-color: #2d3748;
+  background-color: #374151;
+  border-color: #4b5563;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .dark.outline {
-  color: var(--text-primary);
-  border-color: #fff;
+  background-color: transparent;
+  color: #f9fafb;
+  border-color: #6b7280;
+}
+
+.dark.outline:hover {
+  background-color: #1f2937;
+  border-color: #9ca3af;
+  color: #ffffff !important;
 }
 
 .dark.ghost {
-  color: var(--text-primary);
+  background-color: transparent;
+  color: #f9fafb;
+  border-color: transparent;
+}
+
+.dark.ghost:hover {
+  background-color: #374151;
 }
 
 .dark.link {
-  color: #4da6ff;
+  color: #60a5fa;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.dark.link:hover {
+  color: #93c5fd;
 }
 
 /* Holographic theme */

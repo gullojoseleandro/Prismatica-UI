@@ -1,7 +1,6 @@
 .typography {
   font-family: inherit;
   margin: 0;
-  color: var(--text-primary);
 }
 
 .h1 { font-size: 2.5rem; font-weight: 700; }
@@ -10,15 +9,23 @@
 .h4 { font-size: 1.5rem; font-weight: 600; }
 .h5 { font-size: 1.25rem; font-weight: 500; }
 .h6 { font-size: 1rem; font-weight: 500; }
-.p { font-size: 1rem; line-height: 1.5; }
+.p { font-size: 1rem; line-height: 1.6; }
 .span { font-size: inherit; }
 
-/* Themes now use CSS variables - auto-adapt based on data-theme */
-.light { color: var(--text-primary); }
-.dark { color: var(--text-primary); }
+/* Light theme */
+.light { color: #1f2937; }
+.light.h1, .light.h2, .light.h3, .light.h4, .light.h5, .light.h6 { color: #111827; }
+
+/* Dark theme */
+.dark { color: #f9fafb; }
+.dark.h1, .dark.h2, .dark.h3, .dark.h4, .dark.h5, .dark.h6 { color: #ffffff; }
+
+/* Holographic theme */
 .holographic {
-  color: var(--text-primary);
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
-.transparent-light { color: var(--text-primary); }
-.transparent-dark { color: var(--text-primary); }
+
+/* Transparent themes */
+.transparent-light { color: #1f2937; }
+.transparent-dark { color: #f9fafb; }

@@ -160,17 +160,52 @@
 /* Themes are now handled automatically via CSS variables in variables.css */
 /* The card adapts based on :root[data-theme] attribute */
 
-/* Optional: Keep variant classes for manual override if needed */
+/* Light theme */
 .light {
-  --card-bg: #ffffff;
-  --card-border: #e5e7eb;
-  --text-primary: #000000;
+  background-color: #ffffff;
+  border-color: #e5e7eb;
+  color: #1f2937;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+.light .title {
+  color: #111827;
+}
+
+.light .subtitle {
+  color: #6b7280;
+}
+
+.light .header {
+  border-bottom-color: #e5e7eb;
+}
+
+.light .footer {
+  border-top-color: #e5e7eb;
+}
+
+/* Dark theme */
 .dark {
-  --card-bg: #1f2937;
-  --card-border: #4a5568;
-  --text-primary: #e5e7eb;
+  background-color: #1f2937;
+  border-color: #374151;
+  color: #f9fafb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.dark .title {
+  color: #ffffff;
+}
+
+.dark .subtitle {
+  color: #9ca3af;
+}
+
+.dark .header {
+  border-bottom-color: #374151;
+}
+
+.dark .footer {
+  border-top-color: #374151;
 }
 
 .holographic {

@@ -229,13 +229,47 @@
 
 /* ===== THEMES ===== */
 .light .modalContent {
-  background-color: var(--surface);
-  color: var(--text-primary);
+  background-color: #ffffff;
+  color: #1f2937;
+  border: 1px solid #e5e7eb;
+}
+
+.light .modalHeader {
+  border-bottom-color: #e5e7eb;
+}
+
+.light .modalFooter {
+  border-top-color: #e5e7eb;
+}
+
+.light .title {
+  color: #111827;
+}
+
+.light .subtitle {
+  color: #6b7280;
 }
 
 .dark .modalContent {
-  background-color: var(--surface);
-  color: var(--text-primary);
+  background-color: #1f2937;
+  color: #f9fafb;
+  border: 1px solid #374151;
+}
+
+.dark .modalHeader {
+  border-bottom-color: #374151;
+}
+
+.dark .modalFooter {
+  border-top-color: #374151;
+}
+
+.dark .title {
+  color: #ffffff;
+}
+
+.dark .subtitle {
+  color: #9ca3af;
 }
 
 .holographic .modalContent {

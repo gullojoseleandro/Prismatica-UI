@@ -54,26 +54,46 @@
 
 /* Light theme */
 .light {
-  background-color: var(--surface);
-  color: var(--text-primary);
+  background-color: #ffffff;
+  color: #1f2937;
 }
 
 .light .tabList {
-  border-color: var(--border-color);
+  border-color: #e5e7eb;
+}
+
+.light .tabButton {
+  color: #6b7280;
+}
+
+.light .tabButton:hover {
+  color: #1f2937;
+}
+
+.light .tabButton.active {
+  color: #2563eb;
 }
 
 /* Dark theme */
 .dark {
-  background-color: var(--surface);
-  color: var(--text-primary);
+  background-color: #1f2937;
+  color: #f9fafb;
 }
 
 .dark .tabList {
-  border-color: var(--border-color);
+  border-color: #374151;
 }
 
 .dark .tabButton {
-  color: var(--text-primary);
+  color: #9ca3af;
+}
+
+.dark .tabButton:hover {
+  color: #f9fafb;
+}
+
+.dark .tabButton.active {
+  color: #60a5fa;
 }
 
 /* Holographic theme */
