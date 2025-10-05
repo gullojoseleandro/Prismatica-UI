@@ -209,10 +209,36 @@
 }
 
 .holographic {
-  --card-bg: linear-gradient(135deg, rgba(138, 43, 226, 0.2), rgba(0, 150, 255, 0.2));
-  --card-border: rgba(138, 43, 226, 0.3);
-  --text-primary: #f3f4f6;
+  background: linear-gradient(135deg, rgba(138, 43, 226, 0.3), rgba(0, 150, 255, 0.3), rgba(0, 255, 159, 0.3));
+  background-size: 400% 400%;
+  animation: holographicGradient 15s ease infinite;
+  border-color: rgba(138, 43, 226, 0.5);
+  color: #ffffff;
   backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(138, 43, 226, 0.3);
+}
+
+.holographic .title {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.holographic .subtitle {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.holographic .header {
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+.holographic .footer {
+  border-top-color: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes holographicGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .transparent-light {

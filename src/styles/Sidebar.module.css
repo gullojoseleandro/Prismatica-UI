@@ -1,75 +1,168 @@
 .sidebar {
-    width: 250px;
-    height: 100%;
-    padding: 20px 0;
-    transition: all 0.3s ease;
-  }
-  
-  .sidebarList {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .sidebarItem {
-    margin-bottom: 10px;
-  }
-  
-  .sidebarLink {
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-  }
-  
-  .icon {
-    margin-right: 10px;
-    font-size: 20px;
-  }
-  
-  .light {
-    background-color: #f5f5f5;
-  }
-  
-  .light .sidebarLink {
-    color: #333;
-  }
-  
-  .light .sidebarLink:hover {
-    background-color: #e0e0e0;
-  }
-  
-  .dark {
-    background-color: var(--surface);
-  }
-  
-  .dark .sidebarLink {
-    color: var(--text-primary);
-  }
-  
-  .dark .sidebarLink:hover {
-    background-color: #444;
-  }
-  
-  .holographic {
-    background: linear-gradient(45deg, rgba(255, 0, 240, 0.1), rgba(0, 80, 255, 0.1), rgba(0, 255, 159, 0.1), rgba(255, 0, 240, 0.1));
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
-  }
-  
-  .holographic .sidebarLink {
-    color: var(--text-primary);
-  }
-  
-  .holographic .sidebarLink:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  @keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-  
-  
+  width: 250px;
+  height: 100%;
+  padding: 1.5rem 0;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sidebarSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sectionTitle {
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0 1rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.6;
+}
+
+.sidebarList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sidebarItem {
+  margin: 0;
+}
+
+.sidebarLink {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+  margin: 0 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  position: relative;
+}
+
+.sidebarLink:hover {
+  transform: translateX(2px);
+}
+
+.sidebarLink.active {
+  font-weight: 600;
+}
+
+.sidebarLink.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  border-radius: 0 2px 2px 0;
+}
+
+.icon {
+  margin-right: 0.75rem;
+  font-size: 1.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+}
+
+/* Light theme */
+.light {
+  background-color: #ffffff;
+  border-right: 1px solid #e5e7eb;
+}
+
+.light .sectionTitle {
+  color: #6b7280;
+}
+
+.light .sidebarLink {
+  color: #1f2937;
+}
+
+.light .sidebarLink:hover {
+  background-color: #f3f4f6;
+}
+
+.light .sidebarLink.active {
+  background-color: rgba(37, 99, 235, 0.1);
+  color: #2563eb;
+}
+
+.light .sidebarLink.active::before {
+  background-color: #2563eb;
+}
+
+/* Dark theme */
+.dark {
+  background-color: #1f2937;
+  border-right: 1px solid #374151;
+}
+
+.dark .sectionTitle {
+  color: #9ca3af;
+}
+
+.dark .sidebarLink {
+  color: #f9fafb;
+}
+
+.dark .sidebarLink:hover {
+  background-color: #374151;
+}
+
+.dark .sidebarLink.active {
+  background-color: rgba(96, 165, 250, 0.15);
+  color: #60a5fa;
+}
+
+.dark .sidebarLink.active::before {
+  background-color: #60a5fa;
+}
+
+/* Holographic theme */
+.holographic {
+  background: linear-gradient(45deg, rgba(255, 0, 240, 0.1), rgba(0, 80, 255, 0.1), rgba(0, 255, 159, 0.1), rgba(255, 0, 240, 0.1));
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.holographic .sectionTitle {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.holographic .sidebarLink {
+  color: #ffffff;
+}
+
+.holographic .sidebarLink:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.holographic .sidebarLink.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.holographic .sidebarLink.active::before {
+  background: linear-gradient(180deg, #ff00f0, #00ff9f);
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
